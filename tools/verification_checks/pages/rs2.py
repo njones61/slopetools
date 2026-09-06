@@ -43,8 +43,6 @@ CONFIG = PageConfig(
     # a comparison of two printed factors — adjudicated once and named here, so
     # that a new worded percentage fails until someone reads it.
     worded_ok=[
-        "the rest move a percent or two",
-        "percent or two a strength-reduction factor drifts under refinement",
         "agreeing to a quarter of a percent",
         "costs about a percent, not several",
     ],
@@ -52,7 +50,6 @@ CONFIG = PageConfig(
     # Statements of a BOUND or a SHARE rather than a comparison of two printed
     # factors: no pair exists to re-derive, so each is named here explicitly.
     bounds=[
-        ('+7', 'the two published factors differ by up to 7%'),
         ('+4.2', 'lighter by section area'),
         ('+1.8', "the polygon's area is within"),
         ('+14', 'by 14% at 12.5 kPa'),
@@ -65,7 +62,6 @@ CONFIG = PageConfig(
         ('+1', 'and five of the six within 1%'),
         ('+0.8', 'land within 0.8%'),
         ('+2.2', 'that still lands within 2.2%'),
-        ('+1.2', "locked, within 1.2% of RS2's own SSR"),
         ('+2.1', 'lands within 2.1% of'),
         ('+6', 'about 6% apart on cases 1 and 2'),
         ('+20', 'runs about 20% low'),

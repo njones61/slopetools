@@ -1,149 +1,70 @@
 # Rocscience RS2 (SSRM) Corpus
 
-This page tracks the [RS2 Slope Stability Verification Manual](https://www.rocscience.com/help/rs2/verification-theory/verification-manuals) (Rocscience) the way the
-[Slide2 corpus](rocscience.md) tracks its manual — Parts I–III, 68 problems, and the separate
-later Part 4 manual, 52 more. It is organised by
-**source manual**, not by solver: the great majority of rows verify XSLOPE's FEM/**SSRM**
-solver against RS2's own SSR column, which is what the manual exists to publish. The
-long-standing SSRM anchors (Griffiths & Lane 1999 and the feature samples) live on the
-[SSRM benchmarks page](ssrm.md).
-
-A minority of rows are verified with **limit equilibrium instead, and say so**, because the
-problem's published target is an LEM quantity rather than an SSR factor of safety: a critical
-seismic coefficient k꜀, which XSLOPE reaches by searching the LEM minimum to FS = 1
-([#68](#rs2-68)); an LEM-versus-SRM study, where the manual prints both columns and XSLOPE locks
-against each with the matching engine ([#61](#rs2-61)); or a multi-method LEM table or
-limit-analysis bound, where the manual's own SSR figure describes a different mechanism from the
-one the problem poses ([#51](#p4-vp51), [#60](#rs2-60)). Each such row names the column it
-reproduces, so an LEM number on this page is always a deliberate comparison against a published LEM
-value, never an SSR result in disguise.
-
-Full bibliographic details for the author-year citations on this page are on the
-shared [References](references.md) page.
-
-**Match to the published value** — the dots follow the corpus-wide [scoring convention](index.md#how-the-match-dots-are-scored), which defines the three bands and the same-method pairing rule.
-
-
-**Which published number a row is scored against.** Rocscience ships *two* RS2 models for many of
-these problems: an RS2-native rebuild, published in Parts I–III and numbered by the RS2 problem
-number, and a Slide2-import model, published in Part IV and numbered by the Slide2 verification
-problem. The two are not interchangeable — for several problems the native model is unconstrained
-while the Part IV model carries an SSR search or exclusion polygon, and the two published factors
-differ by up to 7%. So every row here is scored against **the published number produced by the same
-vendor model the corpus file was built from**: a file built from the Slide2 problem (every
-`vpNNN.xlsx`, by construction the model RS2 imported as its Part IV VP*NNN*) is scored against the
-Part IV value, and a file built from RS2's own native rebuild against the Parts I–III value. The
-other model's number is reported where it is informative, always labeled as that model's, and never
-used to derive the dot.
-
-Where a problem shares its geometry with a built Slide2 problem, the SSRM analysis runs on the
-**same corpus input file**. SSRM results take their elastic constants from the vendor model
-wherever the `.fez` publishes them, and where it does not the corpus builder assigns E and ν by
-soil type; a strength-reduction factor is invariant to E and only mildly sensitive to ν, so the
-choice does not move a lock. The flow rule is ψ = 0 throughout, the Griffiths convention. Every
-SSRM row also starts from the **vendor's own initial stress state**: RS2 authors its verification
-models with an isotropic at-rest field stress (K<sub>x</sub> = K<sub>z</sub> = 1), so every row
-runs [`k0 = 1`](../fem/overview.md#k0-initial-stress) rather than XSLOPE's default elastic gravity
-turn-on. Roughly half the locks are unchanged by it to three decimals; the rest move a percent or
-two, concentrated on the lightly confined, near-cohesionless models. SSRM factors are quoted at the
-tagged mesh size, and each row's tolerance is set wide enough to cover the percent or two a
-strength-reduction factor drifts under refinement.
-
-A recurring pattern on this corpus: fine-mesh SSRM finds shallow-skin mechanisms that published
-coarse-mesh analyses miss or deliberately suppress with a "can't fail" elastic region
-([#23](#rs2-23)). The skin is usually a purely frictional (c = 0) face, whose surface-parallel
-closed form tan φ / tan β is the true global minimum and is what an unfiltered SSRM reports
-([#4](#rs2-4), [#40](#rs2-40), [#43](#rs2-39)/VP81, VP69). Where the deeper mechanism is the
-published one, the row reports **both** — the deep value obtained either with the
-[`min_slip_depth` filter](../fem/overview.md#surficial-skin-failures-and-the-minimum-slip-depth-filter)
-([#40](#rs2-40), [#66](#rs2-66)) or, where the vendor model states one, by carrying the source's
-own SSR search or exclusion polygon ([#4](#rs2-4), [#43](#rs2-39), [P4-VP6](#p4-vp6),
-[P4-VP67](#p4-vp67), [P4-VP68](#p4-vp68), [P4-VP69](#p4-vp69)).
-
-The same theme sets how far a *mesh* can be trusted. Where the mechanism is pinned by geometry — a
-weak seam, a bedrock contact — the SSRM factor barely moves with refinement ([#18](#rs2-18) returns
-the same value at two mesh sizes). Where nothing pins it, the shear band keeps localizing as the
-elements shrink, because Mohr-Coulomb without a regularizing length scale has nothing to stop it,
-and the factor drifts without reaching a plateau ([#14](#rs2-14), under r<sub>u</sub> = 0.5). Such
-a problem is locked at a pinned mesh to guard XSLOPE's own behavior, not advertised as converged.
-Problems 56–58 additionally carry published factors from **Z-Soil, PLAXIS and GEO FEM**, giving
-multi-program strength-reduction cross-bearings.
+The [RS2 Slope Stability Verification Manual](https://www.rocscience.com/help/rs2/verification-theory/verification-manuals)
+(Rocscience) publishes 68 slope stability problems in Parts I–III, and a separate, later
+Part 4 manual (© 2021) re-verifies 52 Slide2 verification problems by shear strength
+reduction. Most rows below verify XSLOPE's FEM/**SSRM** solver against RS2's own SSR column,
+which is what the manuals exist to publish; a few verify a published limit-equilibrium
+quantity instead and name the column they reproduce. The four summary tables give each
+problem's headline comparison, a [match dot](index.md#how-the-match-dots-are-scored) and a
+link to the section that builds it. The long-standing SSRM anchors (Griffiths & Lane 1999 and
+the feature samples) are on the [SSRM benchmarks page](ssrm.md), and full bibliographic
+details for the author-year citations here are on the shared [References](references.md) page.
 
 ## Methodology
 
-Geometry comes from the manuals' coordinate-labeled figures, or directly from the
-[Slide2 corpus](rocscience.md) input files where the two manuals share a problem.
-Strength-reduction runs are meshed coarsely — an SSRM solve costs minutes rather than seconds —
-and the stated tolerances cover the mesh dependence that coarseness carries. Equilibrium at each
-trial strength is judged by the per-node out-of-balance force test (Dawson, Roth & Drescher 1999);
-a trial that does not reach it is judged by the solver's **hybrid** criterion, which requires
-displacement evidence before calling the trial failed. The iteration budget is 16 000, and 40 000
-on the one case that needs a refined band ([RS2-62](#rs2-62)).
+How the RS2 manuals' problems reach this corpus:
 
-The SSRM figures below carry four panels in a 2 × 2 grid: the FEM inputs
-(geometry, material zones, water, reinforcement, loads) and the maximum shear
-strain at the critical SRF above; the mesh with its material zones and boundary
-conditions, and the displacement vectors at the same SRF, below. Variants that
-reach no equilibrium show the inputs panel alone — there is no failure mechanism
-to plot — and limit-equilibrium figures are side-by-side pairs. Each caption
-says which it is.
-
-**Constraint without a polygon.** RS2 states most of its strength-reduction constraints as an
-`SSR_polygonal_zones` ring, which reads out of the vendor file exactly. It states some of them a
-second way instead: by duplicating a material as a linear-elastic twin and assigning it to part of
-the mesh, so that region cannot yield however far the strength is reduced. Twelve vendor models
-constrain only this way; each is treated at the row named beside it:
-
-| Vendor model | Set | Domain held elastic | Where it is treated |
-|---|---|---:|---|
-| `#009` | native | 0.9% | [RS2-9](#rs2-9) — reproduced as the elastic face skin |
-| `#023` | native | 51.1% | [RS2-23](#rs2-23) — reproduced as the two elastic outer zones |
-| `#024_01`, `#024_02` | native | 0.3% | [RS2-24](#rs2-24) — the elastic face strip is transcribable, but the SSR rows are blocked on the slip interface the same models carry |
-| `#028_01/02/03` | native | 63.4 / 63.0 / 63.0% | [RS2-28](#rs2-28) — reproduced as the elastic outer zone |
-| `#041_01` | native | 70.9% | [RS2-41](#rs2-39) (the Fig 14.4 embankment, Slide2 VP79) |
-| `#043_01` | native | 57.7% | [RS2-43](#rs2-39) — the native shallow model |
-| `#060-slope7` | import | 33.9% | [RS2 Part IV VP60](#p4-vp60) |
-| `#079…inf-s` | import | 70.9% | [RS2-41](#rs2-39) |
-| `#081…inf-s` | import | 57.7% | [RS2-43](#rs2-39) |
-
-A row that reproduces the partition carries it — as the `elastic_materials` run
-option, or as a file-level elastic material where the vendor splits the mesh; a
-row that does not notes that its published value came from a constrained vendor
-run.
+- Geometry and properties come from the manuals' coordinate-labeled figures and from the
+  vendor `.fez` models. Where a problem is also built in the [Slide2 corpus](rocscience.md),
+  the strength-reduction run uses that same corpus input file.
+- Rocscience ships **two** RS2 models for many of these problems: a native rebuild, published
+  in Parts I–III and numbered by the RS2 problem number, and a Slide2 import, published in
+  Part IV and numbered by the Slide2 verification problem. The two are not interchangeable —
+  one may be unconstrained where the other carries an SSR search or exclusion polygon — so
+  every row is scored against the published number produced by the same vendor model its
+  corpus file was built from. The other model's number is reported where it is informative,
+  always labeled as that model's, and never used to derive the dot.
+- Elastic constants and tensile caps are the vendor model's wherever the `.fez` publishes
+  them; where it does not, the builder assigns E and ν by soil type, and a strength-reduction
+  factor is invariant to E and only mildly sensitive to ν. Each row states whether the tensile
+  cap is held static through the reduction or reduced with the strength.
+- Every run starts from the vendor's own initial stress state: RS2 authors its verification
+  models with an isotropic at-rest field stress (K<sub>x</sub> = K<sub>z</sub> = 1), so every
+  row runs [`k0 = 1`](../fem/overview.md#k0-initial-stress) rather than XSLOPE's default
+  elastic gravity turn-on. The flow rule is ψ = 0 throughout, the Griffiths convention.
+- Where a vendor model states a strength-reduction constraint, the corpus file carries it. RS2
+  states most of them as an `SSR_polygonal_zones` search or exclusion ring, which the file
+  carries as its run's `ssr_zone`; it states others by duplicating a material as a
+  linear-elastic twin over part of the mesh, so that region cannot yield however far the
+  strength is reduced, and the file carries those as `elastic_materials` or as a file-level
+  elastic material. A row whose published value came from a constrained vendor run it does not
+  reproduce says so.
+- Where the published mechanism is deeper than the unconstrained one, the row reports both,
+  the deep value taken with the
+  [`min_slip_depth` filter](../fem/overview.md#surficial-skin-failures-and-the-minimum-slip-depth-filter).
+- Factors of safety are quoted at the mesh size each row's tag pins, and each tolerance is set
+  wide enough to cover the drift a strength-reduction factor carries under refinement.
+- A minority of rows are verified by **limit equilibrium** instead, because the problem's
+  published target is an LEM quantity rather than an SSR factor of safety: a critical seismic
+  coefficient k꜀, which XSLOPE reaches by searching the LEM minimum to FS = 1
+  ([#68](#rs2-68)); an LEM-versus-SRM study, where the manual prints both columns and XSLOPE
+  locks against each with the matching engine ([#61](#rs2-61)); or a multi-method LEM table or
+  limit-analysis bound ([#51](#p4-vp51), [#60](#rs2-60)). Each such row names the column it
+  reproduces, so an LEM number here is never an SSR result in disguise.
+- SSRM figures carry four panels in a 2 × 2 grid: the FEM inputs (geometry, material zones,
+  water, reinforcement, loads) and the maximum shear strain at the critical SRF above; the
+  mesh with its material zones and boundary conditions, and the displacement vectors at the
+  same SRF, below. A variant that reaches no equilibrium shows the inputs panel alone — there
+  is no failure mechanism to plot — and limit-equilibrium figures are side-by-side pairs. Each
+  caption says which it is.
 
 ## Status
 
-**Status terms** follow the [shared definitions](rocscience.md) used across
-this section — **built**, *covered*, *partial*, *planned*, *blocked*, *no lock possible*,
-*not supported*. They appear in the Results text of each row rather than in a column of
-their own.
-
-**Completeness.** Where a problem cannot be reproduced, the row says why rather than leaving a
-blank. The one *no lock possible* row is RS2-8, whose pore pressures are construction-induced
-values read off equal-pressure lines drawn on the manual's figure, with no flow field behind them;
-its companion [RS2-9](#rs2-9) prints the same kind of data as a coordinate table together with the
-interpolation method RS2 applied to it, and is built. Each *blocked* row names its gap.
-XSLOPE's uncoupled transient-seepage solver carries the RS2 Part IV VP102 rapid-drawdown series, and
-[RS2-67](#rs2-67) needs no literal-time transient analysis at all: its steady stage and its
-fully-drained drawn-down stage are each reconstructed by an own steady-seepage solve from the
-vendor BC block, built and locked, within 1.2% of RS2's own SSR, while the transient solver
-independently reproduces RS2's own 90 h drawdown field as a fidelity check.
-
-A Part IV pair of USACE upstream-pool dams (VP65/66) and the safety-map dam
-([VP42](rocscience.md#vp42)) are analyzed from piezometric lines rather than seepage fields, and a
-piezometric line has to agree with the water the section actually stands in. Where standing water
-is present its weight is part of the total stress the pore pressure is subtracted from — under a
-pond σ′ = γ′z, positive at every depth — so a piezometric surface is a sound full-field pore
-pressure for a finite element model exactly when the pond that sustains it is carried as a load,
-and the two have to be declared together. Read against the source models that way, the three dams
-differ: [VP66](#p4-vp66) is ponded on both faces and locks; [VP65](#p4-vp65) is ponded upstream
-only, and its piezometric line stops where the pool elevation meets the downstream face rather than
-crossing the section, so carried that way it equilibrates and brackets a complete strength
-reduction, reported rather than locked because the vendor's factor is constrained to the published
-circle and this one is not; [VP42](rocscience.md#vp42)'s phreatic exits at the downstream toe at
-elevation zero in both vendor models, and with it there the dam equilibrates too. Everything else
-is built and locked at its tagged mesh; the corpus is complete relative to what is independently
-verifiable.
+Status terms in the tables below — *covered*, *blocked*, *no lock possible* and the rest —
+follow the [shared definitions](index.md#status-terms), and appear in a row's Results or Notes
+text rather than in a column of their own. Where a problem cannot be reproduced the row says
+why rather than leaving a blank; everything else is built and locked at its tagged mesh.
 
 ### Part I (1–34)
 
@@ -242,19 +163,6 @@ verifiable.
 
 ### Part IV — RS2 *Slope Stability Verification Manual, Pt 4* (catalog)
 
-Parts I–III of the RS2 manual seeded the corpus rows above. **Part 4** is a separate, later
-manual (© 2021) and the newest of the four. It is not a fresh set of problems so much as an
-RS2 shear-strength-reduction **re-verification of 52 Slide2 verification problems** (numbered
-by their Slide2 VP id, #1–#102), run against the reference literature and Slide2's own LEM.
-It is the authoritative source of most of the "RS2 SSRM x.xx" numbers already cited in the
-Part I–III rows. Cataloged here so the corpus tracks it, in the same table format as
-Parts I–III above: the **#** column links to the section that carries the work — a piggyback on
-the RS2-N section that already runs the SSRM comparison, or a dedicated Part IV build section
-below — and the **Results** column gives the headline comparison and the manual's published RS2
-SSRM against its reference/Slide2 figures (representative case where a problem has several).
-Every row's dot derives from the comparison its own Results cell states, which for a
-piggyback row may cover fewer cases than the corpus row it links to.
-
 <div class="corpus-summary match" markdown>
 
 | # | Match | Problem | Results | Notes |
@@ -314,20 +222,14 @@ piggyback row may cover fewer cases than the corpus row it links to.
 
 </div>
 
-**Part 4 in summary:** 52 problems cataloged. 37 of them are already corpus rows and piggyback
-on the RS2-N section that carries the comparison. Fourteen carry their own Part IV build on a
-shared Slide2 file: thirteen strength-reduction builds — VP2, VP6, VP41, VP57, VP60, VP64, VP65,
-VP66, VP67, VP68, VP69, VP70 and VP102 — and one limit-equilibrium build, the twelve-method Zhu
-comparison ([VP51](#p4-vp51)), each with a section below. The remaining problem, the safety-map dam
-([VP42](rocscience.md#vp42)), is built and solved but reported without a lock, as is the
-Part IV build of VP65. Six of the strength-reduction builds sit on a file that also carries a
-Slide2 LEM lock — [VP2](#p4-vp2), [VP6](#p4-vp6), [VP64](#p4-vp64), [VP65/VP66](#p4-vp65) and
-[VP67](#p4-vp67) — and the other seven have no corpus RS2-N row of their own: the Baker/Jiang
-power-curve slope ([VP41](#p4-vp41)), the Pockoski & Duncan slope 3 and soil-nailed wall
-([VP57](#p4-vp57), [VP60](#p4-vp60)), the USACE φ = 0 ponded slope ([VP68](#p4-vp68)), the USACE
-steady-seepage embankment ([VP69](#p4-vp69)), the Duncan & Wright submerged slope
-([VP70](#p4-vp70)) and the Huang & Jia rapid-drawdown dam ([VP102](#p4-vp102)). VP70's Parts I–III
-counterpart is problem 35, which the same build covers.
+Of the 52 problems cataloged, 37 piggyback on the RS2-N section that carries the comparison.
+The other fifteen have a build section of their own: fourteen below — the twelve-method Zhu
+comparison ([VP51](#p4-vp51)), built by limit equilibrium, and thirteen strength-reduction builds
+on a shared Slide2 file ([VP2](#p4-vp2), [VP6](#p4-vp6), [VP41](#p4-vp41), [VP57](#p4-vp57),
+[VP60](#p4-vp60), [VP64](#p4-vp64), [VP65/VP66](#p4-vp65), [VP67](#p4-vp67), [VP68](#p4-vp68),
+[VP69](#p4-vp69), [VP70](#p4-vp70) and [VP102](#p4-vp102)) — and the safety-map dam on the Slide2
+page ([VP42](rocscience.md#vp42)). VP70's Parts I–III counterpart is problem 35, which the same
+build covers.
 
 ---
 
@@ -2907,11 +2809,12 @@ nails conforming, XSLOPE's SSRM lands at **1.009**, squarely inside the publishe
 For undrained φ = 0 clay the nail bond is adhesion-governed, so the fixed-ramp pull-out is
 faithful, and the conforming mesh equilibrates at a uniform size without feature refinement. ψ = 0.
 
-**The vendor model holds a third of the domain elastic, and this run does not.** `#060-slope7` states a strength-reduction constraint the way the Methodology table records for
-eleven other models: a duplicate of the firm-soil foundation carrying *"Plasticity
-Specifications: None"* over 33.9% of the domain by area, which cannot yield at any
-strength-reduction factor. RS2's published 0.98 was produced with it; the corpus run above is
-unconstrained. The two agree to +3.0% anyway, but the comparison is not constrained-against-constrained the way
+**The vendor model holds a third of the domain elastic, and this run does not.**
+`#060-slope7` states its strength-reduction constraint as a linear-elastic twin rather than a
+polygon: a duplicate of the firm-soil foundation carrying *"Plasticity Specifications: None"*
+over 33.9% of the domain by area, which cannot yield at any strength-reduction factor. RS2's
+published 0.98 was produced with it; the corpus run above is unconstrained. The two agree to
++3.0% anyway, but the comparison is not constrained-against-constrained the way
 [P4-VP67](#p4-vp67) and [P4-VP69](#p4-vp69) are, and the partition is the reason this row's
 agreement carries a caveat.
 
@@ -2999,8 +2902,11 @@ upstream and nowhere else, and `#065` states that pair too — a piezometric lin
 the downstream face, water tractions on the upstream face alone, and a solved nodal pore-pressure
 field that is hydrostatic to el. 20 under the line and **exactly zero beyond it, at every
 elevation**. Each corpus file carries its own model's pair, and beyond a piezometric line's own
-extent XSLOPE assigns no pore pressure in the FEM, as in the LEM — the pond-and-piezometric-line
-pairing the [Status](#status) section sets out. Neither problem's published slip circle reaches the
+extent XSLOPE assigns no pore pressure in the FEM, as in the LEM. The two have to be declared
+together: where standing water is present its weight is part of the total stress the pore pressure
+is subtracted from — under a pond σ′ = γ′z, positive at every depth — so a piezometric surface is a
+sound full-field pore pressure for a finite element model exactly when the pond that sustains it is
+carried as a load. Neither problem's published slip circle reaches the
 downstream face, so the limit-equilibrium factors on [VP65](rocscience.md#vp65) and
 [VP66](rocscience.md#vp66) are the same under either treatment.
 
