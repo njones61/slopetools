@@ -89,6 +89,23 @@ Ueta's Bishop, Fredlund & Krahn's four methods).
 
 ---
 
+## Status terms {#status-terms}
+
+Every corpus page's summary table carries one of these in its Notes column where a
+row is not fully built and verified:
+
+- *covered* — the same problem is built under another corpus page, and the row links there;
+- *partial* — some cases are built, and the row names what remains;
+- *planned* — reachable with today's capability and source data, not yet built;
+- *blocked* — cannot be built today, and the row names what is missing (source data or a capability);
+- *no lock possible* — the source publishes no reproducible numeric target;
+- *not supported* — a deliberate scope exclusion.
+
+A row with a match dot and none of these terms is fully built and verified; a parenthetical
+may narrow it (*(caveat)*, *(3 of 6)*).
+
+---
+
 ## References
 
 Full bibliographic details for every author-year citation across the corpus
