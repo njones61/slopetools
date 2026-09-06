@@ -209,7 +209,7 @@ build covers.
 
 ## Problem details
 
-### RS2-1: Simple slope stability assessment {#rs2-1}
+### 🟢 RS2-1: Simple slope stability assessment {#rs2-1}
 
 Slide2 counterpart: [VP1](rocscience.md#vp1) (ACADS 1a).
 
@@ -223,7 +223,7 @@ Slide2 counterpart: [VP1](rocscience.md#vp1) (ACADS 1a).
 
 ![RS2-1: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-1.png)
 
-### RS2-2: Non-homogeneous slope {#rs2-2}
+### 🟢 RS2-2: Non-homogeneous slope {#rs2-2}
 
 Slide2 counterpart: [VP3](rocscience.md#vp3).
 
@@ -237,7 +237,7 @@ Slide2 counterpart: [VP3](rocscience.md#vp3).
 
 ![RS2-2: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-2.png)
 
-### RS2-3: Non-homogeneous slope with seismic load (0.15g) {#rs2-3}
+### 🟢 RS2-3: Non-homogeneous slope with seismic load (0.15g) {#rs2-3}
 
 Slide2 counterpart: [VP4](rocscience.md#vp4).
 
@@ -255,7 +255,7 @@ failure surface.
 
 ![RS2-3: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-3.png)
 
-### RS2-4: Dry Talbingo dam {#rs2-4}
+### 🟢 RS2-4: Dry Talbingo dam {#rs2-4}
 
 Slide2 counterpart: [VP5](rocscience.md#vp5).
 
@@ -304,7 +304,7 @@ static under reduction (`tensilestrength_SRF: 0`).
 
 ![RS2-4 with the downstream shell held at full strength by Part 4's SSR Exclusion Area, SSRM 1.894 against Part 4's SSR 1.9 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF, the mechanism at the top of the inclined clay core, fanning down its upstream flank](images/RS2-4-zone.png)
 
-### RS2-5: Water table with weak seam {#rs2-5}
+### 🟢 RS2-5: Water table with weak seam {#rs2-5}
 
 Slide2 counterpart: **VP7** (inventory-only on the LEM page — no detail section to link).
 
@@ -327,7 +327,7 @@ kept as the faithful build of the published problem.
 
 ![RS2-5: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-5.png)
 
-### RS2-6: Slope with load and pore pressure by water table (ACADS 4) {#rs2-6}
+### 🟢 RS2-6: Slope with load and pore pressure by water table (ACADS 4) {#rs2-6}
 
 Slide2 counterpart: [VP9](rocscience.md#vp9). Built with a caveat.
 
@@ -345,7 +345,7 @@ as they are at [#16](#rs2-16).
 
 ![RS2-6: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-6.png)
 
-### RS2-7: Pore pressure by digitized total head grid (ACADS 5) {#rs2-7}
+### 🟢 RS2-7: Pore pressure by digitized total head grid (ACADS 5) {#rs2-7}
 
 Slide2 counterpart: [VP10](rocscience.md#vp10).
 
@@ -363,7 +363,7 @@ volumetrically locked).
 
 ![RS2-7: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-7.png)
 
-### RS2-8: Saint-Alban test embankment {#rs2-8}
+### ⊘ RS2-8: Saint-Alban test embankment {#rs2-8}
 
 Slide2 counterpart: [VP11](rocscience.md#vp11).
 
@@ -376,7 +376,7 @@ than a computed flow field, and the manual states it as equal-pressure lines dra
 figure rather than as a coordinate table, so there is nothing here XSLOPE can reproduce as a lock.
 Its companion [RS2-9](#rs2-9) prints its grid as a table and is built.
 
-### RS2-9: Cubzac-les-Ponts test embankment {#rs2-9}
+### 🟢 RS2-9: Cubzac-les-Ponts test embankment {#rs2-9}
 
 Slide2 counterpart: [VP13](rocscience.md#vp13).
 
@@ -419,7 +419,7 @@ throughout is the vendor model's own.
 
 ![RS2-9: Cubzac-les-Ponts test embankment, SSRM 1.320 vs RS2 SSR 1.31 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-9.png)
 
-### RS2-10: Simple slope II (Arai & Tagyo ex. 1) {#rs2-10}
+### 🟢 RS2-10: Simple slope II (Arai & Tagyo ex. 1) {#rs2-10}
 
 Slide2 counterpart: [VP14](rocscience.md#vp14) (Arai & Tagyo 1).
 
@@ -433,7 +433,7 @@ Slide2 counterpart: [VP14](rocscience.md#vp14) (Arai & Tagyo 1).
 
 ![RS2-10: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-10.png)
 
-### RS2-11: Layered slope (Arai & Tagyo ex. 2) {#rs2-11}
+### 🟢 RS2-11: Layered slope (Arai & Tagyo ex. 2) {#rs2-11}
 
 Slide2 counterpart: [VP15](rocscience.md#vp15).
 
@@ -456,7 +456,7 @@ a Bishop value.*
 
 ![RS2-11: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-11.png)
 
-### RS2-12: Simple slope + water table (Arai & Tagyo ex. 3) {#rs2-12}
+### 🟢 RS2-12: Simple slope + water table (Arai & Tagyo ex. 3) {#rs2-12}
 
 Slide2 counterpart: [VP16](rocscience.md#vp16).
 
@@ -473,7 +473,7 @@ slicer and the published analyses.
 
 ![RS2-12: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-12.png)
 
-### RS2-13: Simple slope III (Yamagami & Ueta) {#rs2-13}
+### 🟢 RS2-13: Simple slope III (Yamagami & Ueta) {#rs2-13}
 
 Slide2 counterpart: [VP17](rocscience.md#vp17).
 
@@ -487,7 +487,7 @@ Slide2 counterpart: [VP17](rocscience.md#vp17).
 
 ![RS2-13: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-13.png)
 
-### RS2-14: Simple slope, pore pressure by r<sub>u</sub> {#rs2-14}
+### 🔴 RS2-14: Simple slope, pore pressure by r<sub>u</sub> {#rs2-14}
 
 Slide2 counterpart: [VP18](rocscience.md#vp18) (this problem is Slide2 VP18, not VP21). Built
 with a caveat.
@@ -514,7 +514,7 @@ mesh-sensitive at the milder r<sub>u</sub> = 0.2, where it settles instead of dr
 
 ![RS2-14: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-14.png)
 
-### RS2-15: Layered slope II (Greco ex. 4 / Yamagami & Ueta) {#rs2-15}
+### 🟢 RS2-15: Layered slope II (Greco ex. 4 / Yamagami & Ueta) {#rs2-15}
 
 Slide2 counterpart: [VP19](rocscience.md#vp19).
 
@@ -534,7 +534,7 @@ the two agree anyway, and RS2's own native rebuild (Part I problem 15, unconstra
 
 ![RS2-15: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-15.png)
 
-### RS2-16: Layered slope and water table with weak seam (Greco ex. 5 / Chen & Shao) {#rs2-16}
+### 🟢 RS2-16: Layered slope and water table with weak seam (Greco ex. 5 / Chen & Shao) {#rs2-16}
 
 Slide2 counterpart: [VP20](rocscience.md#vp20).
 
@@ -560,7 +560,7 @@ no F at all.
 
 ![RS2-16: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-16.png)
 
-### RS2-17: Slope with three pore pressure conditions (Fredlund & Krahn) {#rs2-17}
+### 🟢 RS2-17: Slope with three pore pressure conditions (Fredlund & Krahn) {#rs2-17}
 
 Slide2 counterpart: [VP21](rocscience.md#vp21).
 Built for the dry and r<sub>u</sub> cases.
@@ -588,7 +588,7 @@ model nor RS2's own native rebuild carries an SSR polygon on any case. The water
 
 ![RS2-17b: r<sub>u</sub> = 0.25 case (vp021b) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-17b.png)
 
-### RS2-18: Three pore pressure conditions and a weak seam (Fredlund & Krahn) {#rs2-18}
+### 🟡 RS2-18: Three pore pressure conditions and a weak seam (Fredlund & Krahn) {#rs2-18}
 
 Slide2 counterpart: [VP22](rocscience.md#vp22). Built for the dry and r<sub>u</sub> cases.
 
@@ -626,7 +626,7 @@ follows the Part IV pairing, so this row is scored at the wider of the two.
 
 ![RS2-18b: r<sub>u</sub> = 0.25 case (vp022b) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-18b.png)
 
-### RS2-19: Undrained layered slope (Low 1989) {#rs2-19}
+### 🟢 RS2-19: Undrained layered slope (Low 1989) {#rs2-19}
 
 Slide2 counterpart: [VP24](rocscience.md#vp24) (this problem is Slide2 VP24). Built with a
 caveat.
@@ -647,7 +647,7 @@ break x = 33.5), which makes the weak Middle layer (c = 20) a full 4.5 m thick.
 
 ![RS2-19: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-19.png)
 
-### RS2-20: Slope with vertical load (Prandtl's wedge) {#rs2-20}
+### 🟢 RS2-20: Slope with vertical load (Prandtl's wedge) {#rs2-20}
 
 Slide2 counterpart: [VP25](rocscience.md#vp25).
 
@@ -667,7 +667,7 @@ unconstrained native rebuild (Part I problem 20) publishes 1.0, the closed form'
 
 ![RS2-20: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-20.png)
 
-### RS2-21: Bearing capacity test prism (Prandtl II) {#rs2-21}
+### 🟢 RS2-21: Bearing capacity test prism (Prandtl II) {#rs2-21}
 
 Slide2 counterpart: [VP26](rocscience.md#vp26).
 
@@ -683,7 +683,7 @@ Slide2 counterpart: [VP26](rocscience.md#vp26).
 
 ![RS2-21: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-21.png)
 
-### RS2-22: Layered slope with undulating bedrock {#rs2-22}
+### 🟢 RS2-22: Layered slope with undulating bedrock {#rs2-22}
 
 Slide2 counterpart: [VP27](rocscience.md#vp27). Built on an SSRM variant.
 
@@ -725,7 +725,7 @@ distributed loads at all and is unaffected.
 
 ![RS2-22: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-22.png)
 
-### RS2-23: Underwater slope with linearly varying cohesion {#rs2-23}
+### 🟢 RS2-23: Underwater slope with linearly varying cohesion {#rs2-23}
 
 Slide2 counterpart: [VP29](rocscience.md#vp29). Duncan's (2000) LASH terminal slope at the
 Port of San Francisco: San Francisco Bay Mud, S<sub>u</sub> = 100 psf at el. −20 growing
@@ -760,7 +760,7 @@ vendor's constraint acting on this slope's mechanics.
 
 ![RS2-23: LASH terminal underwater slope (Duncan 2000) under RS2's own elastic partition, SSRM 1.112 vs RS2 SSRM 1.12 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-23.png)
 
-### RS2-24: Layered slope with geosynthetic reinforcement {#rs2-24}
+### ⊘ RS2-24: Layered slope with geosynthetic reinforcement {#rs2-24}
 
 Slide2 counterpart: [VP32](rocscience.md#vp32).
 
@@ -784,7 +784,7 @@ The limit-equilibrium side of this problem is built and locked as Slide2
 [VP32](rocscience.md#vp32) — Bishop and Spencer on the three published circles, where the
 geosynthetic enters as a force rather than through an interface.
 
-### RS2-25: Syncrude tailings dyke (El-Ramly et al. 2003) {#rs2-25}
+### 🔴 RS2-25: Syncrude tailings dyke (El-Ramly et al. 2003) {#rs2-25}
 
 Slide2 counterpart: [VP33](rocscience.md#vp33). Built with a caveat.
 
@@ -829,7 +829,7 @@ regression anchor and the deficit is reported.
 
 ![RS2-25: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-25.png)
 
-### RS2-26: Clarence Cannon dam (Wolff & Harr 1987) {#rs2-26}
+### 🟢 RS2-26: Clarence Cannon dam (Wolff & Harr 1987) {#rs2-26}
 
 Slide2 counterpart: [VP34](rocscience.md#vp34).
 
@@ -856,7 +856,7 @@ traction, which is what makes the piezometric line a sound full-field pore press
 
 ![RS2-26: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-26.png)
 
-### RS2-27: Homogeneous slope, pore pressure by r<sub>u</sub> {#rs2-27}
+### 🟢 RS2-27: Homogeneous slope, pore pressure by r<sub>u</sub> {#rs2-27}
 
 Slide2 counterpart: [VP36](rocscience.md#vp36) (Li & Lumb 1987 / Hassan & Wolff 1999). Built;
 the r<sub>u</sub> mesh-sensitivity documented on [RS2-14](#rs2-14) is mild enough here to settle.
@@ -880,7 +880,7 @@ band — but the milder r<sub>u</sub> = 0.2 here settles rather than drifts: 1.3
 
 ![RS2-27: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-27.png)
 
-### RS2-28: Excavated slope with FE groundwater and matric suction (Ng & Shi 1998) {#rs2-28}
+### 🟢 RS2-28: Excavated slope with FE groundwater and matric suction (Ng & Shi 1998) {#rs2-28}
 
 Slide2 counterpart: [VP38](rocscience.md#vp38). A 28° Hong Kong cut (24 m soil over 6 m
 bedrock); a steady unsaturated FE groundwater analysis at three far-field heads (H = 61 /
@@ -940,7 +940,7 @@ the vendor model and the locks are taken with it.
 
 ![RS2-28c: H = 63 m, SSRM 1.406 vs RS2 SSR 1.41 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-28c.png)
 
-### RS2-29: Geosynthetic-reinforced embankment on soft soil (Tandjiria 2002) {#rs2-29}
+### 🟢 RS2-29: Geosynthetic-reinforced embankment on soft soil (Tandjiria 2002) {#rs2-29}
 
 Slide2 counterpart: [VP39](rocscience.md#vp39). The manual's §29/§30 headings are swapped.
 Built for both published cases — the sand embankment first, then RS2's own clay model.
@@ -1002,7 +1002,7 @@ and the model reads the same at the peak cap and at the residual.
 
 ![RS2-29-clay: RS2's own clay model (rs2_29clay), SSRM 0.997 vs RS2 Part I SSR 0.99 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-29-clay.png)
 
-### RS2-30: Homogeneous slope, power-curve strength (Perry 1993) {#rs2-30}
+### 🟡 RS2-30: Homogeneous slope, power-curve strength (Perry 1993) {#rs2-30}
 
 Slide2 counterpart: [VP40](rocscience.md#vp40). Swapped heading (see [#29](#rs2-29)).
 
@@ -1037,7 +1037,7 @@ native `#030` rebuild carries no constraint of any kind, and the column above re
 
 ![RS2-30: constrained SSRM 1.023 vs RS2 Part IV VP40 SSR 0.97 — FEM inputs with the vendor's three SSR exclusion areas drawn as dashed "SSR elastic" outlines, mesh, max shear strain and displacement vectors at the critical SRF. The strain band runs along the lower edge of the held wedge, on Perry's specified surface](images/RS2-30.png)
 
-### RS2-31: M-C vs power curve (Baker 2003 ex. 1) {#rs2-31}
+### 🟢 RS2-31: M-C vs power curve (Baker 2003 ex. 1) {#rs2-31}
 
 Slide2 counterpart: [VP44](rocscience.md#vp44). Built, four cases.
 
@@ -1096,7 +1096,7 @@ the file carries no cap.
 
 ![RS2-31d: RS2's Generalized Hoek-Brown rendering of the power-curve case (vp044d, SSRM 1.115) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-31d.png)
 
-### RS2-32: M-C vs power curve II (Baker 2003 ex. 2) {#rs2-32}
+### 🟢 RS2-32: M-C vs power curve II (Baker 2003 ex. 2) {#rs2-32}
 
 Slide2 counterpart: [VP45](rocscience.md#vp45). Built, both halves. The RS2 manual's problem 32
 heading names a different problem from the one its body presents: the body is Baker's example 2,
@@ -1131,7 +1131,7 @@ sits above both power-curve answers.
 
 ![RS2-32b: power-curve case (vp045b, SSRM 2.637) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-32b.png)
 
-### RS2-33: Homogeneous slope with tension crack and water table (P&D test slope 2) {#rs2-33}
+### 🟢 RS2-33: Homogeneous slope with tension crack and water table (P&D test slope 2) {#rs2-33}
 
 Slide2 counterpart: [VP56](rocscience.md#vp56). Swapped heading. Built with a caveat.
 
@@ -1147,7 +1147,7 @@ The model's dry tension crack has no FEM representation, worth ~2–3% here.
 
 ![RS2-33: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-33.png)
 
-### RS2-34: M-C vs power curve III (Baker 2003 ex. 3, London clay) {#rs2-34}
+### 🟢 RS2-34: M-C vs power curve III (Baker 2003 ex. 3, London clay) {#rs2-34}
 
 Slide2 counterpart: [VP61](rocscience.md#vp61). Built, both halves.
 
@@ -1170,7 +1170,7 @@ Slide2 counterpart: [VP61](rocscience.md#vp61). Built, both halves.
 
 ![RS2-34b: power-curve case (vp061a, SSRM 1.497) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-34b.png)
 
-### RS2-36: Seepage analysis, homogeneous slope (D&W Fig 6.37) {#rs2-36}
+### 🟢 RS2-36: Seepage analysis, homogeneous slope (D&W Fig 6.37) {#rs2-36}
 
 Slide2 counterpart: [VP71](rocscience.md#vp71) (= Slide2 VP71, not
 [VP70](rocscience.md#vp70)). Built, both cases.
@@ -1196,7 +1196,7 @@ The seep case runs on tri6 sidecars.
 
 ![RS2-36b: piezometric-line case (vp071b) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-36b.png)
 
-### RS2-37: Embankment with layered foundation (D&W Fig 6.39) {#rs2-37}
+### ⊘ RS2-37: Embankment with layered foundation (D&W Fig 6.39) {#rs2-37}
 
 Slide2 counterpart: [VP72](rocscience.md#vp72). Reported, no lock.
 
@@ -1214,7 +1214,7 @@ surface it wants, 0.7% of the domain — and it is documented rather than carrie
 than this model's mesh, so transcribing it would rasterize to a band too ragged to form a
 mechanism, and a finer mesh would be required first.
 
-### RS2-38: Cohesionless embankment on saturated clay foundation (D&W Fig 7.12) {#rs2-38}
+### 🟢 RS2-38: Cohesionless embankment on saturated clay foundation (D&W Fig 7.12) {#rs2-38}
 
 Slide2 counterpart: [VP74](rocscience.md#vp74) (Duncan & Wright 2005, Fig 7.12).
 
@@ -1236,7 +1236,7 @@ factors. ψ = 0; locked at the 7.0 m mesh on this 700-ft-wide section.
 
 ![RS2-38: cohesionless embankment on saturated clay (D&W Fig 7.12), SSRM 1.190 vs RS2 SSRM 1.17 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-38.png)
 
-### RS2-39/41/43: Earth embankment, infinite-slope mechanism (Duncan & Wright) {#rs2-39}
+### 🟢 RS2-39/41/43: Earth embankment, infinite-slope mechanism (Duncan & Wright) {#rs2-39}
 
 RS2 Parts I–III problems 41 (Slide2 [VP79](rocscience.md#vp79), D&W Fig 14.4) and 43 (Slide2
 [VP81](rocscience.md#vp81), D&W Fig 14.7) are cohesionless embankments (c = 0, φ = 30°) on an
@@ -1282,7 +1282,7 @@ own constants.
 
 ![RS2-43: cohesionless embankment infinite-slope mechanism (D&W Fig 14.7), SSRM 1.209 vs RS2 Part IV VP81 case 1 SSR 1.23 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-43.png)
 
-### RS2-40: Dam with impermeable foundation (D&W Fig 7.24) {#rs2-40}
+### 🟡 RS2-40: Dam with impermeable foundation (D&W Fig 7.24) {#rs2-40}
 
 Slide2 counterpart: [VP77](rocscience.md#vp77). RS2 runs the dam twice, once with a
 finite-element seepage field and once with a drawn piezometric line, and publishes an SSR for
@@ -1372,7 +1372,7 @@ localizes on.
 
 ![RS2-40 solved on a finite-element seepage field, SSRM 1.590 against RS2 SSRM 1.52 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF, the band cutting down from the crest through the clay core and running out along the foundation contact under the downstream shell with no depth filter applied](images/RS2-40-seep.png)
 
-### RS2-42: James dike {#rs2-42}
+### 🟢 RS2-42: James dike {#rs2-42}
 
 Slide2 counterpart: [VP75](rocscience.md#vp75).
 
@@ -1392,7 +1392,7 @@ matches both XSLOPE's tensile behavior and its mesh density.*
 
 ![RS2-42: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-42.png)
 
-### RS2-44: Seepage analysis for an earth embankment (D&W Fig 14.20-a) {#rs2-44}
+### 🟢 RS2-44: Seepage analysis for an earth embankment (D&W Fig 14.20-a) {#rs2-44}
 
 Slide2 counterpart: [VP82](rocscience.md#vp82) (= Slide2 VP82, not
 [VP76](rocscience.md#vp76) — §39's body carries VP76).
@@ -1407,7 +1407,7 @@ Slide2 counterpart: [VP82](rocscience.md#vp82) (= Slide2 VP82, not
 
 ![RS2-44: FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-44.png)
 
-### RS2-45: Varying undrained shear strength profiles (D&W Fig 14.20-b) {#rs2-45}
+### 🟢 RS2-45: Varying undrained shear strength profiles (D&W Fig 14.20-b) {#rs2-45}
 
 Slide2 counterpart: [VP83](rocscience.md#vp83). Built with a caveat.
 
@@ -1433,7 +1433,7 @@ the other φ = 0 foundation problem, reads +4.8% against RS2's own SSRM and keep
 
 ![RS2-45b: vp083b (SSRM 1.314) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-45b.png)
 
-### RS2-46: Varying undrained strength profiles II (D&W Fig 15.9, c<sub>u</sub> = 300 + c<sub>z</sub>·z) {#rs2-46}
+### 🟢 RS2-46: Varying undrained strength profiles II (D&W Fig 15.9, c<sub>u</sub> = 300 + c<sub>z</sub>·z) {#rs2-46}
 
 Slide2 counterpart: [VP84](rocscience.md#vp84).
 
@@ -1469,7 +1469,7 @@ Slide2 counterpart: [VP84](rocscience.md#vp84).
 
 ![RS2-46d: vp084d (SSRM 1.145) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-46d.png)
 
-### RS2-47: Purely cohesive slope, varying thickness (D&W Fig 14.3) {#rs2-47}
+### 🟢 RS2-47: Purely cohesive slope, varying thickness (D&W Fig 14.3) {#rs2-47}
 
 Slide2 counterpart: [VP78](rocscience.md#vp78). All three foundation-thickness variants built.
 
@@ -1513,7 +1513,7 @@ regression-locked at its XSLOPE value (4.0 m tri6 mesh).
 
 ![RS2-47c: 60-ft foundation (vp078c), SSRM 1.045 vs RS2 SSRM 1.07 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-47c.png)
 
-### RS2-48–55: Multi-tiered geotextile walls (Leshchinsky & Han 2004) {#rs2-48}
+### ⊘ RS2-48–55: Multi-tiered geotextile walls (Leshchinsky & Han 2004) {#rs2-48}
 
 Slide2 counterparts: [VP87](rocscience.md#vp87)–VP94 (one-for-one, verified; only VP87 has a
 detail section on the LEM page). The baseline's SSR row is not attempted; of the seven parametric
@@ -1602,7 +1602,7 @@ Each variant is its own problem in the RS2 manual, so each is listed separately 
 table above and anchored here. All seven share the baseline's model, mesh and reinforcement
 treatment; what follows is only what distinguishes each one and where it ended up.
 
-#### RS2-49: Geotextile wall, fill quality (vp088) {#rs2-49}
+#### ⊘ RS2-49: Geotextile wall, fill quality (vp088) {#rs2-49}
 
 The reinforced fill's strength is reduced relative to the baseline. The strength reduction brackets
 **SSRM 0.881**, and a step of refinement to a 0.7 m mesh returns the same factor, so the variant is
@@ -1613,7 +1613,7 @@ split-interface model, so no comparison is derived from it.
 
 ![RS2-49: reduced-strength fill (vp088, φ = 25°, Ta = 22 kN/m) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF. The mechanism stays inside the reinforced mass, as on the baseline](images/RS2-49.png)
 
-#### RS2-50: Geotextile wall, 4.2 m reinforcement (vp089) {#rs2-50}
+#### ⊘ RS2-50: Geotextile wall, 4.2 m reinforcement (vp089) {#rs2-50}
 
 The geotextile layers are shortened. The strength reduction brackets a factor on the corpus mesh,
 but a step of refinement moves it — the localization the family shares — so the variant is reported
@@ -1621,7 +1621,7 @@ without a lock.
 
 ![RS2-50: shortened 4.2 m geotextile layers (vp089, Ta = 11.4 kN/m) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF. Shortening the sheets pulls the mechanism back into the reinforced mass behind their ends](images/RS2-50.png)
 
-#### RS2-51: Geotextile wall, dual reinforcement type (vp090) {#rs2-51-wall}
+#### ⊘ RS2-51: Geotextile wall, dual reinforcement type (vp090) {#rs2-51-wall}
 
 Two geotextile grades in one wall. It brackets **SSRM 0.998**, and a step of refinement to a 0.7 m
 mesh moves it by one cell of the bracket the row runs at — inside the row's tolerance, and well
@@ -1632,7 +1632,7 @@ mesh.
 
 ![RS2-51: two geotextile grades in one wall (vp090, Ta = 11.0 kN/m on the lower seven layers, 7.5 kN/m above) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF. The geometry is the baseline's; the two grades differ in tensile capacity and anchorage length, not in layout](images/RS2-51-wall.png)
 
-#### RS2-52: Geotextile wall, weak foundation (vp091) {#rs2-52}
+#### ⊘ RS2-52: Geotextile wall, weak foundation (vp091) {#rs2-52}
 
 The foundation is c = 0, φ = 18°, and the wall fails in bearing rather than through the reinforced
 mass — the lowest factor in the family. Its published values are in the family table above, and
@@ -1650,7 +1650,7 @@ whose factor follows the mesh, and RS2's own factor comes from the split-interfa
 
 ![RS2-52: cohesionless foundation (vp091, c = 0, φ = 18°), recorded beside RS2's own SSR 0.84 and Leshchinsky & Han's FLAC referee 0.86 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF. The strain band leaves the reinforced mass and runs down through the foundation to daylight beyond the toe: the bearing mechanism both codes find on this variant](images/RS2-52.png)
 
-#### RS2-53: Geotextile wall, water (vp092) {#rs2-53}
+#### ⊘ RS2-53: Geotextile wall, water (vp092) {#rs2-53}
 
 A pond against the wall. The reinforced granular fill is modeled free-draining, pore pressure on
 the foundation only, following Leshchinsky & Han and Slide2's own model rather than the vendor's
@@ -1659,21 +1659,21 @@ localization makes the value follow the mesh, so the variant is reported without
 
 ![RS2-53: pond against the wall (vp092, piezometric line at y = 9 with a 3 m pond on the lower tier, Ta = 9.25 kN/m) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF. The reinforced fill is modeled free-draining, so pore pressure acts on the foundation only and the pond enters as a distributed load on the lower tier](images/RS2-53.png)
 
-#### RS2-54: Geotextile wall, crest surcharge (vp093) {#rs2-54}
+#### ⊘ RS2-54: Geotextile wall, crest surcharge (vp093) {#rs2-54}
 
 A surcharge on the wall crest. It brackets on the corpus mesh and moves under refinement with the
 water and tier-count variants, so it is reported without a lock.
 
 ![RS2-54: 20 kPa surcharge on the uppermost tier (vp093, Ta = 10.0 kN/m) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF. The surcharge drives the band through the upper tiers of the reinforced mass](images/RS2-54.png)
 
-#### RS2-55: Geotextile wall, tier count (vp094) {#rs2-55}
+#### ⊘ RS2-55: Geotextile wall, tier count (vp094) {#rs2-55}
 
 The number of wall tiers is varied. It brackets, and as on the water and surcharge variants the
 value follows the mesh, so it is reported without a lock.
 
 ![RS2-55: five 1.8 m tiers offset 0.6 m (vp094, Ta = 10.1 kN/m) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF. Spreading the same 9 m of height over five tiers instead of three leaves the mechanism where the baseline puts it](images/RS2-55.png)
 
-### RS2 Part IV VP51: Four-material slope, water table, tension crack, seismic — 12-method comparison (Zhu et al. 2003) {#p4-vp51}
+### 🟢 RS2 Part IV VP51: Four-material slope, water table, tension crack, seismic — 12-method comparison (Zhu et al. 2003) {#p4-vp51}
 
 **Input files:** [rs2_51.xlsx](files/rocscience/rs2_51.xlsx) — Part 4 Verification Problem #51.
 
@@ -1720,7 +1720,7 @@ verification is locked as a single fixed circle, not a search.
 
 ![RS2 Part IV VP51: four-material slope with water table, tension crack and seismic k = 0.1 (Zhu et al. 2003) — inputs (left) and the given-circle Spencer solution FS = 1.30 (right)](images/rs2_51.png)
 
-### RS2-56: Homogeneous slope vs Z-Soil, PLAXIS, GEO FEM (Pruska 2003, H = 7 m, 5 cases) {#rs2-56}
+### 🟢 RS2-56: Homogeneous slope vs Z-Soil, PLAXIS, GEO FEM (Pruska 2003, H = 7 m, 5 cases) {#rs2-56}
 
 New corpus files (no Slide2 counterpart). Built: all five cases.
 
@@ -1748,7 +1748,7 @@ New corpus files (no Slide2 counterpart). Built: all five cases.
 
 ![RS2-56b: case 5, (γ, c, φ) = (24, 20, 30), the strongest of the five (SSRM 2.096) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-56b.png)
 
-### RS2-57: Pruska H = 10.5 m, 6 cases {#rs2-57}
+### 🟢 RS2-57: Pruska H = 10.5 m, 6 cases {#rs2-57}
 
 New corpus files. Built: all six cases.
 
@@ -1777,7 +1777,7 @@ New corpus files. Built: all six cases.
 
 ![RS2-57b: case 6, (γ, c, φ) = (24, 20, 30), the strongest of the six (SSRM 1.401) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-57b.png)
 
-### RS2-58: Pruska H = 14 m, 6 cases {#rs2-58}
+### 🟢 RS2-58: Pruska H = 14 m, 6 cases {#rs2-58}
 
 New corpus files. Built: all six cases.
 
@@ -1873,7 +1873,7 @@ reads 23.2% above Z-Soil on #56 case 4 and 11.3% above PLAXIS on #58 case 3. RS2
 quoted to two decimals throughout, so on the weakest material of the tallest face — #58 case 1,
 which sets that row's dot — one count in the last place is worth 3.0%.
 
-### RS2-59: Stability of a three-layered soil slope (Görög & Török 2007) {#rs2-59}
+### 🟢 RS2-59: Stability of a three-layered soil slope (Görög & Török 2007) {#rs2-59}
 
 **Input files:** [rs2_59.xlsx](files/rocscience/rs2_59.xlsx)
 
@@ -1912,7 +1912,7 @@ as converged.
 
 ![RS2-59: Budapest three-layered soil slope (Görög & Török 2007), critical slip riding a thin weak waste lens (c = 1, φ = 5), SSRM 1.553 at the 3 m mesh — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-59.png)
 
-### RS2-60: Generalized Hoek-Brown, homogeneous slope (Li et al. 2008) {#rs2-60}
+### 🟢 RS2-60: Generalized Hoek-Brown, homogeneous slope (Li et al. 2008) {#rs2-60}
 
 **Input files:** [rs2_60a.xlsx](files/rocscience/rs2_60a.xlsx) (β = 15°) ·
 [rs2_60b.xlsx](files/rocscience/rs2_60b.xlsx) (β = 30°) ·
@@ -1973,7 +1973,7 @@ that row.
 <!-- test: file=files/rocscience/rs2_60b.xlsx, type=circular_search, method=spencer, expected_fs=0.989, num_slices=40, benchmark=RS2-60b -->
 <!-- test: file=files/rocscience/rs2_60c.xlsx, type=circular_search, method=spencer, expected_fs=1.035, num_slices=40, benchmark=RS2-60c -->
 
-### RS2-61: Local and global minima, homogeneous slope (Cheng et al. 2007) {#rs2-61}
+### 🟢 RS2-61: Local and global minima, homogeneous slope (Cheng et al. 2007) {#rs2-61}
 
 **Input files:** [rs2_61a.xlsx](files/rocscience/rs2_61a.xlsx) (one geometry; cases 1 & 3 locked
 by circular LEM, case 2 locked by constrained SSRM, case 4 blocked)
@@ -2036,7 +2036,7 @@ Case 2 is on the same geometry, so Case 4 is reported rather than locked.
 
 ![RS2-61: local and global minima (Cheng et al. 2007), Case 2 (deep toe-to-crest), constrained SSRM 1.398 vs RS2 SSRM 1.36 — FEM inputs, mesh, maximum shear strain and displacement vectors at the critical SRF, the mechanism confined to RS2's SSR-Search-Area polygon read verbatim from the vendor model](images/RS2-61-case2.png)
 
-### RS2-62: Three-layered slope with a soft band (Cheng et al. 2007) {#rs2-62}
+### 🟡 RS2-62: Three-layered slope with a soft band (Cheng et al. 2007) {#rs2-62}
 
 **Input files:** [rs2_62a.xlsx](files/rocscience/rs2_62a.xlsx) (Analysis I, 28 m) ·
 [b](files/rocscience/rs2_62b.xlsx) (II, 20 m) · [c](files/rocscience/rs2_62c.xlsx) (III, 12 m)
@@ -2095,7 +2095,7 @@ the caveat on the −3.6% rather than an explanation of it.
 
 ![RS2-62: three-layered slope with a soft band (Cheng et al. 2007), Analysis III (12 m domain, ψ = 0, vendor tensile strengths, SSRM 0.781) — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF, the mechanism riding the soft band](images/RS2-62c.png)
 
-### RS2-63: Slope stability assessment of a homogeneous slope (Cheng et al. 2007) {#rs2-63}
+### 🟢 RS2-63: Slope stability assessment of a homogeneous slope (Cheng et al. 2007) {#rs2-63}
 
 **Input files:** [rs2_63.xlsx](files/rocscience/rs2_63.xlsx)
 
@@ -2116,7 +2116,7 @@ method disagreement.
 
 ![RS2-63: homogeneous slope (Cheng et al. 2007), SSRM 1.409 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-63.png)
 
-### RS2-64: Slope stability assessment of three homogeneous landslides (Teoman et al. 2004) {#rs2-64}
+### 🔴 RS2-64: Slope stability assessment of three homogeneous landslides (Teoman et al. 2004) {#rs2-64}
 
 **Input files:** locked — [a](files/rocscience/rs2_64a.xlsx) (C1) ·
 [c](files/rocscience/rs2_64c.xlsx) (C3) · [e](files/rocscience/rs2_64e.xlsx) (C5) ·
@@ -2245,7 +2245,7 @@ the figures draw removes those skins without closing the gap.
 
 ![RS2-64: Ankara E90 landslides (Teoman et al. 2004), Case 12 (Slope 3 long-term Failed), constrained SSRM 1.147 vs RS2 SSRM 1.22 — FEM inputs, mesh, maximum shear strain and displacement vectors at the critical SRF, the mechanism confined to the vendor's Mohr-Coulomb corridor with the surrounding zones held linear-elastic](images/RS2-64l-split.png)
 
-### RS2-65: Slope stability assessment of a tailings dam (Tzenkov 2008) {#rs2-65}
+### 🟢 RS2-65: Slope stability assessment of a tailings dam (Tzenkov 2008) {#rs2-65}
 
 **Input files:** [rs2_65.xlsx](files/rocscience/rs2_65.xlsx)
 
@@ -2287,7 +2287,7 @@ rather than a refinement limit.
 
 ![RS2-65: Padina tailings dam (Tzenkov 2008), 8 materials + phreatic surface, SSRM 1.306 at the vendor's own 2.2 m mesh — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-65.png)
 
-### RS2-66: Embankment basal stability (Nakamura et al. 2008) {#rs2-66}
+### 🟢 RS2-66: Embankment basal stability (Nakamura et al. 2008) {#rs2-66}
 
 **Input files:** [rs2_66a.xlsx](files/rocscience/rs2_66a.xlsx) (h₁ = 2 m) ·
 [b](files/rocscience/rs2_66b.xlsx) (4 m) · [c](files/rocscience/rs2_66c.xlsx) (6 m) ·
@@ -2380,7 +2380,7 @@ filtered, they are the same basal squeeze through a thicker band.
 
 ![RS2-66a with the 4 m depth filter: the deep basal mechanism, SSRM 1.169 against RS2 SSR 1.13 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF, the strain filling the fill body and concentrating at both toes where it meets the soft φ = 0 band, and the embankment spreading outward on both sides instead of one face sliding](images/RS2-66a-deep.png)
 
-### RS2-67: Earth dam under steady & transient unsaturated seepage (Huang & Jia 2009) {#rs2-67}
+### 🟢 RS2-67: Earth dam under steady & transient unsaturated seepage (Huang & Jia 2009) {#rs2-67}
 
 **Input files:** [rs2_67a.xlsx](files/rocscience/rs2_67a.xlsx) (Case 1, dry) ·
 [rs2_67b.xlsx](files/rocscience/rs2_67b.xlsx) (Case 2, steady — own-flow) ·
@@ -2485,7 +2485,7 @@ only in the drawdown time, so the remaining four repeat one of these two picture
 
 ![RS2-67 Case 3 upstream: RS2's own imported 90 h drawdown field with strength reduction confined to the vendor's upstream Search Area, SSRM 2.008 against RS2 SSR 2.04 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF, the mechanism on the upstream face instead of the weaker downstream one](images/RS2-67d.png)
 
-### RS2-68: Stability of seismically loaded slopes (Loukidis et al. 2003) {#rs2-68}
+### 🔴 RS2-68: Stability of seismically loaded slopes (Loukidis et al. 2003) {#rs2-68}
 
 **Input files:** [rs2_68a.xlsx](files/rocscience/rs2_68a.xlsx) (Case 1, r<sub>u</sub> = 0.5) ·
 [b](files/rocscience/rs2_68b.xlsx) (Case 2, dry) · [c](files/rocscience/rs2_68c.xlsx) (Case 3, 3-layer)
@@ -2621,7 +2621,7 @@ a Part IV problem shares its geometry with a built Slide2/LEM lock, the same cor
 carries its **own** SSRM run against RS2's published SSRM, since an LEM lock does not stand in
 for the SSRM comparison. These sections carry those SSRM builds on the shared files.
 
-### RS2 Part IV VP2: Homogeneous slope with tension crack (ACADS 1b) {#p4-vp2}
+### 🟢 RS2 Part IV VP2: Homogeneous slope with tension crack (ACADS 1b) {#p4-vp2}
 
 Slide2/LEM counterpart: [VP2](rocscience.md#vp2) (Giam & Donald 1989, ACADS 1(b)). RS2 Part IV
 re-runs this slope by shear-strength reduction (Table 2.2), so the shared file also carries a
@@ -2661,7 +2661,7 @@ engages. Locked at the 1.0 m mesh.
 
 ![RS2 Part IV VP2: ACADS 1(b) homogeneous slope (Giam & Donald 1989), SSRM 1.644 with the vendor's T = 0 crack zone vs RS2 SSRM 1.63 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP2.png)
 
-### RS2 Part IV VP6: Talbingo dam, specified upstream circle (ACADS 2b) {#p4-vp6}
+### 🟢 RS2 Part IV VP6: Talbingo dam, specified upstream circle (ACADS 2b) {#p4-vp6}
 
 Slide2/LEM counterpart: [VP6](rocscience.md#vp6) (ACADS 2(b), Giam & Donald 1989). This is the
 **same four-zone Talbingo dam** as [RS2-4](#rs2-4) (ACADS 2(a)); the two problems differ only in
@@ -2700,7 +2700,7 @@ configuration separately.
 
 ![RS2 Part IV VP6: ACADS 2(b) Talbingo dam (Giam & Donald 1989), constrained SSRM 2.188 vs RS2 SSRM 2.15 — the mechanism confined to RS2's upstream SSR-Search-Area polygon read verbatim from the vendor model; FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP6.png)
 
-### RS2 Part IV VP41: Homogeneous slope, power curve + r<sub>u</sub> (Jiang, Baker & Yamagami 2003) {#p4-vp41}
+### 🟢 RS2 Part IV VP41: Homogeneous slope, power curve + r<sub>u</sub> (Jiang, Baker & Yamagami 2003) {#p4-vp41}
 
 Slide2/LEM counterpart: [VP41](rocscience.md#vp41). RS2 Part IV (Table 41.2) re-runs this slope by
 shear-strength reduction, exercising the FEM's **power-curve strength and r<sub>u</sub> pore pressure
@@ -2725,7 +2725,7 @@ model publishes none for a power-curve material).
 
 ![RS2 Part IV VP41: Jiang/Baker power-curve slope with r<sub>u</sub> = 0.3, SSRM 1.656 vs RS2 SSRM 1.64 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP41.png)
 
-### RS2 Part IV VP57: Layered slope with weak seam, water table (Pockoski & Duncan slope 3) {#p4-vp57}
+### 🟢 RS2 Part IV VP57: Layered slope with weak seam, water table (Pockoski & Duncan slope 3) {#p4-vp57}
 
 Slide2/LEM counterpart: [VP57](rocscience.md#vp57). RS2 Part IV (Table 57.2) re-runs this layered
 slope by shear-strength reduction.
@@ -2757,7 +2757,7 @@ vendor model rather than because it moves the answer. Locked at 3.0 m. ψ = 0.
 
 ![RS2 Part IV VP57: layered slope with weak seam (P&D slope 3), SSRM 1.323 vs RS2 SSRM 1.32 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP57.png)
 
-### RS2 Part IV VP60: Soil-nailed wall (Pockoski & Duncan slope 7) {#p4-vp60}
+### 🟢 RS2 Part IV VP60: Soil-nailed wall (Pockoski & Duncan slope 7) {#p4-vp60}
 
 Slide2/LEM counterpart: [VP60](rocscience.md#vp60). RS2 Part IV re-runs this nailed wall by
 shear-strength reduction.
@@ -2806,7 +2806,7 @@ the crack stays stated the LEM way, through `tcrack_depth`.
 
 ![RS2 Part IV VP60: soil-nailed wall (P&D slope 7), SSRM 1.009 vs RS2 SSRM 0.98 — FEM inputs, mesh with the wall-rooted nails conforming into the 2D mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP60.png)
 
-### RS2 Part IV VP64: USACE end-of-construction dam (Fig 4-1) {#p4-vp64}
+### 🟢 RS2 Part IV VP64: USACE end-of-construction dam (Fig 4-1) {#p4-vp64}
 
 Slide2/LEM counterpart: [VP64](rocscience.md#vp64) (USACE EM 1110-2-1902 Fig 4-1). RS2 Part IV
 publishes an SSRM of **2.37** (Table 64.2; Slide2 Spencer 2.445).
@@ -2851,7 +2851,7 @@ instead, so the crack is carried as geometry rather than as a second material.
 
 ![RS2 Part IV VP64: USACE Fig 4-1 end-of-construction dam, SSRM 2.394 vs RS2 SSRM 2.37 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP64.png)
 
-### RS2 Part IV VP65 / VP66: USACE upstream-pool dams (Fig 4-2, Fig 4-3) {#p4-vp65}
+### ⊘ RS2 Part IV VP65 / VP66: USACE upstream-pool dams (Fig 4-2, Fig 4-3) {#p4-vp65}
 
 <a id="p4-vp66"></a>
 
@@ -2911,7 +2911,7 @@ VP65 it does not.
 
 ![RS2 Part IV VP65: USACE Fig 4-2 dam ponded on the upstream face only, the unconstrained strength reduction failing the upstream slope where RS2's zone-constrained SSRM 2.60 describes the published circle — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP65.png)
 
-### RS2 Part IV VP69: USACE steady-seepage embankment (example F-6) {#p4-vp69}
+### 🟢 RS2 Part IV VP69: USACE steady-seepage embankment (example F-6) {#p4-vp69}
 
 Slide2/LEM counterpart: [VP69](rocscience.md#vp69) (USACE EM 1110-2-1902 example F-6). Own SSRM
 build, with two answers: the model's own global minimum and the vendor's constrained one.
@@ -2961,7 +2961,7 @@ vendor model states the constraint outright, carrying it is the closer reproduct
 
 ![RS2 Part IV VP69: USACE F-6 steady-seepage embankment under RS2's own 38-vertex SSR Search Area, SSRM 1.944 vs RS2 SSR 1.94 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP69.png)
 
-### RS2 Part IV VP67: USACE end-of-construction embankment (example F-5) {#p4-vp67}
+### 🟢 RS2 Part IV VP67: USACE end-of-construction embankment (example F-5) {#p4-vp67}
 
 Slide2/LEM counterpart: [VP67](rocscience.md#vp67) (USACE EM 1110-2-1902 example F-5). This
 problem has two distinct answers, and both are reproduced: the **unconstrained** critical SRF
@@ -3008,7 +3008,7 @@ shear band moves up into the embankment and shallow foundation, the toe-circle f
 
 ![RS2 Part IV VP67c: the same embankment with an SSR Exclusion Area below El. 81, SSRM 1.303 on the toe-circle family matching RS2's constrained SSRM 1.33 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP67c.png)
 
-### RS2 Part IV VP68: Undrained φ = 0 three-layer slope, ponded (USACE E-10) {#p4-vp68}
+### 🟢 RS2 Part IV VP68: Undrained φ = 0 three-layer slope, ponded (USACE E-10) {#p4-vp68}
 
 Slide2/LEM counterpart: [VP68](rocscience.md#vp68) (USACE EM 1110-2-1902 example E-10). RS2 Part IV
 (Table 68.2) re-runs this undrained slope by shear-strength reduction. Built, with two locked
@@ -3071,7 +3071,7 @@ pair, the caps, the tension-SRF flag, and the three ponded-water load segments.
 
 ![RS2 Part IV VP68 with reduction confined to the vendor's 30-vertex SSR Search Area, SSRM 1.203 against RS2 SSRM 1.17 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF, the mechanism moved down onto the base-tangent circle the search area draws](images/RS2-P4-VP68-zone.png)
 
-### RS2 Part IV VP70: Submerged homogeneous slope (Duncan & Wright Fig 6.27) {#p4-vp70}
+### 🟢 RS2 Part IV VP70: Submerged homogeneous slope (Duncan & Wright Fig 6.27) {#p4-vp70}
 
 Slide2/LEM counterpart: [VP70](rocscience.md#vp70). RS2 Part IV (Table 70.2/70.3) re-runs this
 submerged slope by shear-strength reduction. The point of the problem is that the factor of safety is
@@ -3101,7 +3101,7 @@ consistency check the [VP70](rocscience.md#vp70) LEM lock makes. Mesh-stable, an
 
 ![RS2 Part IV VP70: submerged slope (D&W Fig 6.27), SSRM 1.594 vs RS2 SSRM 1.58 — FEM inputs, mesh, max shear strain and displacement vectors at the critical SRF](images/RS2-P4-VP70.png)
 
-### RS2 Part IV VP102: Homogeneous earth dam, dry (Huang & Jia 2008) {#p4-vp102}
+### 🔴 RS2 Part IV VP102: Homogeneous earth dam, dry (Huang & Jia 2008) {#p4-vp102}
 
 Slide2/LEM counterpart: [VP102](rocscience.md#vp102). RS2 Part IV reports an SSRM for the dry dam
 (Table 102.2) and for the *transient* rapid-drawdown series — Table 102.3 for φ<sup>b</sup> = 0° and

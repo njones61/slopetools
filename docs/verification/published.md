@@ -48,7 +48,7 @@ XSLOPE's own with no published counterpart and takes no dot.
 
 ---
 
-## FHWA Example E1 — MSE wall with a broken backslope {#fhwa-e1}
+## 🟢 FHWA Example E1 — MSE wall with a broken backslope {#fhwa-e1}
 
 The FHWA MSE wall manual (Berg et al., 2009) works ten design examples in
 Appendix E of its second volume. Example E1 is a modular-block-faced wall

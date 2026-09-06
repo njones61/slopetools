@@ -30,7 +30,7 @@ The dot scores the **match quality of what is locked**, not how much of a proble
 
 </div>
 
-### Confined Radial Flow {#verification-confined-radial}
+### 🟢 Confined Radial Flow {#verification-confined-radial}
 
 A quarter-annulus confined flow problem: inner arc (r = 10) at head 30, outer arc
 (r = 30) at head 10, straight radial edges as no-flow streamlines. This is best read
@@ -64,7 +64,7 @@ is faceting of the curved arcs by the polygon boundary.
 
 <!-- test: file=../seep/files/xslope_confined_radial.xlsx, type=seep, expected_flowrate=28.596, element_type=tri6, target_size=2.0, tolerance=0.01, benchmark=SEEP-1 -->
 
-### Partially Penetrating Sheetpile {#verification-sheetpile}
+### 🟢 Partially Penetrating Sheetpile {#verification-sheetpile}
 
 A single sheetpile cutoff of depth s = 10 in a homogeneous confined stratum of
 thickness T = 20, head loss H = 10 across the wall, k = 1. The boundary heads
@@ -106,7 +106,7 @@ Princeton University Press.
 
 <!-- test: file=../seep/files/xslope_sheetpile_s50.xlsx, type=seep, expected_flowrate=5.0, element_type=tri6, target_size=1.0, tolerance=0.01, benchmark=SEEP-1c -->
 
-### SEEP2D cross-check — Johnson Reservoir (established code) {#verification-seep2d-johnson}
+### 🟢 SEEP2D cross-check — Johnson Reservoir (established code) {#verification-seep2d-johnson}
 
 Sample write-up: [seepage samples — Johnson Reservoir](../seep/samples.md#johnson-reservoir).
 Input file: [xslope_johnson_res.xlsx](../seep/files/xslope_johnson_res.xlsx).

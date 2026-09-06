@@ -305,7 +305,7 @@ How the manual's problems reach this corpus:
 
 ---
 
-## VP1: Slope, homogeneous (ACADS 1(a)) {#vp1}
+## 🟢 VP1: Slope, homogeneous (ACADS 1(a)) {#vp1}
 
 The headline limit-equilibrium benchmark, from the ACADS slope stability program review
 (Donald & Giam 1989; Giam & Donald 1992) as documented in the
@@ -352,7 +352,7 @@ usual conservative bias on this class of problem.
 
 Also [SLOPE/W §2.1](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP2: Slope, homogenous, tension crack {#vp2}
+## 🟢 VP2: Slope, homogenous, tension crack {#vp2}
 
 ACADS 1(b) (Giam & Donald 1989): the 1(a) slope with c'=32, phi'=10, gamma=20 and a water-filled tension crack of depth 2c/(gamma*sqrt(ka)) [Craig 1997].
 
@@ -372,7 +372,7 @@ ACADS 1(b) (Giam & Donald 1989): the 1(a) slope with c'=32, phi'=10, gamma=20 an
 Also [SLOPE/W §2.2](geostudio.md) — the same problem in the GeoStudio corpus.
 
 
-## VP3: Slope, (3) materials {#vp3}
+## 🟢 VP3: Slope, (3) materials {#vp3}
 
 ACADS 1(c): a non-homogeneous three-layer slope, solved on its critical circle.
 
@@ -390,7 +390,7 @@ ACADS 1(c): a non-homogeneous three-layer slope, solved on its critical circle.
 
 Interface coordinates are read from the labeled GeoStudio verification-manual figure. Also [SLOPE/W §2.3](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP4: Slope, (3) materials, seismic {#vp4}
+## 🟢 VP4: Slope, (3) materials, seismic {#vp4}
 
 ACADS 1(d): the problem #3 slope with a horizontal seismic coefficient of 0.15.
 
@@ -408,7 +408,7 @@ ACADS 1(d): the problem #3 slope with a horizontal seismic coefficient of 0.15.
 
 Also [SLOPE/W §2.4](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP5: Dam, (4) materials {#vp5}
+## 🟢 VP5: Dam, (4) materials {#vp5}
 
 ACADS 2(a) (Giam & Donald 1989): Talbingo Dam at end of construction, 4 zones, solved on its critical circular surface. The minimum is a shallow slide parallel to the (steeper) upstream face.
 
@@ -428,7 +428,7 @@ ACADS 2(a) (Giam & Donald 1989): Talbingo Dam at end of construction, 4 zones, s
 
 The section is entered as polygon material zones. Also [SLOPE/W §2.5](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP6: Dam, (4) materials, predefined slip surface {#vp6}
+## 🟢 VP6: Dam, (4) materials, predefined slip surface {#vp6}
 
 ACADS 2(b): Talbingo Dam on the single specified circle Xc=100.3, Yc=291.0, R=278.8 (Table 6.1).
 
@@ -446,7 +446,7 @@ ACADS 2(b): Talbingo Dam on the single specified circle Xc=100.3, Yc=291.0, R=27
 
 Also [SLOPE/W §2.6](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP8: Slope, (2) materials, weak layer, predefined slip surface {#vp8}
+## 🟢 VP8: Slope, (2) materials, weak layer, predefined slip surface {#vp8}
 
 ACADS 3(b): the weak-layer slope (= LEM sample 13 / Slide #7) evaluated on the fully specified non-circular surface of Table 8.2.
 
@@ -464,7 +464,7 @@ ACADS 3(b): the weak-layer slope (= LEM sample 13 / Slide #7) evaluated on the f
 
 Table 8.2's specified surface is a 4-point polyline. Also [SLOPE/W §2.8](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP9: Slope, (2) materials, weak layer, water table, distributed load {#vp9}
+## 🟢 VP9: Slope, (2) materials, weak layer, water table, distributed load {#vp9}
 
 ACADS 4 (Slide #9): weak-layer slope + piezometric surface (Table 9.3) + two surcharge strips (Table 9.2: 20 kPa on the lower bench x=23-43, 20->40 kPa ramp on the crest x=70-80), solved by non-circular search. The published spread is wide — this is a search-difficulty benchmark.
 
@@ -484,7 +484,7 @@ ACADS 4 (Slide #9): weak-layer slope + piezometric surface (Table 9.3) + two sur
 
 The weak seam is 0.6 m thick and inclined, the piezometric line has 8 points, and the geometry is read from the labeled GeoStudio figure. Also [SLOPE/W §2.9](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP10: Slope, homogenous, pore pressure grid, ponded water {#vp10}
+## 🟢 VP10: Slope, homogenous, pore pressure grid, ponded water {#vp10}
 
 **Input files:** [vp010.xlsx](files/rocscience/vp010.xlsx) (+ seepage sidecars)
 
@@ -505,7 +505,7 @@ net within about 0.1 m across the section.
 
 ![vp010: inputs and representative solution](images/vp010.png)
 
-## VP11: Saint-Alban test embankment — measured pore-pressure grid {#vp11}
+## ⊘ VP11: Saint-Alban test embankment — measured pore-pressure grid {#vp11}
 
 Slide #11 is the Saint-Alban test embankment (Pilot et al. 1982), a two-material
 section built on soft clay and loaded until it failed. The manual supplies its pore
@@ -520,7 +520,7 @@ model behind it, and carries no pore-pressure-grid input. There is therefore no 
 numeric target here and no factor of safety to lock. The same reasoning applies to
 [VP12](#vp12) and [VP13](#vp13); every other water problem in this corpus is built.
 
-## VP12: Lanester test embankment — measured pore-pressure grid {#vp12}
+## ⊘ VP12: Lanester test embankment — measured pore-pressure grid {#vp12}
 
 Slide #12 is the Lanester test embankment: four materials, a tension crack, and the same class
 of input as [VP11](#vp11) — a printed 22-point pore-pressure grid recording measured
@@ -528,14 +528,14 @@ loading-induced pressure rather than a flow field. No factor of safety is locked
 
 Also [SLOPE/W §2.10](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP13: Cubzac-les-Ponts test embankment — measured pore-pressure grid {#vp13}
+## ⊘ VP13: Cubzac-les-Ponts test embankment — measured pore-pressure grid {#vp13}
 
 Slide #13 is the Cubzac-les-Ponts test embankment, three materials on a soft foundation, in the
 same position as [VP11](#vp11) and [VP12](#vp12): the manual's pore pressures are measured
 construction-induced values interpolated from the source's isobars, not a solved flow field, so
 no factor of safety is locked.
 
-## VP14: Slope, homogeneous (Arai & Tagyo ex. 1) {#vp14}
+## 🟢 VP14: Slope, homogeneous (Arai & Tagyo ex. 1) {#vp14}
 
 From [Arai & Tagyo (1985)](https://doi.org/10.3208/sandf1972.25.43), *Soils
 and Foundations* 25(1), and republished by Greco (1996), Malkawi et al.
@@ -576,7 +576,7 @@ are tabulated at [SLOPE/W §2.11](geostudio.md#gs-2-11).
 
 Also [SLOPE/W §2.11](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP15: Slope, (3) materials, weak layer {#vp15}
+## 🟢 VP15: Slope, (3) materials, weak layer {#vp15}
 
 Slide #15: Arai & Tagyo (1985) example 2 — three layers with a weak (c=9.8, phi=5) middle band and no water, solved by circular search. Slide2's values come from its auto-refine search.
 
@@ -597,7 +597,7 @@ is the attribution this page has always carried and is not independently confirm
 ![vp015: inputs and representative solution](images/vp015.png)
 
 
-## VP16: Slope, homogenous, water table {#vp16}
+## 🟢 VP16: Slope, homogenous, water table {#vp16}
 
 Slide #16: Arai & Tagyo (1985) example 3 — a homogeneous slope with a water table, solved by circular search (Slide2 runs it with auto refine).
 
@@ -617,7 +617,7 @@ Slide #16: Arai & Tagyo (1985) example 3 — a homogeneous slope with a water ta
 
 Also [SLOPE/W §2.12](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP17: Slope, homogenous {#vp17}
+## 🟢 VP17: Slope, homogenous {#vp17}
 
 Slide #17: the Yamagami & Ueta (1988) homogeneous dry slope, solved by circular search.
 
@@ -635,7 +635,7 @@ plateaus above every published optimized surface, as at [VP19](#vp19)/[VP20](#vp
 
 ![vp017: inputs and representative solution](images/vp017.png)
 
-## VP18: Slope, homogenous slope, ru pore pressure {#vp18}
+## 🟢 VP18: Slope, homogenous slope, ru pore pressure {#vp18}
 
 Slide #18: Spencer (1969) / Baker (1980) homogeneous slope with ru=0.5, non-circular critical surface. The slope descends left-to-right (a right-facing case). Slide2 solves it with a random search plus Monte-Carlo optimization.
 
@@ -648,7 +648,7 @@ Slide #18: Spencer (1969) / Baker (1980) homogeneous slope with ru=0.5, non-circ
 
 ![vp018: inputs and representative solution](images/vp018.png)
 
-## VP19: Slope, (4) materials {#vp19}
+## 🟢 VP19: Slope, (4) materials {#vp19}
 
 Slide #19: Greco (1996) ex. 4 / Yamagami & Ueta (1988) four-layer slope, no water, non-circular critical surface. Slide2 solves it with a random search plus Monte-Carlo optimization, restricted to convex surfaces.
 
@@ -665,7 +665,7 @@ Slide #19: Greco (1996) ex. 4 / Yamagami & Ueta (1988) four-layer slope, no wate
 
 Also [SLOPE/W §2.13](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP20: Slope, (4) materials, weak layer, water table {#vp20}
+## 🟢 VP20: Slope, (4) materials, weak layer, water table {#vp20}
 
 Slide #20: Greco (1996) ex. 5 / Chen & Shao (1988): four layers with a 0.5 m weak seam along the inclined model base, water table. Polygon-zone geometry (the base is not horizontal). Slide2 runs the problem twice — a circular toe-focus grid search, and a non-circular block search in the seam with Monte-Carlo optimization.
 
@@ -688,7 +688,7 @@ Slide #20: Greco (1996) ex. 5 / Chen & Shao (1988): four layers with a 0.5 m wea
 
 Also [SLOPE/W §2.14](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP21: Slope, homogeneous, r<sub>u</sub> pore pressure (Fredlund & Krahn 1977) {#vp21}
+## 🟢 VP21: Slope, homogeneous, r<sub>u</sub> pore pressure (Fredlund & Krahn 1977) {#vp21}
 
 Slide #21: Fredlund & Krahn (1977)'s classic homogeneous slope — the reference
 problem that [VP22](#vp22) extends with a weak seam. A single fixed circle,
@@ -725,7 +725,7 @@ Slide reads several points off it; the rigorous methods agree with both sources 
 ![vp021b: inputs and representative solution](images/vp021b.png)
 ![vp021c: inputs and representative solution](images/vp021c.png)
 
-## VP22: Slope, (2) materials, weak layer, composite surface {#vp22}
+## 🟢 VP22: Slope, (2) materials, weak layer, composite surface {#vp22}
 
 Slide #22: the Fredlund & Krahn (1977) slope of #21 with a 1-ft weak seam (c'=0, φ'=10°) between el. 16 and the impenetrable base at el. 15. This is the corpus's **composite-surface** benchmark. F&K's circle — center (120, 90), R = 80 — bottoms out at el. 10, five feet *below* the base, so it cannot be used as a circle at all: the slip surface descends on the arc until it meets the base, runs horizontally along the weak seam, and climbs back out on the arc. Here 30 of the 59 slices sit on the seam.
 
@@ -745,7 +745,7 @@ Two cases: dry, and r<sub>u</sub> = 0.25 in both materials.
 ![vp022a: inputs and representative solution](images/vp022a.png)
 ![vp022b: inputs and representative solution](images/vp022b.png)
 
-## VP23: Slope, (3) materials {#vp23}
+## 🟢 VP23: Slope, (3) materials {#vp23}
 
 Slide #23 / Low (1989): a stiff upper slope (c = 95 kPa, φ = 15°) standing on two
 soft undrained clays, γ = 20 kN/m³ throughout — the middle layer a constant
@@ -768,7 +768,7 @@ outlier is Slide's own Bishop, 1.192 against the Low 1.14 its manual cites (+4.6
 
 ![vp023: inputs and representative solution](images/vp023.png)
 
-## VP24: Slope, (3) materials {#vp24}
+## 🟢 VP24: Slope, (3) materials {#vp24}
 
 Slide #24 / Low (1989), the companion example to [#23](#vp23): a three-layer
 undrained slope, φ = 0 and γ = 18 kN/m³ throughout, with cu = 30 kPa in the
@@ -788,7 +788,7 @@ y = 7.5, slope break x = 33.5).*
 
 ![vp024: inputs and representative solution](images/vp024.png)
 
-## VP25: Prandtl bearing mechanism on a 60° slope (Chen & Shao 1988) {#vp25}
+## 🟢 VP25: Prandtl bearing mechanism on a 60° slope (Chen & Shao 1988) {#vp25}
 
 Slide #25 / Chen & Shao (1988): the classical plasticity problem — a weightless, frictionless 10-m slope at 60° (c = 49 kPa, γ = 10⁻⁶) loaded by the critical strip load q = 149.31 kPa over 10 m of crest, evaluated on the Prandtl slip surface (theoretical FS = 1.0). The surface is built analytically: a 45° active wedge from the load's right edge, a circular fan of radius 10/√2 centered on the load's left edge (tangent to both straight segments), and an exit through the face at Slide's printed endpoint (0.773, 1.340).
 
@@ -802,7 +802,7 @@ Slide #25 / Chen & Shao (1988): the classical plasticity problem — a weightles
 
 Also [SLOPE/W §2.15](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP26: Prandtl bearing mechanism on level ground {#vp26}
+## 🟢 VP26: Prandtl bearing mechanism on level ground {#vp26}
 
 Slide #26: the classical Prandtl footing problem — a weightless c = 20 soil (γ = 10⁻⁶,
 φ = 0) on **level ground**, loaded by a strip UDL of **102.83** over the crest. That load
@@ -829,7 +829,7 @@ strength-reduction rendition of the same problem (RS2-21) converges on the theor
 the continuum side. Also [SLOPE/W §2.16](geostudio.md) — the same Prandtl problem in the
 GeoStudio corpus.
 
-## VP27: XSTABL slope with undulating bedrock and auto-Hu pore pressures {#vp27}
+## 🟢 VP27: XSTABL slope with undulating bedrock and auto-Hu pore pressures {#vp27}
 
 Slide #27 / XSTABL v5 reference manual (Sharma 1996), via Malkawi et al. (2001): a two-material slope over undulating bedrock, a zero-strength cap layer and a water table, with soil 1 carrying distinct moist/saturated unit weights (116.4/124.2 pcf). Slide and XSTABL both apply the phreatic-inclination correction, which XSLOPE selects with the piezometric-line **Type** flag (`piezo` | `phreatic`). Evaluated on the specified circle (59.52, 219.21, R=157.68); every geometry vertex is labeled in Slide's figure and the water table was pixel-traced to ±2 ft.
 
@@ -848,7 +848,7 @@ Slide #27 / XSTABL v5 reference manual (Sharma 1996), via Malkawi et al. (2001):
 
 ![vp027: inputs and representative solution](images/vp027.png)
 
-## VP28: Excavated slope and embankment, probabilistic analysis {#vp28}
+## 🟢 VP28: Excavated slope and embankment, probabilistic analysis {#vp28}
 
 **Input files:** [vp028a.xlsx](files/rocscience/vp028a.xlsx) (Congress St. Cut, shallow
 mode) · [vp028b.xlsx](files/rocscience/vp028b.xlsx) (embankment, interface mode) ·
@@ -893,7 +893,7 @@ lands on SLOPE/W's Monte Carlo.
 ![vp028b: inputs and representative solution](images/vp028b.png)
 ![vp028c: inputs and representative solution](images/vp028c.png)
 
-## VP29: Duncan's LASH terminal — TSPM reliability vs Monte Carlo {#vp29}
+## 🟢 VP29: Duncan's LASH terminal — TSPM reliability vs Monte Carlo {#vp29}
 
 **Input files:** [vp029.xlsx](files/rocscience/vp029.xlsx)
 
@@ -925,7 +925,7 @@ analyses by the same author differ by more than TSPM differs from Monte Carlo, s
 
 ![vp029: inputs and representative solution](images/vp029.png)
 
-## VP30: Reinforced embankment, (4) materials, tension crack, geosynthetic {#vp30}
+## 🟢 VP30: Reinforced embankment, (4) materials, tension crack, geosynthetic {#vp30}
 
 **Input files:** [vp030a.xlsx](files/rocscience/vp030a.xlsx) (circle A) ·
 [vp030b.xlsx](files/rocscience/vp030b.xlsx) (circle B)
@@ -984,7 +984,7 @@ half-sine interslice function converges with all base normals positive within 0.
 **Sources:** Slide Slope Stability Verification Manual §30; Borges & Cardoso (2002),
 *Geotextiles and Geomembranes* 20(6), 395–421.
 
-## VP32: Reinforced embankment, (7) materials, geosynthetic {#vp32}
+## 🟢 VP32: Reinforced embankment, (7) materials, geosynthetic {#vp32}
 
 **Input files:** [vp032a.xlsx](files/rocscience/vp032a.xlsx) (case 1, circle A) ·
 [vp032b.xlsx](files/rocscience/vp032b.xlsx) (case 1, circle B) ·
@@ -1007,7 +1007,7 @@ which print every vertex, the clay layer boundaries, and the three published cir
 
 ![vp032c: inputs and representative solution](images/vp032c.png)
 
-## VP33: Dike, (5) materials, probabilistic analysis, water table {#vp33}
+## 🟢 VP33: Dike, (5) materials, probabilistic analysis, water table {#vp33}
 
 **Input files:** [vp033.xlsx](files/rocscience/vp033.xlsx)
 
@@ -1038,7 +1038,7 @@ treatment, not the estimator.*
 
 Also [SLOPE/W §2.20](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP34: Dam, (3) materials, probabilistic analysis, water table {#vp34}
+## 🟢 VP34: Dam, (3) materials, probabilistic analysis, water table {#vp34}
 
 **Input files:** [vp034.xlsx](files/rocscience/vp034.xlsx)
 
@@ -1075,7 +1075,7 @@ factor of safety is the locked benchmark.*
 
 Also [SLOPE/W §2.21](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP35: Dam, (5) materials, probabilistic analysis, reliability index {#vp35}
+## 🟢 VP35: Dam, (5) materials, probabilistic analysis, reliability index {#vp35}
 
 **Input files:** [vp035.xlsx](files/rocscience/vp035.xlsx)
 
@@ -1113,7 +1113,7 @@ anisotropic enough to move the sliding weight substantially.
 
 Also [SLOPE/W §2.22](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP36: Slope, homogenous, probabilistic analysis, ru pore pressure, reliability index {#vp36}
+## 🟢 VP36: Slope, homogenous, probabilistic analysis, ru pore pressure, reliability index {#vp36}
 
 Slide #36: Li & Lumb (1987) / Hassan & Wolff (1999) reliability benchmark: c'=18+-3.6, phi'=30+-3, gamma=18+-0.9, ru=0.2 (+-0.02, not perturbed by xslope's Taylor-series reliability - its contribution to sigma_F is small). The comparison is the deterministic Bishop factor of safety and the lognormal reliability index beta on that same surface, against Hassan & Wolff's published pair and Slide's; both are tabulated below.
 
@@ -1130,7 +1130,7 @@ Slide #36: Li & Lumb (1987) / Hassan & Wolff (1999) reliability benchmark: c'=18
 
 Also [SLOPE/W §2.23](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP37: Cohesionless slope, crest surcharge, back-analysis of required support force {#vp37}
+## 🟢 VP37: Cohesionless slope, crest surcharge, back-analysis of required support force {#vp37}
 
 Slide #37 reproduces the "Reinforcement Example" of the XSTABL v5 reference manual (Sharma 1996 §3.8, after Koerner 1991): a 12 m high, 45° cohesionless slope (φ = 36°, γ = 20 kN/m³, c = 0, from XSTABL's Fig. 3.15) under a 40 kN/m² crest surcharge, with geometry from Slide's coordinate-labeled Fig. 37.1.
 
@@ -1154,7 +1154,7 @@ The published forces come from XSTABL's support-force procedure, which sizes the
 
 ![vp037: inputs and representative solution](images/vp037.png)
 
-## VP38: Excavated slope, FE groundwater seepage, matric suction {#vp38}
+## 🟢 VP38: Excavated slope, FE groundwater seepage, matric suction {#vp38}
 
 Slide #38 reproduces Ng & Shi (1998), a 28° cut slope in Hong Kong: a homogeneous soil (24 m over a 6 m bedrock band) whose steady groundwater regime leaves the upper part of the cut **unsaturated**, so the negative pore water pressure there raises the shear strength. The stability is a conventional Bishop analysis on the FE seepage field, with the strength above the water table given by the extended (Fredlund) Mohr-Coulomb criterion:
 
@@ -1184,7 +1184,7 @@ XSLOPE reproduces Slide's Bishop values within 0.6% and Ng & Shi's own published
 
 ![vp038c (H = 63 m): inputs and solution](images/vp038c.png)
 
-## VP39: Reinforced embankment, (2) materials, tension crack, geosynthetic {#vp39}
+## 🟢 VP39: Reinforced embankment, (2) materials, tension crack, geosynthetic {#vp39}
 
 **Input files:** [vp039a.xlsx](files/rocscience/vp039a.xlsx) (clay fill, unreinforced) ·
 [vp039b.xlsx](files/rocscience/vp039b.xlsx) (clay, T=169) ·
@@ -1221,7 +1221,7 @@ evaluation needs the reinforcement generalization noted for VP30.
 
 Also [SLOPE/W §2.24](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP40: Slope, homogenous, sensitivity analysis {#vp40}
+## 🟢 VP40: Slope, homogenous, sensitivity analysis {#vp40}
 
 **Input files:** [vp040.xlsx](files/rocscience/vp040.xlsx)
 
@@ -1249,7 +1249,7 @@ the uncorrected one.
 
 ![vp040: FS vs A and b, the published sensitivity study](images/vp040_sens.png)
 
-## VP41: Slope, homogenous, ru pore pressure {#vp41}
+## 🟢 VP41: Slope, homogenous, ru pore pressure {#vp41}
 
 Slide #41: Jiang, Baker & Yamagami (2003) homogeneous clay slope with power-curve strength tau = 1.4*(sigma')^0.8 and ru = 0.3 — exercises the v12 pow option and ru together.
 
@@ -1263,7 +1263,7 @@ Slide #41: Jiang, Baker & Yamagami (2003) homogeneous clay slope with power-curv
 
 ![vp041: inputs and representative solution](images/vp041.png)
 
-## VP42: Baker & Leshchinsky safety-map dam — reservoir-loaded clay-core dam {#vp42}
+## 🟢 VP42: Baker & Leshchinsky safety-map dam — reservoir-loaded clay-core dam {#vp42}
 
 Slide #42 / Baker & Leshchinsky (2001): the safety-map clay-core dam — granular fill (c' = 0, φ' = 40°, γ = 21.5) around a diamond core (c' = 20, φ' = 20°, γ = 20) on a hard base (c' = 200, φ' = 45°), a half-full upstream reservoir, a phreatic dropping through the core and daylighting at the downstream toe, and a 5-m cracked crest layer modeled as a dry tension crack. Geometry is fully labeled in Slide's figure, and the section is tiled as material-zone polygons matching the SLOPE/W `.gsz` region set ([§2.25](geostudio.md#gs-2-25)). The phreatic's downstream limb is the vendor polyline both source models carry, exiting at elevation 0 on the ground surface, so there is no tailwater.
 
@@ -1282,7 +1282,7 @@ The stored-circle result is regression-locked as **VP42-circle** (OMS 1.773, Bis
 
 ![vp042: inputs and representative solution](images/vp042.png)
 
-## VP43: Slope, homogeneous — planar surface (Baker 2001) {#vp43}
+## 🟢 VP43: Slope, homogeneous — planar surface (Baker 2001) {#vp43}
 
 Slide #43 / Baker (2001): the planar-slip-surface benchmark on a homogeneous, dry c′-φ′ slope (H = 10 m, c′ = 30 kPa, φ′ = 30°, γ = 20 kN/m³), with the factor of safety evaluated on planes through the toe as a function of where the plane daylights on the backslope. Baker's critical plane sits at X = x/H = 0.85.
 
@@ -1302,7 +1302,7 @@ Every method that applies to a non-circular surface reads 1.352 on the plane, ag
 
 **Sources:** Slide Slope Stability Verification Manual §43; GeoStudio SLOPE/W Verification Manual §2.26; Baker (2001); Baker & Leshchinsky (2001).
 
-## VP44: Slope, homogeneous — linear vs non-linear envelope (Baker ex. 1) {#vp44}
+## 🟢 VP44: Slope, homogeneous — linear vs non-linear envelope (Baker ex. 1) {#vp44}
 
 Slide #44 / Baker (2003) example problem 1: a straight 43° slope, H = 6 m, γ = 18 kN/m³, in compacted Israeli clays, analyzed with three strength models fitted to the same triaxial data — the power curve τ = 1.107·σ′^0.86, the experimentally fitted Mohr-Coulomb envelope c′ = 11.64 kPa / φ′ = 24.7° (Baker's Table I, iteration 0, which resolves the property-table ambiguity in the Slide manual), and Baker's converged local-linear-approximation parameters c′ = 0.39 kPa / φ′ = 38.6°. The example is about extrapolating a linear envelope into the low-stress range: the Mohr-Coulomb fit says the slope is safe, the non-linear law says it is failing.
 
@@ -1322,7 +1322,7 @@ Slide #44 / Baker (2003) example problem 1: a straight 43° slope, H = 6 m, γ =
 
 ![vp044c: inputs and representative solution](images/vp044c.png)
 
-## VP45: Slope, homogenous {#vp45}
+## 🟢 VP45: Slope, homogenous {#vp45}
 
 Slide #45 runs one 4:1 slope through two strength models. Mohr-Coulomb case:
 c'=11.64, phi'=24.7, gamma=18. Power-curve case: tau = 1.107*(sigma')^0.86 (Baker's
@@ -1350,7 +1350,7 @@ A=0.58, n=0.86, T=0).
 
 ![vp045b: inputs and representative solution](images/vp045b.png)
 
-## VP46: Baker (1993) three-stage dam — stages 1-2 built {#vp46}
+## 🟢 VP46: Baker (1993) three-stage dam — stages 1-2 built {#vp46}
 
 Slide #46 / Baker (1993): a three-loading-stage dam — end of construction with an empty reservoir, steady-state seepage with a full reservoir, and rapid drawdown. Stages 1 and 2 are built; stage 3 is not, because its undrained-strength field is printed only as a two-dimensional contour map. A small compacted-clay embankment (crest el 101, toes at x = 80 and x = 128, both el 95) sits on a deep natural-clay foundation; downstream the ground drops on a **4H:1V** face from (128, 95) to the toe bench (148, 90) and runs flat to x = 220. Geometry from Figure 46.1; materials (Table 46.1) compacted clay c′ = 6.5 kPa, φ′ = 40°, γ = 18 and natural clay c′ = 0, φ′ = 32°, γ = 18.
 
@@ -1388,7 +1388,7 @@ Slide's published Spencer 2.534 is a minimum-depth-5 m noncircular random search
 
 Slide's value is itself a manual extraction of the same figure through the `.fn6` strength functions, which ship only with the Slide2 install.
 
-## VP47: Soil-nailed wall in clay (Amherst test wall) {#vp47}
+## 🟢 VP47: Soil-nailed wall in clay (Amherst test wall) {#vp47}
 
 Slide #47 / Sheahan & Ho (2003): 6 m vertical cut in undrained Amherst clay (cᵤ = 25 kPa, γ = 18.9 kN/m³), two nail rows at 20° declination (L = 4.9 m, tensile 118 kN, plate 86 kN, bond 15 kN/m, sₕ = 1.5 m) and the shotcrete facing weight applied as a 14.6 kN/m vertical line load at the crest. The wall failed in the field test; the published analyses sweep planar surfaces through the toe. Nails are modeled axial/passive with the FHWA-style capacity envelope (plate strength at the head, bond-strength taper at the tip).
 
@@ -1404,7 +1404,7 @@ Slide #47 / Sheahan & Ho (2003): 6 m vertical cut in undrained Amherst clay (c�
 
 Also [SLOPE/W §2.27](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP48: Soil-nailed wall in sand (Clouterre test wall no. 1) {#vp48}
+## 🟢 VP48: Soil-nailed wall in sand (Clouterre test wall no. 1) {#vp48}
 
 Slide #48 / Sheahan & Ho (2003): the CEBTP Clouterre full-scale wall — 7 m cut in Fontainebleau sand (c′ = 3 kPa, φ′ = 38°, γ = 20 kN/m³), seven nail rows at 10° declination (lengths 6/8/7.5/8/8/8/6 m from the paper's Fig. 4a, sₕ = 1.15 m), shotcrete weight as a 13.2 kN/m line load. Following Sheahan, each nail carries a constant 15 kN tension (fully anchored ends in xslope). The benchmark evaluates planar surfaces through the toe at 45–70°:
 
@@ -1420,7 +1420,7 @@ Slide #48 / Sheahan & Ho (2003): the CEBTP Clouterre full-scale wall — 7 m cut
 
 Also [SLOPE/W §2.28](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP49: Retaining wall, grouted tiebacks, soldier piles {#vp49}
+## 🟢 VP49: Retaining wall, grouted tiebacks, soldier piles {#vp49}
 
 **Input files:** [vp049.xlsx](files/rocscience/vp049.xlsx)
 
@@ -1444,7 +1444,7 @@ factor-of-safety sensitivity.*
 
 Also [SLOPE/W §2.29](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP50: Reinforced slope, (2) materials, predefined slip surface, geosynthetic {#vp50}
+## 🟢 VP50: Reinforced slope, (2) materials, predefined slip surface, geosynthetic {#vp50}
 
 Slide #50 (SNAILZ reference manual): nail-reinforced wall, 14 horizontal rows with per-row length/capacity/bond strength, evaluated on the printed deep wedge (-15.813,0)-(0,-5)-(41.722,25). Plate strength equals tensile strength, so the wall end is fully anchored (lp1=0); the embedded end tapers at the bond strength (lp2 = T/bond). Active application, imperial units.
 
@@ -1461,7 +1461,7 @@ Slide #50 (SNAILZ reference manual): nail-reinforced wall, 14 horizontal rows wi
 
 Also [SLOPE/W §2.30](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP51: Slope, (4) materials, water table, tension crack, seismic {#vp51}
+## 🟢 VP51: Slope, (4) materials, water table, tension crack, seismic {#vp51}
 
 Slide #51 / GS 2.31: Zhu, Lee & Jiang (2003) four-layer slope, wet, k=0.1, 5 m dry tension crack, specified circle (18.058, 66.744, R=86) read from the printed info box (fig 51.2). Layer-4 properties from the GeoStudio manual (Table 85). The phreatic line is the one element read from the figure trace (anchored at (0,0)-(10,5) on the face, flat ~15.5 at the right); a ±1 m sensitivity bracket moves Bishop by less than 0.01.
 
@@ -1483,7 +1483,7 @@ Slide #51 / GS 2.31: Zhu, Lee & Jiang (2003) four-layer slope, wet, k=0.1, 5 m d
 
 Also [SLOPE/W §2.31](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP52: Slope, (4) materials, water table, tension crack {#vp52}
+## 🟢 VP52: Slope, (4) materials, water table, tension crack {#vp52}
 
 Slide #52, dry and wet (Table 52.2 water table). An unconstrained circular search lands in the
 deep (surface 3) family, where Slide runs a grid search and Zhu a specified deep circle, and the
@@ -1513,7 +1513,7 @@ published values spread widely.
 
 Also [SLOPE/W §2.32](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP53: Priest (1993) rigid block on a plane {#vp53}
+## 🟢 VP53: Priest (1993) rigid block on a plane {#vp53}
 
 Slide #53: Priest's (1993) rigid-block problem, cross-checked by Rocscience against both Slide and RocPlane. A homogeneous slope (c' = 20 kN/m², φ' = 30°, γ = 25 kN/m³) fails on a specified 30° plane from the toe. A 15-m crest tension crack cuts the surface at (25.981, 15) and holds 3.75 m of water (XSLOPE's `tcrack_water`, giving the ½γ<sub>w</sub>d² thrust), and the water table runs flat at el. 18.75 to above the crack, then linearly to the toe, which reproduces Priest's triangular uplift on the plane through the ordinary piezometric-line machinery.
 
@@ -1528,7 +1528,7 @@ Slide #53: Priest's (1993) rigid-block problem, cross-checked by Rocscience agai
 
 ![vp053: inputs and representative solution](images/vp053.png)
 
-## VP54: Slope, homogenous, micro piles {#vp54}
+## 🟢 VP54: Slope, homogenous, micro piles {#vp54}
 
 Slide #54, run twice on the printed critical circle: unreinforced, and with the micro-pile row
 added.
@@ -1555,7 +1555,7 @@ added.
 
 Also [SLOPE/W §2.34](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP55: Pockoski & Duncan test slope 1 {#vp55}
+## 🟢 VP55: Pockoski & Duncan test slope 1 {#vp55}
 
 Slide #55: Pockoski & Duncan (2000) test slope 1 — a homogeneous sandy clay slope (c' = 300 psf, φ' = 30°, γ = 120 pcf), 2:1 face, 50 ft high, with the water table at ground on the lower plateau rising to 10 ft below the crest. P&D used this trio of slopes to compare eight programs; Slide ran an 80×80 grid at tolerance 10⁻⁴. XSLOPE's seed is Slide's printed critical circle (center (24.103, 195.256), R = 100.266), whose endpoints XSLOPE reproduces to 0.01 ft.
 
@@ -1571,7 +1571,7 @@ Slide #55: Pockoski & Duncan (2000) test slope 1 — a homogeneous sandy clay sl
 
 ![vp055: inputs and representative solution](images/vp055.png)
 
-## VP56: Pockoski & Duncan test slope 2 {#vp56}
+## 🟢 VP56: Pockoski & Duncan test slope 2 {#vp56}
 
 Slide #56: P&D test slope 2 — the slope of #55 with a **dry 5.5-ft tension crack**. The crack depth comes straight from Slide's info box: the critical surface's right endpoint sits at el. 144.5 while its slope intercept is 150.0. Seed = Slide's printed critical (center (24.662, 197.656), R = 100.790).
 
@@ -1585,7 +1585,7 @@ Slide #56: P&D test slope 2 — the slope of #55 with a **dry 5.5-ft tension cra
 
 ![vp056: inputs and representative solution](images/vp056.png)
 
-## VP57: Pockoski & Duncan test slope 3 — composite vs. circles-only {#vp57}
+## 🟢 VP57: Pockoski & Duncan test slope 3 — composite vs. circles-only {#vp57}
 
 Slide #57: Pockoski & Duncan (2000) test slope 3 — sandy clay (c' = 300 psf, φ' = 35°, γ = 130 pcf) over a 5-ft highly plastic clay seam (c' = 0, φ' = 25°) on the model base at el. 85, water table at ground on the lower plateau rising to 10 ft below the crest, dry 6-ft tension crack. The manual runs the problem twice, with and without composite surfaces, which makes it an A/B test of XSLOPE's `composite` option against the clamped default: Slide's printed composite critical bottoms below the base, so the surface truncates and rides the weak seam, while its circles-only critical is tangent to the base, exactly what a clamped search must settle for.
 
@@ -1602,7 +1602,7 @@ Slide #57: Pockoski & Duncan (2000) test slope 3 — sandy clay (c' = 300 psf, �
 
 ![vp057: inputs and representative solution](images/vp057.png)
 
-## VP58: Tied-back wall in layered soil {#vp58}
+## 🟢 VP58: Tied-back wall in layered soil {#vp58}
 
 **Input files:** [vp058.xlsx](files/rocscience/vp058.xlsx)
 
@@ -1620,7 +1620,7 @@ critical circle, tangent to the glaciomarine contact.
 
 ![vp058: inputs and representative solution](images/vp058.png)
 
-## VP59: Tieback wall in sand, drawdown water table {#vp59}
+## 🟢 VP59: Tieback wall in sand, drawdown water table {#vp59}
 
 **Input files:** [vp059.xlsx](files/rocscience/vp059.xlsx)
 
@@ -1648,7 +1648,7 @@ is a cross-method bearing.*
 
 ![vp059: inputs and representative solution](images/vp059.png)
 
-## VP60: Soil-nailed wall with tension crack and surcharges {#vp60}
+## 🟢 VP60: Soil-nailed wall with tension crack and surcharges {#vp60}
 
 **Input files:** [vp060.xlsx](files/rocscience/vp060.xlsx)
 
@@ -1674,7 +1674,7 @@ limit-equilibrium codes do among themselves:
 
 ![vp060: inputs and representative solution](images/vp060.png)
 
-## VP61: London clay, linear vs non-linear envelope (Baker ex. 3) {#vp61}
+## 🟢 VP61: London clay, linear vs non-linear envelope (Baker ex. 3) {#vp61}
 
 Slide #61 / Baker (2003) example problem 3: the same 43°, H = 6 m slope as [#44](#vp44), with strength functions fitted to Perry's CD triaxial data on London clay — (a) power curve τ = 3.39344·(σ′+0.152)^0.6 (Baker A = 0.535, n = 0.60, T = 0.0015) and (b) the fitted Mohr-Coulomb envelope c′ = 6.0 kPa, φ′ = 32°. Unlike the compacted-clay data of #44, this data set includes measurements at very low normal stress, so the two envelopes give similar factors of safety.
 
@@ -1691,7 +1691,7 @@ Slide #61 / Baker (2003) example problem 3: the same 43°, H = 6 m slope as [#44
 
 ![vp061b: inputs and representative solution](images/vp061b.png)
 
-## VP62: Slope, homogenous, ru pore pressure, seismic {#vp62}
+## 🟢 VP62: Slope, homogenous, ru pore pressure, seismic {#vp62}
 
 Slide #62, dry at kc = 0.432 and at ru = 0.5 with kc = 0.132. Slide solves both with a circular
 search, Loukidis with a log-spiral mechanism.
@@ -1718,7 +1718,7 @@ search, Loukidis with a log-spiral mechanism.
 
 Also [SLOPE/W §2.38](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP63: Slope, (3) materials, seismic — critical seismic coefficient {#vp63}
+## 🟢 VP63: Slope, (3) materials, seismic — critical seismic coefficient {#vp63}
 
 **Input files:** [vp063.xlsx](files/rocscience/vp063.xlsx)
 
@@ -1741,7 +1741,7 @@ factor-of-safety target here.
 
 ![vp063: inputs and representative solution](images/vp063.png)
 
-## VP64: USACE end-of-construction dam (EM 1110-2-1902 Fig. 4-1) {#vp64}
+## 🟢 VP64: USACE end-of-construction dam (EM 1110-2-1902 Fig. 4-1) {#vp64}
 
 Slide #64 / USACE EM 1110-2-1902 (2003) Figure 4-1: the manual's Spencer hand-verification dam at end-of-construction — a symmetric 50-ft embankment at 4H:1V (undrained c=1000 psf, φ=5°) over a 10-ft sand blanket, foundation clay (c=3000, φ=0) and rock, with an embankment core trench through the sand, groundwater at the sand top, and a 7-ft crest tension crack. Evaluated on the specified circle (center (102,163), tangent to el. 0).
 
@@ -1756,7 +1756,7 @@ Slide #64 / USACE EM 1110-2-1902 (2003) Figure 4-1: the manual's Spencer hand-ve
 
 ![vp064: inputs and representative solution](images/vp064.png)
 
-## VP65: USACE dam, upstream low pool (EM 1110-2-1902 Fig. 4-2) {#vp65}
+## 🟢 VP65: USACE dam, upstream low pool (EM 1110-2-1902 Fig. 4-2) {#vp65}
 
 Slide #65: the [#64](#vp64) dam under steady low-pool conditions — drained strengths (embankment c = 100 psf, φ = 25°; sand 0/35; clay 0/28; rock 0/45, moist/saturated unit-weight splits), pool at el. 20 with the pond load on the submerged upstream face, no tension crack. Evaluated on USACE's printed circle (center (−102, 163), R = 173, tangent to the clay top). This dam is ponded on the upstream face only, and the piezometric line stops short of the downstream face at x = 117.778 as RS2's import of the model does. The printed circle daylights near x = 27, so the truncation does not touch the limit-equilibrium result; it matters to the [SSRM build](rs2.md#p4-vp65), which carries the field everywhere.
 
@@ -1769,7 +1769,7 @@ Slide #65: the [#64](#vp64) dam under steady low-pool conditions — drained str
 
 ![vp065: inputs and representative solution](images/vp065.png)
 
-## VP66: USACE dam, chart-check properties (EM 1110-2-1902 Fig. 4-3) {#vp66}
+## 🟢 VP66: USACE dam, chart-check properties (EM 1110-2-1902 Fig. 4-3) {#vp66}
 
 Slide #66: the [#64](#vp64)/[#65](#vp65) dam family with the manual's chart-check property set (single unit weights: embankment c = 200 psf, φ = 25°, γ = 115; sand 0/35/130; clay 0/27/115), pool at el. 20, evaluated on Slide's printed circle (center (−135, 169), tangent to the sand top). Slide's printed slip endpoints show its model uses a slightly flatter face than its siblings, which is reproduced here. Unlike [#65](#vp65) this dam is ponded on **both** faces — the figure hatches ponded water upstream and downstream alike, and RS2's import carries hydrostatic tractions on both — so the file carries both ponds under a full-width piezometric line at el. 20. The printed circle is upstream, so the downstream pond does not enter the limit-equilibrium result; it is what lets the same file drive the [SSRM build](rs2.md#p4-vp66).
 
@@ -1784,7 +1784,7 @@ Slide #66: the [#64](#vp64)/[#65](#vp65) dam family with the manual's chart-chec
 
 ![vp066: inputs and representative solution](images/vp066.png)
 
-## VP67: USACE end-of-construction embankment (example F-5) {#vp67}
+## 🟢 VP67: USACE end-of-construction embankment (example F-5) {#vp67}
 
 Slide #67 / USACE EM 1110-2-1902 (2003) example F-5: a non-homogeneous embankment (c = 1780 psf, φ = 5°, γ = 135 pcf) on a 100-ft undrained fine-grained foundation (c = 1600 psf, φ = 2°, γ = 127 pcf), analyzed at end of construction. Slide's figure labels every vertex; the circle is centered 259 ft above and 101 ft right of the toe and passes through the toe (R = 278.0).
 
@@ -1798,7 +1798,7 @@ Slide #67 / USACE EM 1110-2-1902 (2003) example F-5: a non-homogeneous embankmen
 
 ![vp067: inputs and representative solution](images/vp067.png)
 
-## VP68: USACE φ=0 slope with ponded water (example E-10) {#vp68}
+## 🟢 VP68: USACE φ=0 slope with ponded water (example E-10) {#vp68}
 
 Slide #68 / USACE EM 1110-2-1902 example E-10: an undrained three-layer slope (c = 600/400/500 psf, γ = 120/100/105 pcf, all φ = 0) with 8 ft of water ponded against it (pool el. 0), fully labeled figure. The specified circle sits 8.4 ft right and 36 ft above the toe and is tangent to the base of soil 3 (center (48.4, 28), R = 48).
 
@@ -1813,7 +1813,7 @@ Slide #68 / USACE EM 1110-2-1902 example E-10: an undrained three-layer slope (c
 
 ![vp068: inputs and representative solution](images/vp068.png)
 
-## VP69: Steady-seepage dam with a piezometric line (USACE example F-6) {#vp69}
+## 🟢 VP69: Steady-seepage dam with a piezometric line (USACE example F-6) {#vp69}
 
 Slide #69 / USACE EM 1110-2-1902 example F-6: a 112-ft embankment (c' = 0, φ' = 34°, γ = 130 pcf) on a granular foundation (c' = 0, φ' = 35°, γ = 125 pcf) under steady seepage. Pore pressures come from the piezometric line, which leaves the pool surface at el. 100, drops to the chimney drain, follows it to the tailwater at el. 22.5 and runs out flat to the downstream face; USACE takes u as the vertical distance to that line, so the `phreatic` flag is off. The tailwater ponds the toe from x = 337.4 rightward. Specified circle: center (269, 248), R = 280, bottoming out on USACE's el. −32 stratum line.
 
@@ -1829,7 +1829,7 @@ Slide #69 / USACE EM 1110-2-1902 example F-6: a 112-ft embankment (c' = 0, φ' =
 
 ![vp069: inputs and representative solution](images/vp069.png)
 
-## VP70: Submerged slope, two pool depths (D&W Fig. 6.27) {#vp70}
+## 🟢 VP70: Submerged slope, two pool depths (D&W Fig. 6.27) {#vp70}
 
 Slide #70 / Duncan & Wright (2005) Fig. 6.27: a fully submerged homogeneous slope (c = 100 psf, φ = 20°, γ = 128 pcf; (0,15)–(30,15)–(105,45)–(140,45)) analyzed with the pool 30 ft and then 60 ft above the crest, to show that the factor of safety is independent of submergence depth because the extra water weight and the extra pore pressure cancel. Pond loads over the whole submerged surface; free circular search.
 
@@ -1845,7 +1845,7 @@ Slide #70 / Duncan & Wright (2005) Fig. 6.27: a fully submerged homogeneous slop
 ![vp070a: inputs and representative solution](images/vp070a.png)
 ![vp070b: inputs and representative solution](images/vp070b.png)
 
-## VP71: FE seepage vs. piezometric line, same slope (D&W Figs. 6.37–6.38) {#vp71}
+## 🟢 VP71: FE seepage vs. piezometric line, same slope (D&W Figs. 6.37–6.38) {#vp71}
 
 Slide #71 / Duncan & Wright (2005) Figs. 6.37 and 6.38: a homogeneous 2H:1V slope (c' = 200 psf, φ' = 20°, γ = 125 pcf; ground (0,40)–(120,40)–(200,80)–(440,80) over a base at el. 0) with water standing at el. 40 on the toe side and el. 75 behind the crest. The point of the example is that the same slope is solved two ways — pore pressures from a finite-element seepage analysis, and pore pressures from a piezometric line — and the two must agree.
 
@@ -1863,7 +1863,7 @@ Case 1 runs XSLOPE's own FE seepage solver (specified heads of 40 and 75 on the 
 ![vp071a: inputs and representative solution](images/vp071a.png)
 ![vp071b: inputs and representative solution](images/vp071b.png)
 
-## VP72: Dam on a layered foundation — underseepage and artesian uplift (D&W Fig. 6.39) {#vp72}
+## 🟢 VP72: Dam on a layered foundation — underseepage and artesian uplift (D&W Fig. 6.39) {#vp72}
 
 Slide #72 / Duncan & Wright (2005) Figs. 6.39–6.40: a symmetric embankment dam (3:1 shell faces, 90 ft high, narrow 0.5H:1V clay core) on a **layered foundation** — 30 ft of clay over 15 ft of much more permeable sand — with pond at el. 302 and tailwater at the downstream ground. Elevations, slopes and properties come from D&W's figure, x-coordinates from vertex extraction of Slide's Figure 72.1. The example exists for the underseepage: flow through the sand pushes upward beneath the downstream shell, which a single piezometric line cannot represent, and D&W's FS with FE pore pressures is 14–19% lower than with the piezo line. One modeling detail matters enormously — Slide's boundary-condition markers show no-flow vertical edges, so the heads sit on the ground surface only and all underseepage is forced up through the clay. Giving the sand a fixed-head exit at the model edge instead guts the artesian pressures and reads ~13% high; with the correct conditions XSLOPE's field puts u at the toe 40% above hydrostatic, and 65% at 5 ft depth.
 
@@ -1890,7 +1890,7 @@ The piezometric-line case for comparison (Slide's line from Figure 72.2, with it
 
 ![vp072b: inputs and representative solution](images/vp072b.png)
 
-## VP73: The Bradwell excavated slope (Skempton & LaRochelle 1965) {#vp73}
+## 🟢 VP73: The Bradwell excavated slope (Skempton & LaRochelle 1965) {#vp73}
 
 Slide #73 / Duncan & Wright (2005): the excavated slope for reactor 1 at Bradwell — one of the classic case histories of short-term failure in stiff-fissured clay. The lower excavation is cut at ½:1 in London Clay; the overlying Marsh Clay and the clay fill (spoil, placed back on the Marsh Clay) are both at 1:1. The fill is cracked to its full depth (11.4 ft).
 
@@ -1908,7 +1908,7 @@ London Clay is stratified into six sublayers, each with an undrained strength th
 
 ![vp073: inputs and representative solution](images/vp073.png)
 
-## VP74: Sand embankment on saturated clay (D&W Fig. 7.12) {#vp74}
+## 🟢 VP74: Sand embankment on saturated clay (D&W Fig. 7.12) {#vp74}
 
 Slide #74 / Duncan & Wright (2005) Fig. 7.12: a 100-ft cohesionless embankment (c=0, φ=40°, γ=140 pcf) on a 50-ft saturated clay foundation (c=2500 psf, φ=0); fully labeled figure, imperial units, dry. Free circular search.
 
@@ -1922,7 +1922,7 @@ Slide #74 / Duncan & Wright (2005) Fig. 7.12: a 100-ft cohesionless embankment (
 
 ![vp074: inputs and representative solution](images/vp074.png)
 
-## VP75: The James Bay dyke (D&W Fig. 7.16) {#vp75}
+## 🟢 VP75: The James Bay dyke (D&W Fig. 7.16) {#vp75}
 
 Slide #75 / Duncan & Wright (2005) Fig. 7.16: one of the planned James Bay dykes — a granular fill embankment with a wide berm (ground (−17,31)–(40,31)–(58,25)–(114,25)–(132,19)–(168,19), metric) resting on three soft clay units: a 4 m crust (c = 41 kN/m²), 8 m of marine clay (34.5) and 7 m of lacustrine clay (31.2), all φ = 0. Fill c' = 0, φ' = 30°. Free circular search.
 
@@ -1939,7 +1939,7 @@ Slide #75 / Duncan & Wright (2005) Fig. 7.16: one of the planned James Bay dykes
 
 Also [SLOPE/W §2.44](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP76: Homogeneous dam, FE seepage vs. piezometric line (D&W Fig. 7.19) {#vp76}
+## 🟢 VP76: Homogeneous dam, FE seepage vs. piezometric line (D&W Fig. 7.19) {#vp76}
 
 Slide #76 / Duncan & Wright (2005) Fig. 7.19: a homogeneous earth embankment (c' = 100 psf, φ' = 30°, γ = 100 pcf) on an impermeable foundation, ground (0,0)–(100,40)–(120,48)–(135,48)–(255,0), with the pool at el. 40 covering the entire upstream face. As in VP71, pore pressures are modeled two ways — an FE seepage analysis and a piezometric line — and the critical circle is found by free search.
 
@@ -1955,7 +1955,7 @@ Slide #76 / Duncan & Wright (2005) Fig. 7.19: a homogeneous earth embankment (c'
 ![vp076a: inputs and representative solution](images/vp076a.png)
 ![vp076b: inputs and representative solution](images/vp076b.png)
 
-## VP77: Thick-core dam, FE seepage vs. piezometric line (D&W Fig. 7.24) {#vp77}
+## 🟢 VP77: Thick-core dam, FE seepage vs. piezometric line (D&W Fig. 7.24) {#vp77}
 
 Slide #77 / Duncan & Wright (2005) Fig. 7.24: a symmetric earth dam with a thick clay core on an impervious foundation, pond at el. 315. Geometry comes from D&W's coordinate-labeled figure — shell faces 2.75:1 to an 80-ft crest at el. 338, the core a trapezoid with 1.5:1 faces and a 50-ft top at el. 328. Core c' = 0, φ' = 20°, γ = 120 pcf, k = 10⁻⁵ ft/min; shell c' = 0, φ' = 38°, γ = 140 pcf, k = 10⁻³, a 100:1 contrast. Both zones are cohesionless, so the benchmark targets the deep circle tangent to the base at el. 127, where both of Slide's printed criticals bottom out.
 
@@ -1975,7 +1975,7 @@ Like VP71 and VP76, pore pressures are modeled two ways: XSLOPE's own FE seepage
 ![vp077a: inputs and representative solution](images/vp077a.png)
 ![vp077b: inputs and representative solution](images/vp077b.png)
 
-## VP78: Pure cohesive slope on a foundation (D&W Fig. 14.3) {#vp78}
+## 🟢 VP78: Pure cohesive slope on a foundation (D&W Fig. 14.3) {#vp78}
 
 Slide #78 / Duncan & Wright (2005) Fig. 14.3: c = 1000 psf, φ = 0, γ = 100 pcf; a 50-ft slope at 1V:0.8H over a 30-ft foundation ((0,30)–(90,30)–(130,80)–(240,80), base at y = 0, all vertices labeled in Slide's figure). For φ = 0 the critical circle is the deep, base-tangent one, which the free search finds directly.
 
@@ -1990,7 +1990,7 @@ Slide #78 / Duncan & Wright (2005) Fig. 14.3: c = 1000 psf, φ = 0, γ = 100 pcf
 
 ![vp078: inputs and representative solution](images/vp078.png)
 
-## VP79: Cohesionless embankment on a φ=0 foundation (D&W Fig. 14.4) {#vp79}
+## 🟢 VP79: Cohesionless embankment on a φ=0 foundation (D&W Fig. 14.4) {#vp79}
 
 Slide #79 / Duncan & Wright (2005) Fig. 14.4: a c=0, φ=30°, γ=120 pcf embankment (15 ft high at ~21.5°) over a 20-ft φ=0 foundation with c=450 psf; geometry fully labeled in Slide's figure ((0,20)–(40,20)–(78,35)–(130,35), base y=0). The critical mechanism is the deep circle tangent to the base; the shallow infinite-slope mechanism does not govern.
 
@@ -2003,7 +2003,7 @@ Slide #79 / Duncan & Wright (2005) Fig. 14.4: a c=0, φ=30°, γ=120 pcf embankm
 
 ![vp079: inputs and representative solution](images/vp079.png)
 
-## VP80: Embankment on a stratified foundation (D&W Fig. 14.5) {#vp80}
+## 🟢 VP80: Embankment on a stratified foundation (D&W Fig. 14.5) {#vp80}
 
 Slide #80 / Duncan & Wright (2005) Fig. 14.5: an embankment (c=1 psf, φ=35°, γ=120 pcf) over five alternating φ=0 clay and c≈0 sand layers (fully labeled figure, imperial units). Two circles from the published center (142, 147): tangent to the foundation top (R=87) and tangent to the 15-ft-depth line (R=102) — the deeper circle drops FS from ~2.5 to ~1.35 as it engages the 500-psf clay.
 
@@ -2018,7 +2018,7 @@ Slide #80 / Duncan & Wright (2005) Fig. 14.5: an embankment (c=1 psf, φ=35°, �
 
 ![vp080b: inputs and representative solution](images/vp080b.png)
 
-## VP81: Embankment on a φ=0 foundation (D&W Fig. 14.7) {#vp81}
+## 🟢 VP81: Embankment on a φ=0 foundation (D&W Fig. 14.7) {#vp81}
 
 Slide #81 / Duncan & Wright (2005) Fig. 14.7: a c=0, φ=30°, γ=124 pcf embankment (19 ft at ~26.6°) over a 15-ft φ=0 foundation with c=500 psf, γ=98 pcf; geometry fully labeled in Slide's figure ((0,15)–(35,15)–(73,34)–(128,34), base y=0). The deep base-tangent circle governs.
 
@@ -2031,7 +2031,7 @@ Slide #81 / Duncan & Wright (2005) Fig. 14.7: a c=0, φ=30°, γ=124 pcf embankm
 
 ![vp081: inputs and representative solution](images/vp081.png)
 
-## VP82: Embankment with a water table (D&W Fig. 14.20-a) {#vp82}
+## 🟢 VP82: Embankment with a water table (D&W Fig. 14.20-a) {#vp82}
 
 Slide #82 / Duncan & Wright (2005) Fig. 14.20-a: an embankment (c' = 600 psf, φ' = 25°, γ = 125 pcf; ground (0,60)–(60,60)–(140,20)–(200,20)) on a cohesionless foundation (c' = 0, φ' = 30°, γ = 132 pcf), with a piezometric line running (0,40)–(100,30)–(140,20)–(200,20). Free circular search.
 
@@ -2044,7 +2044,7 @@ Slide #82 / Duncan & Wright (2005) Fig. 14.20-a: an embankment (c' = 600 psf, φ
 
 ![vp082: inputs and representative solution](images/vp082.png)
 
-## VP83: Embankment wall on an undrained foundation (D&W Fig. 14.20-b) {#vp83}
+## 🟢 VP83: Embankment wall on an undrained foundation (D&W Fig. 14.20-b) {#vp83}
 
 Slide #83 / Duncan & Wright (2005) Fig. 14.20-b: an embankment (c' = 0, φ' = 36°, γ = 123 pcf; ground (0,40)–(55,40)–(75,30)–(140,30)) on a 30-ft undrained foundation (φ = 0, γ = 97 pcf) down to a base at el. 0. Two foundation strength profiles are tested: profile I increases with depth, c<sub>u</sub> = 200 + 15·z psf, and profile II is constant at 300 psf. Free circular search.
 
@@ -2062,7 +2062,7 @@ Profile I uses XSLOPE's `cp` strength option, which is exactly this form — an 
 ![vp083a: inputs and representative solution](images/vp083a.png)
 ![vp083b: inputs and representative solution](images/vp083b.png)
 
-## VP84: Embankment on a foundation with four strength gradients (D&W Fig. 15.9) {#vp84}
+## 🟢 VP84: Embankment on a foundation with four strength gradients (D&W Fig. 15.9) {#vp84}
 
 Slide #84 / Duncan & Wright (2005) Fig. 15.9: an embankment (c' = 0, φ' = 35°, γ = 125 pcf; ground (0,20)–(40,20)–(90,40)–(140,40)) on a 20-ft undrained foundation (φ = 0, γ = 100 pcf) whose strength is c<sub>u</sub> = 300 + c<sub>z</sub>·z. The same slope is run with four strength gradients, c<sub>z</sub> = 0, 5, 10 and 15 psf/ft — a systematic sweep of the `cp` option.
 
@@ -2082,7 +2082,7 @@ Slide #84 / Duncan & Wright (2005) Fig. 15.9: an embankment (c' = 0, φ' = 35°,
 ![vp084c: inputs and representative solution](images/vp084c.png)
 ![vp084d: inputs and representative solution](images/vp084d.png)
 
-## VP85: Reinforced slope, homogenous, grouted tieback {#vp85}
+## 🟢 VP85: Reinforced slope, homogenous, grouted tieback {#vp85}
 
 Slide #85 case 1 applies the tieback as active support, case 2 as passive; each is
 evaluated on the circle Slide prints for it.
@@ -2114,7 +2114,7 @@ methods scatter so widely here and why the per-circle comparison is the meaningf
 
 The problem is Duncan & Wright (2005) Fig. 6.34; the tieback carries 9,000 lb/ft, applied horizontally at mid-height of the slope.
 
-## VP86: Reinforced slope, homogenous, grouted tieback {#vp86}
+## 🟢 VP86: Reinforced slope, homogenous, grouted tieback {#vp86}
 
 Slide #86: Duncan & Wright (2005) Fig. 7.28 / STABGM reinforced fill on a strong rock foundation: 5 geogrids (800 lb/ft, 20 ft long, every 4 ft), solved by Slide2 with a circular search.
 
@@ -2128,7 +2128,7 @@ Slide #86: Duncan & Wright (2005) Fig. 7.28 / STABGM reinforced fill on a strong
 
 ![vp086: inputs and representative solution](images/vp086.png)
 
-## VP87–VP94: Geosynthetic multitiered MSE walls (Leshchinsky & Han 2004) {#vp87}
+## 🟢 VP87–VP94: Geosynthetic multitiered MSE walls (Leshchinsky & Han 2004) {#vp87}
 
 **Input files:** [vp087.xlsx](files/rocscience/vp087.xlsx) · [vp088.xlsx](files/rocscience/vp088.xlsx) ·
 [vp089.xlsx](files/rocscience/vp089.xlsx) · [vp090.xlsx](files/rocscience/vp090.xlsx) ·
@@ -2173,7 +2173,7 @@ exits exactly tangent to the crest and needs a hair of extra radius to intersect
 
 In VP90 the upper 8 geotextile layers carry Ta = 7.5 and the lower 7 carry Ta = 11.0; VP93's Ta = 10 is also the value stored in the RS2 vendor `.fez`.
 
-## VP95: USACE Appendix G dam, Corps 2-stage drawdown method {#vp95}
+## ⊘ VP95: USACE Appendix G dam, Corps 2-stage drawdown method {#vp95}
 
 Slide #95 runs the USACE EM 1110-2-1902 (1970) Appendix G example — the same dam that
 [VP96](#vp96) builds — through the **Corps of Engineers 2-stage** rapid-drawdown
@@ -2189,7 +2189,7 @@ problem in this corpus is solved with. It is verified on this very dam in [VP96]
 further drawdown problems in VP97–VP102, so the omission is a deliberate scope exclusion rather
 than a gap.
 
-## VP96: Embankment dam, homogenous, rapid drawdown, water table {#vp96}
+## 🟢 VP96: Embankment dam, homogenous, rapid drawdown, water table {#vp96}
 
 Slide #96 / USACE EM 1110-2-1902 (2003) Appendix G example: 3:1 then 2.5:1 embankment face, max pool el. 103 drawn down to 24, specified circle (169.5, 210, R=210). Material: c'=0, phi'=30, gamma=135 pcf with the Kc=1 envelope d=1379 psf, psi=18.2 deg (Figure G-5). Solved with the Duncan-Wright-Wong 3-stage procedure. (Slide's #95 runs the same model with the older Corps 2-stage method — see [VP95](#vp95).)
 
@@ -2204,7 +2204,7 @@ Slide #96 / USACE EM 1110-2-1902 (2003) Appendix G example: 3:1 then 2.5:1 emban
 
 Also [SLOPE/W §2.41](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP97: Embankment dam, homogenous, rapid drawdown, water table {#vp97}
+## 🟢 VP97: Embankment dam, homogenous, rapid drawdown, water table {#vp97}
 
 Slide #97: Pilarcitos Dam (Duncan, Wright & Wong 1990). Homogeneous earthfill, gamma=135 pcf, c'=0, phi'=45; R-envelope cR=60 psf, phiR=23. Kc=1 envelope via D&W (2014) eqs 9.6-9.7: d = cR cos(phiR) cos(phi') / (1-sin(phiR)) = 64.1 psf, psi = 24.4 deg (the same equations reproduce the USACE App G values 1379/18.2 exactly). Drawdown 72 -> 37 ft.
 
@@ -2222,7 +2222,7 @@ Slide #97: Pilarcitos Dam (Duncan, Wright & Wong 1990). Homogeneous earthfill, g
 
 Also [SLOPE/W §2.43](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP98: Walter Bouldin Dam rapid drawdown (Duncan, Wright & Wong 1990) {#vp98}
+## 🟢 VP98: Walter Bouldin Dam rapid drawdown (Duncan, Wright & Wong 1990) {#vp98}
 
 Slide #98: the Walter Bouldin Dam failure case — a rolled earthfill dam that failed during a 32-ft drawdown in 1975, pool 47 ft → 15 ft. Its five zones are rebuilt from Slide's coordinate-labeled Figure 98.1 with the interior boundaries traced from its color zones; the Kc = 1 undrained envelopes come from the paper's own Table 2, with riprap and gravel drained.
 
@@ -2240,7 +2240,7 @@ Slide #98: the Walter Bouldin Dam failure case — a rolled earthfill dam that f
 
 Also [SLOPE/W §2.40](geostudio.md) — the same problem in the GeoStudio corpus.
 
-## VP99: Pumped-storage project dam rapid drawdown (DWW 1990) {#vp99}
+## 🟢 VP99: Pumped-storage project dam rapid drawdown (DWW 1990) {#vp99}
 
 Slide #99: the paper's hypothetical pumped-storage dam — silty clay core and random zone (c′=0, φ′=36°, Kc=1 envelope 2250 psf/20°), free-draining rockfill shells (φ′=37°), drawdown 285 ft → 120 ft (paper El 545 → 380). The core and random zone carry identical strengths, so only the rockfill/clay boundary affects the result.
 
@@ -2256,7 +2256,7 @@ The geometry is **re-pinned from the vendor GeoStudio model** of the same DWW pr
 
 ![vp099: inputs and representative solution](images/vp099.png)
 
-## VP100: Embankment dam, homogenous, rapid drawdown, water table {#vp100}
+## 🟢 VP100: Embankment dam, homogenous, rapid drawdown, water table {#vp100}
 
 Slide #100: complete drawdown (100 -> 0), B-bar = 1: the residual pore pressure is hydrostatic below the slope surface, i.e. piezo = ground, no external pond.
 
@@ -2271,7 +2271,7 @@ Slide #100: complete drawdown (100 -> 0), B-bar = 1: the residual pore pressure 
 
 ![vp100: inputs and representative solution](images/vp100.png)
 
-## VP101: Embankment dam, homogenous, rapid drawdown, water table {#vp101}
+## 🟢 VP101: Embankment dam, homogenous, rapid drawdown, water table {#vp101}
 
 Slide #101: partial drawdown (100 -> 50), B-bar = 1: piezo follows the ground where the face is above the pool and stays at 50 below it, with the remaining pond loading the submerged face.
 
@@ -2286,7 +2286,7 @@ Slide #101: partial drawdown (100 -> 50), B-bar = 1: piezo follows the ground wh
 
 ![vp101: inputs and representative solution](images/vp101.png)
 
-## VP102: Earth dam before rapid drawdown (Huang & Jia 2008) {#vp102}
+## 🟢 VP102: Earth dam before rapid drawdown (Huang & Jia 2008) {#vp102}
 
 Slide #102 / Huang & Jia (2008): a homogeneous earth dam (c' = 13.8 kPa, φ' = 37°, γ = 18.2 kN/m³; ground (0,7.3)–(33.5,7.3)–(86.66,24.39)–(99.75,28.6)–(107.05,28.6)–(157.9,7.3)–(191.4,7.3)) whose reservoir at el. 24.39 is drawn down instantaneously to the tailwater at el. 7.3, with factors of safety reported at 60–1500 h. This entry reproduces the two end members Slide reports separately — the dry dam and the initial steady seepage condition the drawdown starts from — and the transient curve between them, from XSLOPE's own uncoupled [transient seepage solve](../seep/transient.md). The section follows the manual's *result* figures rather than its Figure 102.1 labels, which are rounded to the nearest meter; the distinction is worth about 3% of the factor of safety, because the rounded labels describe a dam 0.7 m taller with a steeper downstream face where the critical mechanism sits.
 
@@ -2323,7 +2323,7 @@ Slide #102 / Huang & Jia (2008): a homogeneous earth dam (c' = 13.8 kPa, φ' = 3
 <!-- test: file=files/rocscience/vp102t_600.xlsx, type=circular_search, num_slices=40, fs_spencer=2.238, benchmark=VP102-t-600 -->
 <!-- test: file=files/rocscience/vp102t_1500.xlsx, type=circular_search, num_slices=40, fs_spencer=2.378, benchmark=VP102-t-1500 -->
 
-## VP103: Two-layer undrained slope — deep vs shallow mechanism {#vp103}
+## 🟢 VP103: Two-layer undrained slope — deep vs shallow mechanism {#vp103}
 
 Slide #103 reproduces the headline case of [Guo & Griffiths (2020)](https://doi.org/10.1139/cgj-2019-0642):
 an undrained embankment of strength c<sub>u1</sub> on an undrained foundation of strength
@@ -2385,7 +2385,7 @@ printed in the manual's §103.2 result figures.
 
 ![vp103d: P = 1.6 inputs and the shallow mechanism (governing)](images/vp103d.png)
 
-## VP104: Seismic slope with Newmark and multi-modal optimization {#vp104}
+## 🟢 VP104: Seismic slope with Newmark and multi-modal optimization {#vp104}
 
 Slide #104 is built on Slide2's own *Tutorial 28 — Seismic Analysis with the Newmark Method*, so
 the verification manual prints no geometry of its own. The model is a 10 m, 2:1 slope in three
@@ -2447,7 +2447,7 @@ takes a yield acceleration as an input and reads no XSLOPE model — so that row
 
 ![vp104b: k = 0.15 inputs and Spencer critical surface](images/vp104b.png)
 
-## VP105: Anisotropic strength surface {#vp105}
+## ⊘ VP105: Anisotropic strength surface {#vp105}
 
 Slide #105 gives its material an **anisotropic strength function** — shear strength
 that depends on the orientation of the slip surface relative to a fabric direction —
@@ -2460,7 +2460,7 @@ It is a strength-model gate, not a search gate — [VP103](#vp103) separates two
 with `tangent_depth` windows and [VP104](#vp104) reproduces Slide2's multi-modal table from an
 ordinary circular search. The same gap blocks [GeoStudio §2.47](geostudio.md).
 
-## VP106: Support, Ito & Matsui pile {#vp106}
+## 🟢 VP106: Support, Ito & Matsui pile {#vp106}
 
 **Input files:** [vp106a.xlsx](files/rocscience/vp106a.xlsx) (no pile) ·
 [vp106b](files/rocscience/vp106b.xlsx) / [c](files/rocscience/vp106c.xlsx) /
@@ -2553,7 +2553,7 @@ spacings, and [VP54](#vp54). See
 <!-- test: file=files/rocscience/vp106c_fem.xlsx, type=fem_ssrm, expected_fs=1.578, element_type=tri6, target_size=0.9, tolerance=0.01, f_min=1.0, f_max=1.8, max_iter=16000, benchmark=VP106-FEM-free -->
 <!-- test: file=files/rocscience/vp106c_fem_fix.xlsx, type=fem_ssrm, expected_fs=1.587, element_type=tri6, target_size=0.9, tolerance=0.01, f_min=1.0, f_max=1.9, max_iter=16000, benchmark=VP106-FEM-fixed -->
 
-## VP107: Retaining walls, gabion walls, supports {#vp107}
+## 🟢 VP107: Retaining walls, gabion walls, supports {#vp107}
 
 **Input files:** [vp107a.xlsx](files/rocscience/vp107a.xlsx) (equivalent cohesion) ·
 [vp107b.xlsx](files/rocscience/vp107b.xlsx) (mesh method)
@@ -2583,7 +2583,7 @@ face, below the second limit set the manual applies to exclude them; those are n
 ![vp107a: inputs and representative solution](images/vp107a.png)
 ![vp107b: inputs and representative solution](images/vp107b.png)
 
-## VP108: Stepped gabion wall, steps facing outwards {#vp108}
+## 🟢 VP108: Stepped gabion wall, steps facing outwards {#vp108}
 
 **Input files:** [vp108a.xlsx](files/rocscience/vp108a.xlsx) (equivalent cohesion) ·
 [vp108b.xlsx](files/rocscience/vp108b.xlsx) (mesh method)
@@ -2615,7 +2615,7 @@ wall-face surfaces, excluded by the manual's own limit set.
 ![vp108a: inputs and representative solution](images/vp108a.png)
 ![vp108b: inputs and representative solution](images/vp108b.png)
 
-## VP109: Gabion wall with weak joint layers {#vp109}
+## 🟢 VP109: Gabion wall with weak joint layers {#vp109}
 
 **Input files:** [vp109.xlsx](files/rocscience/vp109.xlsx)
 
@@ -2639,7 +2639,7 @@ surface at the wall face, excluded by its limit set and not locked here.
 
 ![vp109: inputs and representative solution](images/vp109.png)
 
-## VP110: Equivalent fluid pressure wall support {#vp110}
+## ⊘ VP110: Equivalent fluid pressure wall support {#vp110}
 
 Slide #110 verifies its **equivalent fluid pressure (EFP)** support type by showing
 that it gives the same answer as the distributed load it stands for: the wall modeled
@@ -2657,7 +2657,7 @@ demonstrates is exactly how XSLOPE models such a wall: the restraint is entered 
 distributed load over the face through `dloads`, so there is no separate support type because the
 distributed load *is* the model.
 
-## VP111: Helical anchor — capacity note (no lock) {#vp111}
+## ⊘ VP111: Helical anchor — capacity note (no lock) {#vp111}
 
 Slide's problem 111 verifies its helical-anchor **capacity envelope**, not a slope analysis: for
 an anchor with three 0.2-m helices (1-m spacing, 0.1-m shaft), shaft tensile capacity 85 kN and

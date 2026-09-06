@@ -57,7 +57,7 @@ alongside a SLIDE limit-equilibrium table read the same way.
 
 </div>
 
-### Griffiths & Lane (1999) Example 1 — Homogeneous Slope {#verification-griffiths1}
+### 🟢 Griffiths & Lane (1999) Example 1 — Homogeneous Slope {#verification-griffiths1}
 
 A homogeneous 2:1 slope at $c/\gamma H = 0.05$, $\phi = 20°$ — the base SSRM benchmark.
 
@@ -143,7 +143,7 @@ quad9 agreeing to within 0.04 of it, so the answer does not turn on which one is
 <!-- test: file=../fem/files/xslope_griffiths1.xlsx, type=fem_ssrm, expected_fs=1.39, element_type=tri6, target_size=6, tolerance=0.05, f_min=1.5, f_max=1.9, max_iter=4000 -->
 <!-- test: file=../fem/files/xslope_griffiths1.xlsx, type=fem_ssrm, expected_fs=1.39, element_type=tri6, target_size=6, tolerance=0.05, f_min=0.5, f_max=0.9, max_iter=4000 -->
 
-### Griffiths & Lane (1999) Example 2 — Homogeneous Slope with a Foundation Layer {#verification-griffiths2}
+### 🟢 Griffiths & Lane (1999) Example 2 — Homogeneous Slope with a Foundation Layer {#verification-griffiths2}
 
 The Example 1 slope with a foundation layer of the same soil beneath it — the paper's
 demonstration that finite elements find the true mechanism where a limit-equilibrium search
@@ -246,7 +246,7 @@ not misled: left free, it finds the toe.
 <!-- test: file=../fem/files/xslope_griffiths2.xlsx, type=circular_search, method=spencer, seed=grid, num_slices=40, expected_fs=1.366, tolerance=0.02 -->
 <!-- test: file=../fem/files/xslope_griffiths2.xlsx, type=circular_search, method=spencer, seed=grid, num_slices=40, tangent_depth=-25;-23, expected_fs=1.702, tolerance=0.02 -->
 
-### Griffiths & Lane (1999) Example 3 — Undrained Clay Slope with a Thin Weak Layer {#verification-griffiths3}
+### 🟢 Griffiths & Lane (1999) Example 3 — Undrained Clay Slope with a Thin Weak Layer {#verification-griffiths3}
 
 An undrained clay slope containing a thin weak layer, swept across six values of the
 strength ratio $c_{u2}/c_{u1}$ to reproduce the paper's Fig. 7.
@@ -467,7 +467,7 @@ times the failure-path length rather than by the exact band thickness.
      follow the band and reads nearly three times the non-circular answer. -->
 <!-- test: file=../fem/files/xslope_griffiths3_r0p2.xlsx, type=circular_search, method=spencer, seed=grid, num_slices=40, expected_fs=1.244, tolerance=0.02 -->
 
-### Griffiths & Lane (1999) Example 4 — Undrained Clay Slope over a Weak Foundation {#verification-griffiths4}
+### 🟢 Griffiths & Lane (1999) Example 4 — Undrained Clay Slope over a Weak Foundation {#verification-griffiths4}
 
 An undrained clay slope over a foundation of different strength, at two bracket cases that
 straddle a change of failure mechanism.
@@ -576,7 +576,7 @@ and Spencer results agree on both the factor of safety and the base→toe transi
 <!-- test: file=../fem/files/xslope_griffiths4_r1.xlsx, type=circular_search, method=spencer, seed=grid, num_slices=40, expected_fs=1.468, tolerance=0.02 -->
 <!-- test: file=../fem/files/xslope_griffiths4_r2.xlsx, type=circular_search, method=spencer, seed=grid, num_slices=40, expected_fs=2.022, tolerance=0.02 -->
 
-### Griffiths & Lane (1999) Example 5 — "Slow" Drawdown Sweep {#verification-griffiths5}
+### 🟢 Griffiths & Lane (1999) Example 5 — "Slow" Drawdown Sweep {#verification-griffiths5}
 
 The Example 1 slope with a reservoir lowered from above the crest to the toe, swept across the
 drawdown ratio $L/H$ to reproduce the paper's Fig. 15. Five stations are locked and tabulated;
@@ -720,7 +720,7 @@ slide over the loaded face:
 <!-- test: file=../fem/files/xslope_griffiths5_0p7.xlsx, type=fem_ssrm, expected_fs=1.31, element_type=tri6, target_size=6, tolerance=0.05, f_min=0.9, f_max=1.7, max_iter=4000 -->
 <!-- test: file=../fem/files/xslope_griffiths5_1.xlsx, type=fem_ssrm, expected_fs=1.39, element_type=tri6, target_size=6, tolerance=0.05, f_min=0.9, f_max=1.8, max_iter=4000 -->
 
-### Griffiths & Lane (1999) Example 6 — Two-Sided Earth Dam {#verification-griffiths6}
+### 🟢 Griffiths & Lane (1999) Example 6 — Two-Sided Earth Dam {#verification-griffiths6}
 
 An actual earth dam cross-section, analysed with the reservoir full and before filling.
 
@@ -799,7 +799,7 @@ matches the paper.
 <!-- test: file=../fem/files/xslope_griffiths6_dry.xlsx, type=fem_ssrm, expected_fs=2.422, element_type=quad8, target_size=2, tolerance=0.01, f_min=2.0, f_max=2.8, max_iter=16000, benchmark=SSRM-2 -->
 <!-- test: file=../fem/files/xslope_griffiths6_full.xlsx, type=fem_ssrm, expected_fs=1.867, element_type=tri6, target_size=2, tolerance=0.01, f_min=1.6, f_max=2.2, max_iter=16000, benchmark=SSRM-2 -->
 
-### Torggler (2016) §3 — Homogeneous slope with a vertical plate {#verification-torggler3a}
+### 🟢 Torggler (2016) §3 — Homogeneous slope with a vertical plate {#verification-torggler3a}
 
 A 10 m slope at 30° in a soft Mohr-Coulomb clay, unsupported and then supported by
 a 7.5 m vertical plate at mid-slope — the only published SSRM benchmark that gives
@@ -891,7 +891,7 @@ sizes. The locks are taken at 0.7 m.
 <!-- test: file=../fem/files/xslope_torggler_3a_nopile.xlsx, type=circular_search, method=spencer, num_slices=40, expected_fs=1.132, tolerance=0.01, benchmark=SSRM-TORGGLER -->
 <!-- test: file=../fem/files/xslope_torggler_3a_nopile.xlsx, type=circular_search, method=mprice, num_slices=40, expected_fs=1.132, tolerance=0.01, benchmark=SSRM-TORGGLER -->
 
-### Torggler (2016) §4 — Slope with a weak layer and a 15 m plate {#verification-torggler3b}
+### 🟢 Torggler (2016) §4 — Slope with a weak layer and a 15 m plate {#verification-torggler3b}
 
 The same slope carrying a 1 m band of near-cohesionless soil along a published
 failure line, unsupported and then supported by a 15 m vertical plate at mid-slope.

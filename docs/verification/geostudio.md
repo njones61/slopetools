@@ -87,7 +87,7 @@ is not fully built and verified one of the [shared status terms](index.md#status
 
 ## Problem details
 
-### 2.1 — ACADS Simple Slope {#gs-2-1}
+### 🟢 2.1 — ACADS Simple Slope {#gs-2-1}
 
 The headline ACADS limit-equilibrium benchmark: a simple homogeneous 2:1 slope analyzed with a circular search against the ACADS accepted consensus.
 
@@ -101,7 +101,7 @@ The headline ACADS limit-equilibrium benchmark: a simple homogeneous 2:1 slope a
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.1; Donald & Giam (1989), Giam & Donald (1992).
 
-### 2.2 — ACADS Tension Crack {#gs-2-2}
+### 🟢 2.2 — ACADS Tension Crack {#gs-2-2}
 
 ACADS problem 1(b): a homogeneous slope with a water-filled tension crack, verifying tension-crack handling in the limit-equilibrium solution.
 
@@ -118,7 +118,7 @@ SLOPE/W sits closer to the ACADS reference band than XSLOPE or Slide2; the diffe
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.2; Giam & Donald (1989).
 
-### 2.3 — ACADS Non-Homogeneous {#gs-2-3}
+### 🟢 2.3 — ACADS Non-Homogeneous {#gs-2-3}
 
 ACADS benchmark 1(c): a non-homogeneous three-layer slope analyzed for its critical circular surface.
 
@@ -133,7 +133,7 @@ ACADS benchmark 1(c): a non-homogeneous three-layer slope analyzed for its criti
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.3; Donald, I.B. & Giam, P. (1989), ACADS.
 
-### 2.4 — ACADS Non-Homogeneous + Seismic {#gs-2-4}
+### 🟢 2.4 — ACADS Non-Homogeneous + Seismic {#gs-2-4}
 
 ACADS 1(d): the three-material non-homogeneous slope of §2.3 with a horizontal pseudo-static seismic coefficient of 0.15 added, verifying seismic loading over layered strengths.
 
@@ -148,7 +148,7 @@ ACADS 1(d): the three-material non-homogeneous slope of §2.3 with a horizontal 
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.4; Donald, I.B. & Giam, P. (1989), ACADS suite.
 
-### 2.5 — ACADS Talbingo Dam – Dry {#gs-2-5}
+### 🟢 2.5 — ACADS Talbingo Dam – Dry {#gs-2-5}
 
 ACADS benchmark 2(a): the four-zone Talbingo Dam at end of construction (dry), searched for the critical circular surface, whose minimum collapses to a shallow infinite-slope mechanism parallel to the steeper upstream face.
 
@@ -162,7 +162,7 @@ ACADS benchmark 2(a): the four-zone Talbingo Dam at end of construction (dry), s
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.5; Giam & Donald (1989), ACADS benchmark 2(a).
 
-### 2.6 — ACADS Talbingo – Specified Surface {#gs-2-6}
+### 🟢 2.6 — ACADS Talbingo – Specified Surface {#gs-2-6}
 
 ACADS benchmark 2(b): the Talbingo Dam, a four-material embankment evaluated on a single specified circular slip surface, verifying that XSLOPE and SLOPE/W agree on a fixed surface.
 
@@ -177,7 +177,7 @@ ACADS benchmark 2(b): the Talbingo Dam, a four-material embankment evaluated on 
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.6; ACADS benchmark (Giam & Donald).
 
-### 2.7 — ACADS Weak Layer (non-circular) {#acads-weak-layer}
+### 🟢 2.7 — ACADS Weak Layer (non-circular) {#acads-weak-layer}
 
 The ACADS weak-layer case
 ([SLOPE/W Verification Manual](https://files.seequent.com/GeoStudio/Manuals/Slope%20Stability%20Verification%20Manual.pdf)
@@ -233,7 +233,7 @@ sec. 2.7; Donald, I.B. & Giam, P. (1989), ACADS.
 
 <!-- test: file=../lem/files/xslope_acads_weak_layer.xlsx, type=noncircular_search, num_slices=50, fs_janbu=1.278, fs_corps=1.336, fs_lowe=1.296, fs_spencer=1.258, fs_mprice=1.248, benchmark=LEM-2 -->
 
-### 2.8 — ACADS Weak Layer – Specified Surface {#gs-2-8}
+### 🟢 2.8 — ACADS Weak Layer – Specified Surface {#gs-2-8}
 
 The ACADS 3(b) weak-layer slope analyzed on a fully specified non-circular slip surface, verifying XSLOPE against SLOPE/W for a two-material section with a thin weak seam.
 
@@ -248,7 +248,7 @@ The ACADS 3(b) weak-layer slope analyzed on a fully specified non-circular slip 
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.8; Donald, I.B. & Giam, P. (1989), *Soil slope stability programs review*, ACADS, Melbourne.
 
-### 2.9 — ACADS External Loading {#gs-2-9}
+### 🟢 2.9 — ACADS External Loading {#gs-2-9}
 
 The ACADS benchmark (Slide #9): a two-material slope with a weak layer, a piezometric water table, and two surcharge strips, solved with a non-circular search.
 
@@ -267,7 +267,7 @@ All four results fall inside the published band, which is wide because the bench
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.9; ACADS benchmark study (Giam & Donald).
 
-### 2.10 — Lanester Embankment {#gs-2-10}
+### ⊘ 2.10 — Lanester Embankment {#gs-2-10}
 
 A test embankment built on soft ground, with the manual supplying pore pressures as a
 grid of point values across the section rather than as a water table.
@@ -289,7 +289,7 @@ Same problem as [Slide2 #12](rocscience.md), which is open for the same reason.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.10.
 
-### 2.11 — Arai & Tagyo Homogeneous {#gs-2-11}
+### 🟢 2.11 — Arai & Tagyo Homogeneous {#gs-2-11}
 
 A homogeneous 20 m, 1.5:1 slope in total-stress soil (Arai & Tagyo 1985, example 1), used to verify the automated critical-circle search against SLOPE/W and the published reference.
 
@@ -306,7 +306,7 @@ The full six-method set for this shared input is tabulated with [VP14](rocscienc
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.11; [Arai & Tagyo (1985)](https://doi.org/10.3208/sandf1972.25.43).
 
-### 2.12 — Arai & Tagyo Pore-Water Pressure {#gs-2-12}
+### 🟢 2.12 — Arai & Tagyo Pore-Water Pressure {#gs-2-12}
 
 Arai & Tagyo (1985) example 3: a homogeneous slope with a water table, verifying pore-water pressure handling on a circular search.
 
@@ -320,7 +320,7 @@ Arai & Tagyo (1985) example 3: a homogeneous slope with a water table, verifying
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.12; Arai & Tagyo (1985).
 
-### 2.13 — Greco Layered Slope {#gs-2-13}
+### 🟢 2.13 — Greco Layered Slope {#gs-2-13}
 
 A four-layer slope with no water (Greco 1996, example 4 / Yamagami & Ueta 1988), verifying the critical-surface search against a shallow non-circular benchmark optimum.
 
@@ -334,7 +334,7 @@ A four-layer slope with no water (Greco 1996, example 4 / Yamagami & Ueta 1988),
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.13; [Greco (1996)](https://doi.org/10.1061/(ASCE)0733-9410(1996)122:7(517)), [Yamagami & Ueta (1988)](https://doi.org/10.1201/9781003763291-97).
 
-### 2.14 — Greco Weak Layer {#gs-2-14}
+### 🟢 2.14 — Greco Weak Layer {#gs-2-14}
 
 A four-layer slope with a 0.5 m weak seam running along the inclined model base beneath a water table, verifying the search for a noncircular slip surface through a weak layer.
 
@@ -349,7 +349,7 @@ A four-layer slope with a 0.5 m weak seam running along the inclined model base 
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.14; Greco (1996) ex. 5; [Chen & Shao (1988)](https://doi.org/10.1139/t88-084).
 
-### 2.15 — Chen & Shao Frictionless Slope {#gs-2-15}
+### 🟢 2.15 — Chen & Shao Frictionless Slope {#gs-2-15}
 
 The classical Prandtl bearing mechanism on a weightless, frictionless 60° slope under a critical strip load, verifying limit equilibrium against the closed-form factor of safety on an analytically constructed slip surface.
 
@@ -363,7 +363,7 @@ The classical Prandtl bearing mechanism on a weightless, frictionless 60° slope
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.15; Chen & Shao (1988).
 
-### 2.16 — Prandtl Bearing Capacity {#gs-2-16}
+### 🟢 2.16 — Prandtl Bearing Capacity {#gs-2-16}
 
 The classical Prandtl bearing mechanism on level ground: a weightless (γ ≈ 0), c = 20 kPa, φ = 0 soil under a strip surcharge of 102.83 kPa — exactly c·N<sub>c</sub>, so the closed-form factor of safety is unity by construction. Both ground crossings of the slip surface sit at the same elevation, which leaves the facing direction ambiguous; the `right_facing` override settles it.
 
@@ -383,7 +383,7 @@ from Slide2's.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.16; [Prandtl (1921)](https://doi.org/10.1002/zamm.19210010102).
 
-### 2.18 — Borges & Cardoso – Geosynthetic Embankment #2 {#gs-2-18}
+### 🟢 2.18 — Borges & Cardoso – Geosynthetic Embankment #2 {#gs-2-18}
 
 [Borges & Cardoso (2002)](https://doi.org/10.1016/S0266-1144(02)00014-6)'s Case 2: a 5 m geosynthetic-reinforced embankment (c′ = 0,
 φ′ = 35°, γ = 20) over four soft-clay layers whose undrained strength increases with
@@ -415,7 +415,7 @@ where the manual's Janbu column is uncorrected.
 
 <!-- test: file=files/geostudio/gs2_18.xlsx, type=single_circle, num_slices=60, fs_bishop=1.155, fs_spencer=1.148, fs_mprice=1.153, fs_janbu=1.330, benchmark=GS-2.18 -->
 
-### 2.22 — Cannon Dam #2 {#gs-2-22}
+### 🟢 2.22 — Cannon Dam #2 {#gs-2-22}
 
 [Hassan & Wolff (1999)](https://doi.org/10.1061/(ASCE)1090-0241(1999)125:4(301))'s
 reliability study of the Clarence Cannon Dam, Missouri. Alongside its search for the
@@ -489,7 +489,7 @@ needs the exact frame, which is the one here.
 <!-- test: file=files/geostudio/gs2_22.xlsx, type=single_circle, circle_index=7, num_slices=50, fs_mprice=6.059, fs_bishop=6.060, tolerance=0.02, benchmark=GS-2.22-f8g -->
 <!-- test: file=files/geostudio/gs2_22.xlsx, type=single_circle, circle_index=8, num_slices=50, fs_mprice=11.561, fs_bishop=11.561, tolerance=0.03, benchmark=GS-2.22-f8h -->
 
-### 2.23 — Li & Lumb – Reliability Index {#gs-2-23}
+### 🟢 2.23 — Li & Lumb – Reliability Index {#gs-2-23}
 
 The [Li & Lumb (1987)](https://doi.org/10.1139/t87-068) / Hassan & Wolff (1999) reliability benchmark: a homogeneous slope with an r_u pore-pressure ratio for which both the deterministic Bishop factor of safety and the lognormal reliability index β are computed from the variability in c′, φ′, and γ.
 
@@ -504,7 +504,7 @@ The [Li & Lumb (1987)](https://doi.org/10.1139/t87-068) / Hassan & Wolff (1999) 
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.23; Li & Lumb (1987), Hassan & Wolff (1999).
 
-### 2.24 — Tandjiria – Geosynthetic Reinforced Emb. {#gs-2-24}
+### 🟢 2.24 — Tandjiria – Geosynthetic Reinforced Emb. {#gs-2-24}
 
 [Tandjiria (2002)](https://doi.org/10.1016/S0266-1144(02)00015-8)'s required-reinforcement half-embankment on soft clay, evaluated as a clay fill and as a sand fill with a geosynthetic at the embankment base. This section's role is the geosynthetic-reinforcement benchmark for the SLOPE/W importer.
 
@@ -521,7 +521,7 @@ Run on SLOPE/W's own critical circles, the imported geosynthetic reproduces SLOP
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.24; Tandjiria (2002).
 
-### 2.25 — Baker & Leshchinsky – Earth Dam {#gs-2-25}
+### 🟢 2.25 — Baker & Leshchinsky – Earth Dam {#gs-2-25}
 
 [Baker & Leshchinsky (2001)](https://doi.org/10.1061/(ASCE)1090-0241(2001)127:2(135))'s safety-map clay-core dam: granular fill (c′ = 0, φ′ = 40°,
 γ = 21.5) around a diamond core (c′ = 20, φ′ = 20°, γ = 20) on a hard base (c′ = 200,
@@ -549,7 +549,7 @@ reports the dam's global minimum Fmin = 1.91 by Spencer's method.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.25; Baker & Leshchinsky (2001).
 
-### 2.26 — Baker – Planar Homogeneous {#gs-2-26}
+### 🟢 2.26 — Baker – Planar Homogeneous {#gs-2-26}
 
 Baker (2001)'s planar-slip-surface benchmark: a homogeneous, dry c′-φ′ slope (H = 10 m,
 face angle 76.0°, c′ = 30, φ′ = 30°, γ = 20) evaluated on planes through the toe, with
@@ -581,7 +581,7 @@ Leshchinsky (2001).
 
 <!-- test: file=files/geostudio/gs2_26.xlsx, type=single_noncirc, num_slices=50, fs_spencer=1.352, fs_janbu=1.352, fs_mprice=1.352, benchmark=GS-2.26 -->
 
-### 2.27 — Sheahan – Amherst Soil Nails {#gs-2-27}
+### 🟢 2.27 — Sheahan – Amherst Soil Nails {#gs-2-27}
 
 The Amherst test wall — a 6 m vertical cut in undrained clay retained by two rows of soil nails and a shotcrete facing, which failed in the field test — evaluated on planar surfaces through the toe.
 
@@ -597,7 +597,7 @@ The manual tabulates no SLOPE/W factor of safety for this section.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.27; Sheahan & Ho (2003).
 
-### 2.30 — Snailz – Geotextile Layers {#gs-2-30}
+### 🟢 2.30 — Snailz – Geotextile Layers {#gs-2-30}
 
 A reinforced-slope problem from the Caltrans SNAILZ reference manual — a multi-row nail/geotextile-reinforced wall evaluated on a predefined deep wedge surface — verifying XSLOPE's reinforcement handling against SLOPE/W and the published SNAILZ solution.
 
@@ -612,7 +612,7 @@ A reinforced-slope problem from the Caltrans SNAILZ reference manual — a multi
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.30; Caltrans SNAILZ reference manual.
 
-### 2.31 — Zhu – Four Layer Slope {#gs-2-31}
+### 🟢 2.31 — Zhu – Four Layer Slope {#gs-2-31}
 
 Zhu, Lee & Jiang's four-layer slope with a water table, a 5 m dry tension crack, and seismic loading (k=0.1), analyzed on a specified circle.
 
@@ -632,7 +632,7 @@ The wider spread is confined to the Lowe-Karafiath and Corps side-force assumpti
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.31; [Zhu, Lee & Jiang (2003)](https://doi.org/10.1680/geot.2003.53.4.377).
 
-### 2.32 — Zhu & Lee – Heterogeneous Slope {#gs-2-32}
+### 🟢 2.32 — Zhu & Lee – Heterogeneous Slope {#gs-2-32}
 
 The Zhu & Lee heterogeneous benched slope (four materials, water table, tension crack), verifying that an unconstrained circular search lands in the governing deep failure family.
 
@@ -646,7 +646,7 @@ The Zhu & Lee heterogeneous benched slope (four materials, water table, tension 
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.32; [Zhu & Lee (2002)](https://doi.org/10.1002/nag.260).
 
-### 2.33 — Priest – Rigid Blocks {#gs-2-33}
+### 🟢 2.33 — Priest – Rigid Blocks {#gs-2-33}
 
 Priest (1993), *Discontinuity Analysis for Rock Engineering*: a classical rock-slope
 planar failure — a single rigid block translating on one straight failure plane
@@ -674,7 +674,7 @@ FS-vs-λ figure shows for SLOPE/W. Total sliding weight matches SLOPE/W's to 0.0
 
 <!-- test: file=files/geostudio/gs2_33.xlsx, type=single_noncirc, num_slices=50, fs_janbu=1.049, fs_mprice=1.049, fs_spencer=1.049, benchmark=GS-2.33 -->
 
-### 2.34 — Yamagami – Stabilizing Piles {#gs-2-34}
+### 🟢 2.34 — Yamagami – Stabilizing Piles {#gs-2-34}
 
 A homogeneous slope stabilized by a row of micro-piles, verifying pile-reinforced limit equilibrium against the unreinforced baseline.
 
@@ -694,7 +694,7 @@ program.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.34; Yamagami.
 
-### 2.35 — Pockoski & Duncan – Tie-Back Wall {#gs-2-35}
+### 🟢 2.35 — Pockoski & Duncan – Tie-Back Wall {#gs-2-35}
 
 Pockoski & Duncan (2000)'s tied-back excavation wall: a 44-ft wall in eight horizontal
 soil layers (granular and cohesive fills over organic silt, an over-consolidated crust,
@@ -718,7 +718,7 @@ supplies the eight-layer section, strengths and anchor capacities.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.35; Pockoski & Duncan (2000).
 
-### 2.36 — Pockoski & Duncan – Reinforcement {#gs-2-36}
+### 🟢 2.36 — Pockoski & Duncan – Reinforcement {#gs-2-36}
 
 Pockoski & Duncan (2000)'s single-row tieback wall in homogeneous sand (c′ = 0, φ′ = 30°)
 with the water table drawn down to the wall face — under-designed on purpose, so every
@@ -745,7 +745,7 @@ report supplies the sand strengths, drawn-down water table and anchor layout.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.36; Pockoski & Duncan (2000).
 
-### 2.37 — Pockoski & Duncan – Soil Nails {#gs-2-37}
+### 🟢 2.37 — Pockoski & Duncan – Soil Nails {#gs-2-37}
 
 Pockoski & Duncan (2000)'s 25-ft soil-nailed wall in undrained sandy clay (c = 800 psf,
 φ = 0) under a 250-psf crest surcharge plus a 500-psf strip, with a dry 7-ft tension crack
@@ -765,7 +765,7 @@ supplies the surcharge pattern, tension-crack depth and five-row nail layout.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.37; Pockoski & Duncan (2000).
 
-### 2.38 — Loukidis – Seismic Coefficient {#gs-2-38}
+### 🟢 2.38 — Loukidis – Seismic Coefficient {#gs-2-38}
 
 A homogeneous slope loaded pseudo-statically at its critical seismic coefficient (dry and ru = 0.5 cases), where the factor of safety is driven to ≈ 1.
 
@@ -782,7 +782,7 @@ case.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.38; Loukidis, Bandini & Salgado (2003).
 
-### 2.39 — Loukidis – Seismic Coefficient #2 {#gs-2-39}
+### 🟢 2.39 — Loukidis – Seismic Coefficient #2 {#gs-2-39}
 
 Loukidis, Bandini & Salgado (2003)'s second example: a three-layer dry slope — a light
 c = 4 kPa cap (φ = 30°, γ = 17), a weak c = 25 kPa / **φ = 15°** middle band (γ = 19) that
@@ -810,7 +810,7 @@ section (its Fig. 9(a)) and Table 3's k꜀ values.
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.39; Loukidis, Bandini & Salgado (2003).
 
-### 2.40 — Rapid Drawdown – Walter Bouldin Dam {#gs-2-40}
+### 🟢 2.40 — Rapid Drawdown – Walter Bouldin Dam {#gs-2-40}
 
 The Walter Bouldin Dam is a rolled earthfill dam that failed during a rapid drawdown in 1975; this case verifies XSLOPE's Duncan-Wright-Wong three-stage rapid drawdown procedure.
 
@@ -825,7 +825,7 @@ The Walter Bouldin Dam is a rolled earthfill dam that failed during a rapid draw
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.40; Duncan, Wright & Wong (1990).
 
-### 2.41 — Rapid Drawdown – USACE Benchmark {#gs-2-41}
+### 🟢 2.41 — Rapid Drawdown – USACE Benchmark {#gs-2-41}
 
 A homogeneous embankment dam rapid-drawdown benchmark from USACE EM 1110-2-1902 (2003) Appendix G, evaluated with the Duncan-Wright-Wong 3-stage procedure on the specified circle.
 
@@ -840,7 +840,7 @@ A homogeneous embankment dam rapid-drawdown benchmark from USACE EM 1110-2-1902 
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.41; USACE EM 1110-2-1902 (2003) Appendix G (Duncan, Wright & Wong 3-stage procedure).
 
-### 2.42 — Rapid Drawdown – Pumped Storage Dam {#gs-2-42}
+### 🟢 2.42 — Rapid Drawdown – Pumped Storage Dam {#gs-2-42}
 
 Rapid drawdown (285 → 120 ft) of a hypothetical pumped-storage dam — silty-clay core and free-draining rockfill shells — analyzed with the Duncan-Wright-Wong 3-stage procedure.
 
@@ -856,7 +856,7 @@ The geometry is taken from this model's own .gsz (read with `xslope.geostudio.re
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.42; Duncan, Wright & Wong (1990).
 
-### 2.43 — Rapid Drawdown – Pilarcitos Dam {#gs-2-43}
+### 🟢 2.43 — Rapid Drawdown – Pilarcitos Dam {#gs-2-43}
 
 A three-stage rapid-drawdown analysis of Pilarcitos Dam — a homogeneous earthfill embankment (Duncan, Wright & Wong 1990) drawn down from 72 to 37 ft, a documented drawdown-failure case. It verifies XSLOPE's staged rapid-drawdown procedure.
 
@@ -871,7 +871,7 @@ A three-stage rapid-drawdown analysis of Pilarcitos Dam — a homogeneous earthf
 
 **Sources:** GeoStudio SLOPE/W Verification Manual §2.43; Duncan, Wright & Wong (1990).
 
-### 2.45 — Eurocode 7: Cutting in Clay {#gs-2-45}
+### 🟢 2.45 — Eurocode 7: Cutting in Clay {#gs-2-45}
 
 A 1:2 cutting in a homogeneous clay (characteristic c′ = 10, φ′ = 28°, γ = 20) with a
 water table and a 35 kPa permanent crest surcharge, checked to Eurocode 7 Design
@@ -899,7 +899,7 @@ Eurocode 7*.
 
 <!-- test: file=files/geostudio/gs2_45.xlsx, type=circular_search, num_slices=40, fs_spencer=1.173, fs_bishop=1.172, benchmark=GS-2.45 -->
 
-### 2.46 — Eurocode 7: Earth Dam {#gs-2-46}
+### 🟢 2.46 — Eurocode 7: Earth Dam {#gs-2-46}
 
 A homogeneous clay dam (characteristic c′ = 12, φ′ = 20°, γ = 19.2) with an upstream
 reservoir at 5.1 m total head, analysed as coupled steady-state seepage + slope
@@ -929,7 +929,7 @@ Mechanics* (8th ed.), ex. 5.12.
 
 <!-- test: file=files/geostudio/gs2_46.xlsx, type=circular_search, num_slices=40, fs_mprice=1.073, fs_bishop=1.074, fs_spencer=1.074, benchmark=GS-2.46 -->
 
-### 2.47 — Compound Strength vs Anisotropic Function {#gs-2-47}
+### ⊘ 2.47 — Compound Strength vs Anisotropic Function {#gs-2-47}
 
 A faulted rock section verifying SLOPE/W's two orientation-dependent strength models
 against one another: an anisotropic strength function and a compound strength, both of
@@ -980,7 +980,7 @@ As with the SLOPE/W corpus, the `.gsz` model files are Seequent's and are not
 redistributed here; their solved per-timestep `node.csv` results are read as the comparison
 values, which appear in the tables and locks below.
 
-### SEEPW-T01 — Simulating consolidation with SEEP/W {#seepw-t01}
+### 🟢 SEEPW-T01 — Simulating consolidation with SEEP/W {#seepw-t01}
 
 The SEEP/W example that reproduces **Terzaghi one-dimensional consolidation** as an
 uncoupled seepage run: a 0.05 m saturated clay column (K = 1×10⁻⁸ m/s,
@@ -1021,7 +1021,7 @@ circles lie on it.
 <!-- test: file=files/geostudio/gs2_cons.xlsx, type=tseep_head, target_size=0.001, time=604, max_head_change_frac=0.02, points=0.005:0.0125:100.5683;0.005:0.025:100.7928;0.005:0.0375:100.5683, tolerance=0.02, benchmark=SEEPW-CONS-t604 -->
 <!-- test: file=files/geostudio/gs2_cons.xlsx, type=tseep_head, target_size=0.001, time=1460, max_head_change_frac=0.02, points=0.005:0.0125:100.2834;0.005:0.025:100.4008;0.005:0.0375:100.2834, tolerance=0.02, benchmark=SEEPW-CONS-t1460 -->
 
-### SEEPW-T02 — Verification: infiltration into dry soil {#seepw-t02}
+### 🟢 SEEPW-T02 — Verification: infiltration into dry soil {#seepw-t02}
 
 The canonical hard-infiltration benchmark, and the **unsaturated** counterpart to T01: a
 1 m column, initially dry at a uniform pressure head ψ = −8 m, is ponded at the surface
@@ -1064,7 +1064,7 @@ Warrick, Lomen & Yates (1985), *Soil Sci. Soc. Am. J.* 49.
 
 <!-- test: file=files/geostudio/gs2_infil.xlsx, type=tseep_head, target_size=0.01, time=46800, max_head_change_frac=0.01, points=0.025:0.6:0.4057;0.025:0.7:0.6262;0.025:0.8:0.7786;0.025:0.9:0.8978, tolerance=0.08, benchmark=SEEPW-INF -->
 
-### SEEPW-T03 — Rapid drawdown {#seepw-t03}
+### 🟢 SEEPW-T03 — Rapid drawdown {#seepw-t03}
 
 A two-dimensional reservoir drawdown on an embankment dam. A silty-clay embankment (base
 x = 3–47 m, crest 10 m tall, a reservoir to el. 8 against the upstream slope, a
@@ -1193,7 +1193,7 @@ compared above.
 <!-- test: file=files/geostudio/gs2_rdd_inst.xlsx, type=fs_vs_time, method=spencer, target_size=0.7, max_head_change_frac=0.05, num_slices=40, times=0;21600;54259;103638;178298;291181;461858;719916;1110093;1700031;2592000, expected=1.686;0.941;0.998;1.028;1.054;1.079;1.107;1.136;1.168;1.203;1.241, critical_time=21600, min_fs=0.941, tolerance=0.005, benchmark=SEEPW-RDD-inst-fs -->
 <!-- test: file=files/geostudio/gs2_rdd_slow.xlsx, type=fs_vs_time, method=spencer, target_size=0.7, max_head_change_frac=0.05, num_slices=40, times=0;21600;54259;103638;178298;291181;461858;719916;1110093;1700031;2592000, expected=1.686;1.585;1.488;1.373;1.243;1.121;1.090;1.125;1.161;1.198;1.237, critical_time=461858, min_fs=1.090, tolerance=0.005, benchmark=SEEPW-RDD-slow-fs -->
 
-### SEEPW-T04 — Leakage from pond with clay liner {#seepw-t04}
+### 🟢 SEEPW-T04 — Leakage from pond with clay liner {#seepw-t04}
 
 The two-dimensional unconfined transient with an exit face — the benchmark for a
 storage-driven **water-table rise**. A clay-lined pond on a hillside (a symmetric
@@ -1266,7 +1266,7 @@ at a 0.03 m regression tolerance.
 <!-- test: file=files/geostudio/gs2_pond.xlsx, type=tseep_head, target_size=0.5, refine_factor=2, time=0, max_head_change_frac=0.05, points=5:2:4.0000;10:3:4.0000;15:4:4.0000, tolerance=0.03, benchmark=SEEPW-POND-ic -->
 <!-- test: file=files/geostudio/gs2_pond.xlsx, type=tseep_head, target_size=0.5, refine_factor=2, time=2.0736e+07, max_head_change_frac=0.05, points=5:2:6.4757;10:3:5.9014;15:4:5.2516, tolerance=0.03, benchmark=SEEPW-POND-end -->
 
-### SEEPW-T05 — Mineral heap leaching {#seepw-t05}
+### 🟢 SEEPW-T05 — Mineral heap leaching {#seepw-t05}
 
 A one-dimensional column of leach ore under a surface irrigation flux — the test of
 XSLOPE's **specified-flux (Neumann) boundary** path and the van Genuchten
@@ -1312,7 +1312,7 @@ elevations at the two frames, at a 0.03 m regression tolerance.
 <!-- test: file=files/geostudio/gs2_heap.xlsx, type=tseep_head, target_size=0.2, time=0, max_head_change_frac=0.05, points=0.1:2:1.2471;0.1:4:3.2540;0.1:6:5.2570, tolerance=0.03, benchmark=SEEPW-HEAP-ic -->
 <!-- test: file=files/geostudio/gs2_heap.xlsx, type=tseep_head, target_size=0.2, time=345600, max_head_change_frac=0.05, points=0.1:2:1.8479;0.1:4:3.8634;0.1:6:5.8670, tolerance=0.03, benchmark=SEEPW-HEAP-end -->
 
-### SEEPW-T06 — Infiltration into multi-layered system (blocked) {#seepw-t06}
+### ⊘ SEEPW-T06 — Infiltration into multi-layered system (blocked) {#seepw-t06}
 
 A laboratory column ponds water on a fourteen-layer soil profile and watches a wetting
 front descend (the "Infiltration" analysis), then lets it drain (a "Drainage" child). The
@@ -1341,7 +1341,7 @@ example would exercise is already covered by [SEEPW-T02](#seepw-t02) and
 **Sources:** GeoStudio SEEP/W example "Infiltration into Multi-Layered System" (Seequent);
 field / HYDRUS-1D references (Zettl 2011, Huang 2011).
 
-### SEEPW-T07 — GeoStudio-PEST Multistep Outflow {#seepw-t07}
+### 🟢 SEEPW-T07 — GeoStudio-PEST Multistep Outflow {#seepw-t07}
 
 A multistep-outflow laboratory experiment: a coarse-sand sample (van Genuchten
 a = 8.91 /m, n = 10.19, S_y = 0.319) sits on a saturated porous ceramic plate (two
@@ -1391,7 +1391,7 @@ corpus, the `.gsz` model file is Seequent's and is not redistributed here; the m
 from it and from the example's write-up, and the published factors of safety and wall actions are the
 comparison values.
 
-### SIGMAW-SRS — Slope stabilization with a sheet pile wall {#sigmaw-wall}
+### 🔴 SIGMAW-SRS — Slope stabilization with a sheet pile wall {#sigmaw-wall}
 
 A slope held at the edge of stability by a 1 m band of weak clay running beneath it, stabilized by a
 continuous sheet pile wall driven from the lower bench through that band into the competent material below.
