@@ -1,17 +1,26 @@
-"""Render the isochrone comparison figures for the transient Groundwater corpus
-(GW#15, #16, #21) in docs/verification/rocscience_groundwater.md.
-
-Each figure overlays the CLOSED-FORM / recomputed-series target (solid lines) with
-XSLOPE's transient solve sampled at the same points (markers), at several times:
+"""Render the comparison figures for the transient Groundwater corpus in
+docs/verification/rocscience_groundwater.md.
 
   gw015.png  Terzaghi 1-D consolidation — ue/u0 vs depth, double & single drainage
   gw016.png  Pyrah two-layer consolidation — ue/u0 vs depth, uniform / A-B / B-A
+  gw017.png  toe-drain dam — XSLOPE's steady total-head field (a field render)
+  gw018.png  earth-fill dam — toe-slope total head vs RS2 Fig 20.5
+  gw019.png  lagoon — pressure head along the top boundary vs RS2 Fig 21.9
+  gw020.png  layered slope — total head down the query line vs both Fig 22.7 series
   gw021.png  Ferris confined aquifer — head rise vs distance at 600 hr, two ICs
 
-These are LINE plots (a profile vs depth/distance), the native form of the
-published figures (Terzaghi Fig 17-3/17-5, Pyrah Fig 18-2/3/4, Ferris Fig 23-6/7),
-so the field-plot frame spec (equal aspect / colorbars) does not apply; the panels
-share axes, a single legend, and a uniform margin.
+All but gw017 are LINE plots (a profile vs depth/distance/x), the native form of
+the published figures, so the field-plot frame spec (equal aspect / colorbars)
+does not apply.  Their legends follow one rule: every drawn series has an entry
+naming its SOURCE and its time or case in the series' own color, and the legend
+sits in reserved space under the axes, sized from its own rendered height
+(``_legend_below``), so it never covers data.
+
+The published sources are named as the manuals name them.  The closed-form rows
+(GW15, GW16, GW21) compare against Terzaghi, a recomputed Pyrah series and Ferris'
+erfc solution.  The vendor rows (GW18, GW19, GW20) compare against the RS2
+groundwater manual's own figures, whose legends label RS2's solve "Phase 2" and
+the published reference curve "Analytical" (Ref [1], Fredlund & Rahardjo 1993).
 
 Run from the repo root:  python benchmarks/rocscience/make_gw_transient_figures.py
 """
@@ -31,9 +40,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
-_XSLOPE_HANDLE = Line2D([], [], marker='o', color='0.25', ls='none',
-                        mfc='white', mew=1.4, ms=6, label='XSLOPE')
-
 from xslope.fileio import load_slope_data
 from xslope.mesh import get_material_polygons, build_mesh_from_polygons
 from xslope.seep import (build_seep_data, build_tseep_data,
@@ -46,6 +52,37 @@ SRC = os.path.join(os.path.dirname(__file__), '..', '..', 'docs', 'verification'
 OUT = os.path.join(os.path.dirname(__file__), '..', '..', 'docs', 'verification', 'images')
 
 _COLORS = ['#1f77b4', '#d62728', '#2ca02c', '#9467bd', '#ff7f0e']
+
+
+def _legend_below(fig, handles, ncol, title=None, labels=None, top=1.0):
+    """Put the legend in reserved space under the axes, never over the data.
+
+    The reserve is measured from the legend's own rendered height, so a
+    two-row legend and a four-row legend both clear the axes without a
+    hand-tuned margin; the column count is capped so the legend never runs
+    past the figure's width.  ``top`` leaves room for a suptitle.
+    """
+    kw = dict(loc='lower center', ncol=ncol, fontsize=8.5, frameon=False)
+    if title:
+        kw['title'] = title
+    leg = fig.legend(handles, labels, **kw) if labels is not None \
+        else fig.legend(handles=handles, **kw)
+    fig.canvas.draw()
+    bb = leg.get_window_extent().transformed(fig.transFigure.inverted())
+    if bb.width > 0.98:               # too wide: halve the columns and re-measure
+        leg.remove()
+        return _legend_below(fig, handles, max(1, ncol // 2), title, labels, top)
+    fig.tight_layout(rect=(0, bb.height + 0.02, 1, top))
+    return leg
+
+
+def _line(color, label, ls='-', lw=1.8):
+    return Line2D([], [], color=color, ls=ls, lw=lw, label=label)
+
+
+def _marker(color, label, marker='s', ms=5):
+    return Line2D([], [], marker=marker, color=color, ls='none', mfc='white',
+                  mew=1.3, ms=ms, label=label)
 
 
 def _solve(stem, target_size, frac=None):
@@ -83,17 +120,17 @@ def fig_gw15():
     cv = B._GW15_K / B._gw15_ss()
     ys = np.linspace(0.02, 0.98, 200)
     ys_s = np.linspace(0.1, 0.9, 9)
-    fig, axes = plt.subplots(1, 2, figsize=(10, 5), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(10, 5.6), sharey=True)
+    tvs = []
     for ax, (stem, H, saves, Zof, title) in zip(axes, [
             ('gw015a', 0.5, B._GW15_SAVES['a'], lambda y: 2 * (1 - y),
-             'Case 1 — double drainage (H = 0.5 m)'),
+             'Case 1 — double drainage (H = 0.5 m),  t = 250 / 500 / 1000 s'),
             ('gw015b', 1.0, B._GW15_SAVES['b'], lambda y: 1 - y,
-             'Case 2 — single drainage (H = 1.0 m)')]):
+             'Case 2 — single drainage (H = 1.0 m),  t = 1000 / 2000 / 4000 s')]):
         nodes, sol = _solve(stem, 0.02)
-        for c, t in zip(_COLORS, saves):
-            Tv = cv * t / (H * H)
-            ax.plot(B.terzaghi_ue(Zof(ys), Tv), ys, '-', color=c, lw=1.6,
-                    label=f'$T_v$ = {Tv:.2f}')
+        tvs = [cv * t / (H * H) for t in saves]     # the same triple for both cases
+        for c, t, Tv in zip(_COLORS, saves, tvs):
+            ax.plot(B.terzaghi_ue(Zof(ys), Tv), ys, '-', color=c, lw=1.6)
             h = np.asarray(sol['frames'][transient_frame_index(sol, t)]['head'])
             ue = np.array([(_sample(nodes, h, 0.125, y) - B._H_REF) / B._GW15_U0
                            for y in ys_s])
@@ -103,11 +140,13 @@ def fig_gw15():
         ax.grid(alpha=0.3)
         ax.set_xlim(-0.02, 1.02)
     axes[0].set_ylabel('elevation  y  (m)   [drained top at y = 1]')
-    axes[0].legend(loc='center left', fontsize=9, title='Terzaghi Eq 17.3')
-    axes[1].legend(handles=[_XSLOPE_HANDLE], loc='lower right', fontsize=9)
-    fig.suptitle('GW15 — Terzaghi 1-D consolidation: analytical (lines) vs XSLOPE (points)',
+    handles = []
+    for c, Tv in zip(_COLORS, tvs):
+        handles.append(_line(c, f'Terzaghi Eq 17.3, $T_v$ = {Tv:.2f}', lw=1.6))
+        handles.append(_marker(c, f'XSLOPE, $T_v$ = {Tv:.2f}', marker='o'))
+    fig.suptitle('GW15 — Terzaghi 1-D consolidation, closed form vs XSLOPE',
                  fontsize=11)
-    fig.tight_layout(rect=(0, 0, 1, 0.97))
+    _legend_below(fig, handles, ncol=3, top=0.94)
     fig.savefig(os.path.join(OUT, 'gw015.png'), dpi=150)
     plt.close(fig)
     return 'gw015.png'
@@ -135,7 +174,7 @@ def fig_gw16():
                               betas=betas, u0=1.0))
             ax.axhline(0.5, color='0.6', ls='--', lw=1)
         for c, t in zip(_COLORS, saves):
-            ax.plot(ana(ys, t), ys, '-', color=c, lw=1.6, label=f't = {t:g}')
+            ax.plot(ana(ys, t), ys, '-', color=c, lw=1.6)
             h = np.asarray(sol['frames'][transient_frame_index(sol, t)]['head'])
             ue = np.array([(_sample(nodes, h, 0.25, y) - B._H_REF) / B._GW16_U0
                            for y in ys_s])
@@ -145,11 +184,13 @@ def fig_gw16():
         ax.grid(alpha=0.3)
         ax.set_xlim(-0.02, 1.02)
     axes[0].set_ylabel('elevation  y  (m)   [drained top at y = 1]')
-    axes[0].legend(loc='lower right', fontsize=9, title='time (cv=1)')
-    axes[2].legend(handles=[_XSLOPE_HANDLE], loc='lower right', fontsize=9)
-    fig.suptitle('GW16 — Pyrah two-layer consolidation: recomputed series (lines) vs '
-                 'XSLOPE (points)', fontsize=11)
-    fig.tight_layout(rect=(0, 0, 1, 0.97))
+    handles = []
+    for c, t in zip(_COLORS, saves):
+        handles.append(_line(c, f'Series solution, t = {t:g}  ($c_v$ = 1)', lw=1.6))
+        handles.append(_marker(c, f'XSLOPE, t = {t:g}', marker='o'))
+    fig.suptitle('GW16 — Pyrah two-layer consolidation, recomputed series vs XSLOPE',
+                 fontsize=11)
+    _legend_below(fig, handles, ncol=3, top=0.94)
     fig.savefig(os.path.join(OUT, 'gw016.png'), dpi=150)
     plt.close(fig)
     return 'gw016.png'
@@ -159,34 +200,36 @@ def fig_gw21():
     D = B._gw21_D()
     xs = np.linspace(0, 100, 300)
     xs_s = np.array([10, 20, 30, 40, 50, 60, 70.])
-    fig, ax = plt.subplots(figsize=(8, 5))
-    for c, (stem, ic, lbl) in zip(_COLORS, [
-            ('gw021a', 0.0, 'Case 1: IC = 0, step to 5 ft'),
-            ('gw021b', 5.0, 'Case 2: IC = 5 ft, step to 10 ft')]):
+    fig, ax = plt.subplots(figsize=(8, 5.4))
+    cases = [('gw021a', 0.0, 'case 1 (IC = 0, step to 5 ft)'),
+             ('gw021b', 5.0, 'case 2 (IC = 5 ft, step to 10 ft)')]
+    for c, (stem, ic, lbl) in zip(_COLORS, cases):
         nodes, sol = _solve(stem, 0.8)
         ax.plot(xs, ic + B.ferris_dh(xs, B._GW21_T, D, B._GW21_DH), '-',
-                color=c, lw=1.8, label=lbl)
+                color=c, lw=1.8)
         h = np.asarray(sol['frames'][transient_frame_index(sol, B._GW21_T)]['head'])
         hv = np.array([_sample(nodes, h, x, 2.5) - B._H_REF for x in xs_s])
         ax.plot(xs_s, hv, 'o', color=c, ms=6, mfc='white', mew=1.4)
-    ax.plot([], [], 'ko', mfc='white', label='XSLOPE')
     ax.set_xlabel('distance from stepped face,  x  (ft)')
     ax.set_ylabel('head above datum  (ft)')
-    ax.set_title('GW21 — Ferris confined aquifer at t = 600 hr: erfc (lines) vs XSLOPE (points)',
+    ax.set_title('GW21 — Ferris confined aquifer at t = 600 hr, erfc vs XSLOPE',
                  fontsize=11)
     ax.grid(alpha=0.3)
-    ax.legend(fontsize=9)
-    fig.tight_layout()
+    handles = []
+    for c, (_stem, _ic, lbl) in zip(_COLORS, cases):
+        handles.append(_line(c, f'Ferris erfc, {lbl}'))
+        handles.append(_marker(c, f'XSLOPE, {lbl}', marker='o', ms=6))
+    _legend_below(fig, handles, ncol=2)
     fig.savefig(os.path.join(OUT, 'gw021.png'), dpi=150)
     plt.close(fig)
     return 'gw021.png'
 
 
-# Digitized Ref [1] (RS2/FlexPDE) toe-slope total head from Slide2/RS2 Fig 20.5
-# (read off the published chart; used only as the visual overlay, not the lock).
-# Digitized Slide markers from the groundwater manual's Fig 18.5/20.5, total head
-# along the downstream (toe) slope at the two published stage times. Read at 500 dpi
-# off the chart's own 2 m x / 1 m head gridlines, at every labelled x station.
+# Digitized RS2 markers ("Phase 2" in the chart's own legend) from the RS2
+# groundwater manual's Fig 20.5, total head along the downstream (toe) slope at the
+# two published stage times.  Read at 500 dpi off the chart's own 2 m x / 1 m head
+# gridlines, at every labelled x station.  The Slide2 manual publishes the same
+# comparison as its Fig 18.5, with its own markers on the same curve.
 _GW18_FIG205 = {
     0.6: ([28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48],
           [2.887, 2.775, 2.687, 2.560, 2.448, 2.323, 2.177, 2.047, 1.882,
@@ -217,10 +260,13 @@ _GW19_FIG219 = {
                -3.925, -4.053, -4.136, -4.178]),
 }
 
-# Digitized RS2 ("Phase 2") markers from Fig 22.7, total head down the manual's own
-# query line (Fig 22.6: vertical, at x = 1.6, the crest break). The chart's depth axis
-# is measured from the crest, so y = 1.0 - depth. Calibration check: the 4.6 s markers
-# at the base read 0.302-0.305 against the model's initial total head of 0.300.
+# The RS2 groundwater manual's Fig 22.7 carries TWO published series, named in its
+# own legend: square markers "Phase 2" (RS2's own solve) and lines "Analytical"
+# (Ref [1], Fredlund & Rahardjo 1993). Both are digitized here, total head down the
+# manual's own query line (Fig 22.6: vertical, at x = 1.6, the crest break). The
+# chart's depth axis is measured from the crest, so y = 1.0 - depth. Calibration
+# check: the 4.6 s markers at the base read 0.302-0.305 against the model's initial
+# total head of 0.300.
 _GW20_FIG227_Y = [1.0, 0.95, 0.90, 0.85, 0.80, 0.75, 0.70, 0.65, 0.60, 0.55, 0.50,
                   0.45, 0.40, 0.35, 0.30, 0.25, 0.20, 0.15, 0.10, 0.05, 0.00]
 _GW20_FIG227 = {
@@ -235,6 +281,22 @@ _GW20_FIG227 = {
             0.6051, 0.6050, 0.6050],
 }
 _GW20_QUERY_X = 1.6                       # the manual's own query line (Fig 22.6)
+
+# Fig 22.7's "Analytical" lines — Ref [1] (Fredlund & Rahardjo 1993) — at the same
+# 21 stations, read at 400 dpi off the chart's own 0.1 m gridlines with the marker
+# columns skipped so the line is not averaged with the markers drawn on it. The
+# Slide2 manual reprints the same reference curves as its Fig 20.7.
+_GW20_FIG227_REF1 = {
+    4.6: [0.462, 0.423, 0.394, 0.379, 0.367, 0.359, 0.353, 0.322, 0.308, 0.308,
+          0.308, 0.308, 0.307, 0.306, 0.306, 0.306, 0.306, 0.306, 0.306, 0.306,
+          0.306],
+    31.0: [0.652, 0.640, 0.639, 0.630, 0.629, 0.620, 0.607, 0.543, 0.482, 0.471,
+           0.471, 0.471, 0.471, 0.470, 0.461, 0.459, 0.459, 0.459, 0.459, 0.459,
+           0.459],
+    208.0: [0.877, 0.877, 0.871, 0.868, 0.861, 0.859, 0.844, 0.754, 0.659, 0.641,
+            0.640, 0.630, 0.628, 0.628, 0.628, 0.618, 0.617, 0.617, 0.617, 0.617,
+            0.617],
+}
 
 # GW18's own steady frame (a third save time on gw018.xlsx): the toe-slope profile is
 # within 0.003 m of it by 50000 h, and Fig 20.5's 19656 h curve is already steady.
@@ -252,29 +314,30 @@ def fig_gw18():
     essentially reached by 19656 h."""
     nodes, sol = _solve('gw018', 1.5, frac=0.25)
     xs = np.linspace(28.0, 52.0, 120)
-    fig, ax = plt.subplots(figsize=(8.5, 5.5))
+    fig, ax = plt.subplots(figsize=(8.5, 5.8))
+    handles = []
     for c, (t_solve, t_pub, lbl) in zip(_COLORS, [
-            (0.6, 0.6, 't = 0.6 h (early transient)'),
+            (0.6, 0.6, 't = 0.6 h'),
             (19656.0, 19656, 't = 19656 h')]):
         h = np.asarray(sol['frames'][transient_frame_index(sol, t_solve)]['head'])
         th = np.array([_sample(nodes, h, x, _toe_y(x)) for x in xs])
-        ax.plot(xs, th, '-', color=c, lw=1.8, label=f'XSLOPE — {lbl}')
+        ax.plot(xs, th, '-', color=c, lw=1.8)
         px, ph = _GW18_FIG205[t_pub]
         ax.plot(px, ph, 's', color=c, ms=5, mfc='white', mew=1.3)
+        handles.append(_line(c, f'XSLOPE, {lbl}'))
+        handles.append(_marker(c, f'RS2 Fig 20.5, {lbl}'))
     hs = np.asarray(sol['frames'][transient_frame_index(sol, _GW18_STEADY)]['head'])
     ax.plot(xs, np.array([_sample(nodes, hs, x, _toe_y(x)) for x in xs]), '--',
-            color=_COLORS[2], lw=1.6, label='XSLOPE — steady')
-    ax.plot([], [], 's', color='0.35', mfc='white', mew=1.3,
-            label='Slide — digitized Fig 20.5')
+            color=_COLORS[2], lw=1.6)
+    handles.append(_line(_COLORS[2], 'XSLOPE, steady (t = 60000 h)', ls='--', lw=1.6))
     ax.set_xlabel('x coordinate along toe slope  (m)')
     ax.set_ylabel('total head  (m)')
-    ax.set_title('GW18 — toe-slope total head: XSLOPE (lines) vs digitized Fig 20.5 (points)',
+    ax.set_title('GW18 — toe-slope total head, XSLOPE against RS2 Fig 20.5',
                  fontsize=11)
     ax.set_xlim(25, 55)
     ax.set_ylim(0, 9)
     ax.grid(alpha=0.3)
-    ax.legend(fontsize=9, loc='upper right')
-    fig.tight_layout()
+    _legend_below(fig, handles, ncol=3)
     fig.savefig(os.path.join(OUT, 'gw018.png'), dpi=150)
     plt.close(fig)
     return 'gw018.png'
@@ -327,26 +390,26 @@ def fig_gw19():
     nodes, sol = _solve('gw019', 0.8, frac=0.25)
     times = [73.0, 416.0, 792.0, 11340.0]
     xs = np.linspace(0.0, 19.0, 160)
-    fig, ax = plt.subplots(figsize=(8.5, 5.5))
+    fig, ax = plt.subplots(figsize=(8.5, 6.0))
+    handles = []
     for c, t in zip(_COLORS, times):
         h = np.asarray(sol['frames'][transient_frame_index(sol, t)]['head'])
         ph = np.array([_sample(nodes, h, x, 10.0) - 10.0 for x in xs])
-        ax.plot(xs, ph, '-', color=c, lw=1.8, label=f't = {t:g} min')
+        ax.plot(xs, ph, '-', color=c, lw=1.8)
         px, pp = _GW19_FIG219[t]
         ax.plot(px, pp, 's', color=c, ms=4.5, mfc='white', mew=1.2)
-    ax.plot([], [], 's', color='0.35', mfc='white', mew=1.2,
-            label='RS2 — digitized Fig 21.9')
+        handles.append(_line(c, f'XSLOPE, t = {t:g} min'))
+        handles.append(_marker(c, f'RS2 Fig 21.9, t = {t:g} min', ms=4.5))
     ax.axvspan(0.0, 2.0, color='0.85', zorder=0)
     ax.text(1.0, 0.9, 'lagoon', ha='center', va='top', fontsize=8,
             transform=ax.get_xaxis_transform())
     ax.set_xlabel('x along top boundary  (m)   [centerline at x = 0]')
     ax.set_ylabel('pressure head  (m)')
-    ax.set_title('GW19 — pressure head along the top boundary: XSLOPE (lines) vs '
-                 'digitized Fig 21.9 (points)', fontsize=10)
+    ax.set_title('GW19 — pressure head along the top boundary, XSLOPE against '
+                 'RS2 Fig 21.9', fontsize=10.5)
     ax.set_xlim(0, 19)
     ax.grid(alpha=0.3)
-    ax.legend(fontsize=9, loc='upper right')
-    fig.tight_layout()
+    _legend_below(fig, handles, ncol=4)
     fig.savefig(os.path.join(OUT, 'gw019.png'), dpi=150)
     plt.close(fig)
     return 'gw019.png'
@@ -354,46 +417,35 @@ def fig_gw19():
 
 def fig_gw20():
     """Total head down the manual's own query line (Fig 22.6: vertical at x = 1.6,
-    the crest break) vs elevation at the three report times: XSLOPE (lines) against
-    the digitized Fig 22.7 RS2 markers (points), with XSLOPE's steady field dashed.
-    As rainfall switches on the perched mound builds above the low-k fine lens
-    (shaded, y in [0.6,0.7]) and the water table rises from its initial el 0.3; RS2
-    is at the steady profile by 208 s where XSLOPE reaches it near 800 s."""
+    the crest break) vs elevation at the three report times, against BOTH series
+    Fig 22.7 publishes: RS2's own markers and the Ref [1] curve the manual compares
+    itself with. As rainfall switches on the perched mound builds above the low-k
+    fine lens (shaded, y in [0.6,0.7]) and the water table rises from its initial
+    el 0.3. XSLOPE lies between the two published series at every frame."""
     nodes, sol = _solve('gw020', 0.04, frac=0.25)
     times = [4.6, 31.0, 208.0]
     ys = np.linspace(0.0, 1.0, 160)
-    fig, ax = plt.subplots(figsize=(7.5, 5.5))
+    fig, ax = plt.subplots(figsize=(7.8, 6.4))
+    handles = []
     for c, t in zip(_COLORS, times):
         h = np.asarray(sol['frames'][transient_frame_index(sol, t)]['head'])
         th = np.array([_sample(nodes, h, _GW20_QUERY_X, yy) for yy in ys])
-        ax.plot(th, ys, '-', color=c, lw=1.8, label=f't = {t:g} s')
+        ax.plot(th, ys, '-', color=c, lw=1.8)
         ax.plot(_GW20_FIG227[t], _GW20_FIG227_Y, 's', color=c, ms=4.5,
                 mfc='white', mew=1.2)
-    # XSLOPE's own steady field on the same line — the state both codes march to
-    sd7 = load_slope_data(os.path.join(SRC, 'gw007.xlsx'))
-    mesh7 = build_mesh_from_polygons(get_material_polygons(sd7), 0.04, 'tri3')
-    seep7 = build_seep_data(mesh7, sd7)
-    with contextlib.redirect_stdout(io.StringIO()):
-        from xslope.seep import run_seepage_analysis
-        sol7 = run_seepage_analysis(seep7, tol=1e-5, max_iter=1000)
-    h7 = np.asarray(sol7['head'])
-    th7 = np.array([_sample(np.asarray(seep7['nodes']), h7, _GW20_QUERY_X, yy)
-                    for yy in ys])
-    ax.plot(th7, ys, '--', color='0.35', lw=1.4, label='XSLOPE — steady (GW7)')
-    ax.plot([], [], 's', color='0.35', mfc='white', mew=1.2,
-            label='RS2 — digitized Fig 22.7')
+        ax.plot(_GW20_FIG227_REF1[t], _GW20_FIG227_Y, ':', color=c, lw=1.4)
+        handles.append(_line(c, f'XSLOPE, t = {t:g} s'))
+        handles.append(_marker(c, f'RS2 Fig 22.7, t = {t:g} s', ms=4.5))
+        handles.append(_line(c, f'Ref [1] Fig 22.7, t = {t:g} s', ls=':', lw=1.4))
     ax.axhspan(0.6, 0.7, color='0.85', zorder=0)
     ax.text(0.02, 0.65, 'fine lens', ha='left', va='center', fontsize=8,
             transform=ax.get_yaxis_transform())
     ax.set_xlabel('total head  (m)')
     ax.set_ylabel('elevation  y  (m)   [query line at x = 1.6]')
-    ax.set_title('GW20 — total head down the Fig 22.6 query line: XSLOPE (lines) vs '
-                 'digitized Fig 22.7 (points)', fontsize=9.5)
+    ax.set_title('GW20 — total head down the Fig 22.6 query line, XSLOPE against '
+                 'both Fig 22.7 series', fontsize=10)
     ax.grid(alpha=0.3)
-    # lower right is the one empty quadrant: every curve sits at head < 0.65 below
-    # the lens and the steady branch only reaches 0.87 above y = 0.7
-    ax.legend(fontsize=9, loc='lower right')
-    fig.tight_layout()
+    _legend_below(fig, handles, ncol=3)
     fig.savefig(os.path.join(OUT, 'gw020.png'), dpi=150)
     plt.close(fig)
     return 'gw020.png'
