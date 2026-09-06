@@ -1,36 +1,23 @@
 # GeoStudio (SLOPE/W) Verification Corpus
 
 The [GeoStudio slope stability verification manual](https://files.seequent.com/GeoStudio/Manuals/Slope%20Stability%20Verification%20Manual.pdf)
-(Seequent) contains 47 two-dimensional verification problems solved with SLOPE/W. Most of them are the same
-published benchmarks as the [Rocscience Slide2 corpus](rocscience.md), so a second commercial program's numbers
-are available on those problems, and the manual's geometry figures are coordinate-labeled where Slide2's are
-sometimes not. Where a problem coincides with a built Rocscience entry, the two pages cross-reference each
-other and one XSLOPE input file serves both.
+(Seequent, 2025.2 edition) solves 47 two-dimensional problems with SLOPE/W (its separate 3D chapter verifies
+SLOPE3D and is out of scope). Seven SEEP/W transient-seepage examples (T01–T07) and one SIGMA/W
+strength-reduction example (SRS), from GeoStudio's example libraries rather than from the manual, are carried
+at the foot of the table. Each row carries XSLOPE's results against the published values, what is built, and
+a match dot following the corpus-wide [scoring convention](index.md#how-the-match-dots-are-scored).
 
-XSLOPE's Janbu carries the f₀ correction; SLOPE/W's "Janbu" column is the uncorrected force solution, so those
-columns are compared through the correction factor where noted.
+**Conventions on this page.**
 
-Full bibliographic details for the author-year citations on this page are on the
-shared [References](references.md) page.
-
-**Status terms** follow the [shared definitions](rocscience.md) used across this
-section; on this page *covered* means the same problem is built under the
-[Rocscience corpus](rocscience.md), and the row links there.
-
-**Completeness.** Where a section cannot be reproduced, the row records why. The one *no lock possible*
-row (§2.10 Lanester) prints a measured loading-induced pressure grid with no flow field behind it, so no
-seepage solution can regenerate it — a gap it shares with the Slide2 corpus. The one *blocked* row (§2.47)
-needs a strength model XSLOPE does not have: a dip-relative anisotropic/compound strength. Everything else is
-built and verified here or under the Rocscience build.
-
-**Manual edition.** The manual tracked here is the **2025.2 edition**, whose 47 two-dimensional problems
-(chapter 2, §2.1–2.47) are carried unchanged from the October 2022 edition, so the section numbering below is
-valid against either. Its 11-problem "Verifications – 3D" chapter verifies SLOPE3D and is out of scope for a
-2D formulation. The seven **SEEP/W** transient-seepage examples (T01–T07) and the **SIGMA/W**
-strength-reduction example (SRS) at the foot of the table come from GeoStudio's separate example library, not
-from this manual.
-
-**Match to the published value** — the dots follow the corpus-wide [scoring convention](index.md#how-the-match-dots-are-scored), which defines the three bands and the same-method pairing rule.
+- Most problems are transcribed from the manual's coordinate-labeled figures and tabulated data; several are
+  built instead from Seequent's own SLOPE/W model files, read with the [GeoStudio importer](../usage/geostudio.md)
+  and not redistributed here. A file saved solved carries SLOPE/W's factor of safety for each trial surface
+  it evaluated, so the rows built from one compare on SLOPE/W's own circles rather than on independent
+  searches.
+- XSLOPE's Janbu carries the f₀ correction where SLOPE/W's "Janbu" column is the uncorrected force solution,
+  so the two are never a same-method pairing.
+- Where a problem is built in the [Slide2 corpus](rocscience.md) the row reads *covered* and links there, and
+  one XSLOPE input file serves both pages.
 
 
 <div class="corpus-summary match" markdown>
@@ -96,16 +83,6 @@ from this manual.
 </div>
 
 ---
-
-## Model provenance
-
-Most entries are built by transcribing the manual's geometry figures. Several rows are instead verified
-against Seequent's own published SLOPE/W model files for those problems, which carry the exact geometry,
-material properties and — where the file was saved solved — SLOPE/W's own factor of safety on each trial
-surface it evaluated. Those files are Seequent's copyrighted material: they are not redistributed here and
-none are stored in this repository. Where a row uses one, its section says so. XSLOPE's `.gsz` reader,
-what it imports, and the file-reading conventions that affect results are documented at
-[GeoStudio Import/Export](../usage/geostudio.md).
 
 ## Problem details
 
