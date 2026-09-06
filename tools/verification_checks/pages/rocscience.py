@@ -23,9 +23,6 @@ CONFIG = PageConfig(
     name="rocscience",
 
     bounds=[
-        # the match-dot legend, not a comparison
-        # the conventions note's own illustration of the sign convention
-
         # ---- agreement bounds over a set of surfaces, cases or stations ----
         ('+0.3', 'Janbu/Spencer within 0.3% of Slide'),
         ('+0.3', 'Spencer within 0.3% on both'),

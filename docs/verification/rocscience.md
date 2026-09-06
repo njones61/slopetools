@@ -1,43 +1,21 @@
 # Rocscience Slide2 Verification Corpus
 
 The [Rocscience Slide2 verification manual](https://www.rocscience.com/help/slide2/verification-theory/verification-manuals)
-contains 111 slope stability problems drawn from the published literature, each with Slide2's computed
-factors of safety and (in most cases) independent reference values from the original authors. XSLOPE is
-verified against this corpus problem by problem: each built entry links an XSLOPE input file
-reproducing the problem, reports the comparison against Slide2 and the original reference, and is
-re-verified automatically whenever XSLOPE changes.
+publishes 111 slope stability problems drawn from the literature, each with Slide2's own factor of
+safety and, in most cases, the original authors'. XSLOPE reproduces them problem by problem; the
+summary table gives each problem's headline comparison and a
+[match dot](index.md#how-the-match-dots-are-scored), and links to the section that builds it.
 
-**Status terms** (used in the Notes column on every verification page in this section):
-*covered* — the same problem is built under another corpus page, and the row links there;
-*partial* — some cases are built, and the row names what remains; *planned* — reachable with
-today's capability and source data, not yet built; *blocked* — cannot be built today, and the
-row names what is missing (source data or a capability); *no lock possible* — the source
-publishes no reproducible numeric target; *not supported* — a deliberate scope exclusion.
-A row with a match dot and none of these terms is fully built and verified; a parenthetical
-may narrow it (*(caveat)*, *(3 of 6)*).
+How the manual's problems reach this corpus:
 
-Full bibliographic details for the author-year citations on this page are on the
-shared [References](references.md) page.
-
-Problems are built from the manual's tabulated data and coordinate-labeled figures; where a problem's
-geometry exists only as an unlabeled figure, the original source publication is consulted before the
-problem is marked *built* — no digitized guesses are used for benchmark inputs.
-
-Roughly a third of these problems are also in the [GeoStudio (SLOPE/W) corpus](geostudio.md), which solves them
-with a second commercial program. Shared rows link to it, and it links back. That corpus is worth reading
-alongside this one for two reasons: SLOPE/W's numbers give an independent third opinion where Slide2 and the
-original author disagree, and several of its rows are verified against SLOPE/W's own model files rather than
-rebuilt from a figure.
-
-**Completeness.** Problems that cannot be reproduced say why in their row. The *no lock
-possible* rows are final: the pore-pressure-grid embankments (VP11–13) publish measured
-construction-induced pressures with no flow field behind them, so no seepage analysis can
-regenerate them — XSLOPE takes water as piezometric lines, r<sub>u</sub>, or an FE seepage
-solution. The remaining *blocked* and *partial* rows each name their specific gap: a support
-type whose physics XSLOPE does not share (VP110), or a strength field the original source
-publishes only as a two-dimensional contour map (VP46's third stage, Baker 1993). Every other
-problem is built and verified; the corpus is complete relative to what is independently
-verifiable.
+- Geometry and properties come from the manual's tables and coordinate-labeled figures; a problem
+  that appears only as an unlabeled figure is built from the original publication's coordinates,
+  never a digitized guess.
+- Roughly a third of the problems are also built in the [GeoStudio (SLOPE/W) corpus](geostudio.md);
+  those rows link there rather than repeat the build.
+- `benchmarks/rocscience/build_problems.py` writes the input files (problem #38 has its own builder,
+  `build_vp038.py`, for the steady unsaturated seepage field behind it) and `make_figures.py` the
+  figures, model inputs beside a representative solved surface.
 
 <!-- test: file=files/rocscience/vp002.xlsx, type=circular_search, num_slices=40, fs_bishop=1.589, fs_spencer=1.585, fs_janbu=1.481, fs_mprice=1.586, benchmark=VP2 -->
 <!-- test: file=files/rocscience/vp003.xlsx, type=circular_search, num_slices=40, fs_bishop=1.403, fs_spencer=1.372, fs_janbu=1.354, fs_mprice=1.371, benchmark=VP3 -->
@@ -207,9 +185,6 @@ verifiable.
 <!-- test: file=files/rocscience/vp022a.xlsx, type=single_circle, composite=true, num_slices=60, fs_oms=1.297, fs_bishop=1.380, fs_spencer=1.379, fs_mprice=1.370, benchmark=VP22-dry -->
 <!-- test: file=files/rocscience/vp022b.xlsx, type=single_circle, composite=true, num_slices=60, fs_oms=1.037, fs_bishop=1.121, fs_spencer=1.122, fs_mprice=1.112, benchmark=VP22-ru -->
 
-**Match to the published value** — the dots follow the corpus-wide [scoring convention](index.md#how-the-match-dots-are-scored), which defines the three bands and the same-method pairing rule.
-
-
 <div class="corpus-summary match" markdown>
 
 | # | Match | Problem | Results | Notes |
@@ -329,9 +304,6 @@ verifiable.
 </div>
 
 ---
-
-
-Each built problem below shows the XSLOPE inputs (with coordinate labels) beside a representative solved surface. The build scripts live in `benchmarks/rocscience/build_problems.py` (the FE-seepage problem #38, which solves its own steady unsaturated field and writes the `_mesh.json` / `_seep.csv` sidecars, has its own builder `benchmarks/rocscience/build_vp038.py`); the figures are regenerated by `benchmarks/rocscience/make_figures.py`.
 
 ## VP1: Slope, homogeneous (ACADS 1(a)) {#vp1}
 
