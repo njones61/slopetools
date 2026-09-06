@@ -4,8 +4,9 @@ The [GeoStudio slope stability verification manual](https://files.seequent.com/G
 (Seequent, 2025.2 edition) solves 47 two-dimensional problems with SLOPE/W (its separate 3D chapter verifies
 SLOPE3D and is out of scope). Seven SEEP/W transient-seepage examples (T01–T07) and one SIGMA/W
 strength-reduction example (SRS), from GeoStudio's example libraries rather than from the manual, are carried
-at the foot of the table. Each row carries XSLOPE's results against the published values, what is built, and
-a match dot following the corpus-wide [scoring convention](index.md#how-the-match-dots-are-scored).
+at the foot of the table. Each row carries XSLOPE's results against the published values, a match dot
+following the corpus-wide [scoring convention](index.md#how-the-match-dots-are-scored), and where a problem
+is not fully built and verified one of the [shared status terms](index.md#status-terms).
 
 **Conventions on this page.**
 
@@ -16,8 +17,8 @@ a match dot following the corpus-wide [scoring convention](index.md#how-the-matc
   searches.
 - XSLOPE's Janbu carries the f₀ correction where SLOPE/W's "Janbu" column is the uncorrected force solution,
   so the two are never a same-method pairing.
-- Where a problem is built in the [Slide2 corpus](rocscience.md) the row reads *covered* and links there, and
-  one XSLOPE input file serves both pages.
+- Most of these problems are also in the [Slide2 corpus](rocscience.md); where one is built there the row
+  reads *covered* and links to it, and one XSLOPE input file serves both pages.
 
 
 <div class="corpus-summary match" markdown>
