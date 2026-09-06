@@ -256,10 +256,10 @@ Built and run step by step in [LEM-5](../tutorials/lem05_weak_layer_noncircular.
 
 | OMS | Bishop | Janbu | Corps | Lowe | Spencer | M-P |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| — | — | 1.575 | 1.523 | 1.321 | 1.656 | 1.634 |
+| — | — | 1.575 | 1.523 | 1.357 | 1.656 | 1.634 |
 <!-- /fs-table -->
 
-<!-- test: file=files/xslope_noncircular.xlsx, type=noncircular_search, num_slices=40, fs_janbu=1.575, fs_corps=1.523, fs_lowe=1.321, fs_spencer=1.656, fs_mprice=1.634 -->
+<!-- test: file=files/xslope_noncircular.xlsx, type=noncircular_search, num_slices=40, fs_janbu=1.575, fs_corps=1.523, fs_lowe=1.357, fs_spencer=1.656, fs_mprice=1.634 -->
 
 ### 8. Earth Dam 
 

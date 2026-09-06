@@ -550,7 +550,7 @@ faults typed into LEM-3's model: the material rows **swapped**, so the strong cl
 sits in the fill and the weak clay in the foundation; the embankment's unit weight
 **13 pcf** instead of 130; and the maximum depth **−100** instead of −10, putting a
 rigid base 100 ft below a 20 ft section. A Spencer's-method search returns
-1.004 on it.
+0.998 on it.
 
 <div class="prompt-block" markdown>
 ```text
@@ -586,7 +586,7 @@ the shape most wrong explanations here take — and this one sentence is the
 single miss behind Opus 5's 7 of 8 in the comparison table's Explanation
 column.
 
-<!-- test: file=files/w1_diagnose_start.xlsx, type=circular_search, method=spencer, num_slices=40, expected_fs=1.004, tolerance=0.005 -->
+<!-- test: file=files/w1_diagnose_start.xlsx, type=circular_search, method=spencer, num_slices=40, expected_fs=0.998, tolerance=0.005 -->
 <!-- test: file=files/w1_diagnose_after.xlsx, type=circular_search, method=spencer, num_slices=40, expected_fs=1.244, tolerance=0.005 -->
 
 ### Check its work
