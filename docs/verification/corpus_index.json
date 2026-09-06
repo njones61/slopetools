@@ -23668,7 +23668,7 @@
         "transient_seepage": true,
         "unit_system": "si",
         "unsaturated_models": [
-          "vg"
+          "gard"
         ]
       },
       "model": "docs/verification/files/rocscience_gw/gw020.xlsx",

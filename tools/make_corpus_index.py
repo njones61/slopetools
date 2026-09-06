@@ -116,9 +116,16 @@ def page_url_path(md_path: Path) -> str:
 class Section:
     __slots__ = ('line', 'level', 'title', 'anchor', 'models', 'stems')
 
+    #: The match dot a verification heading leads with (see verification_checks/dots.py);
+    #: it is page status, not part of the title an index or the skill's table quotes.
+    _DOTS = ('🟢', '🟡', '🔴', '🟣', '⊘')
+
     def __init__(self, line, level, title, anchor):
         self.line = line
         self.level = level
+        title = title.strip()
+        while title and title[0] in self._DOTS:
+            title = title[1:].lstrip()
         self.title = title
         self.anchor = anchor
         self.models = set()     # model .xlsx paths linked in the body
