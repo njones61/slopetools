@@ -12,7 +12,7 @@ upper-bound percentages, scientific notation, thousands separators, share
 lists, share rows, prefix-qualified quantities, the hedged-precision escape,
 rounded tag restatements, scientific-notation tag values, list-valued locks
 (one element of a printed row, one element of the tag, a partly published probe
-set), and the structural figure mode.  The tag block also covers the
+set), the structural figure mode, and the dot a section heading opens with.  The tag block also covers the
 restatement pass: a section that prints its lock twice must agree with it both
 times.
 
@@ -33,13 +33,13 @@ import shutil
 import sys
 import tempfile
 
-from . import certify, deltas, figures, tags, voice
+from . import certify, deltas, dots, figures, tags, voice
 from .pages import PAGES
 
 #: A table with no XSLOPE column whose header names an authority: the delta in
 #: a value cell pairs against that column.  Planted by M5 (wrong delta, must be
 #: caught) and by N4 (the delta the pair implies, must pass).
-AUTH_HEAD = "### RS2-26: Clarence Cannon dam (Wolff & Harr 1987) {#rs2-26}"
+AUTH_HEAD = "### \U0001F7E2 RS2-26: Clarence Cannon dam (Wolff & Harr 1987) {#rs2-26}"
 AUTH_TABLE = ("\n\n| Analysis | Reading | RS2 SSR |\n|---|---|---|\n"
               "| III (12 m) | 0.781 ({}%) | 0.81 |\n")
 
@@ -74,7 +74,7 @@ MUTATIONS = [
     # so this plants one rather than perturbing one: an unpaired absolute difference
     # must be caught as unpaired, which is the same failure a wrong one would be.
     ("rs2", "deltas", "M10 absolute FS difference, unpaired",
-     "### RS2-26: Clarence Cannon dam (Wolff & Harr 1987) {#rs2-26}",
+     "### \U0001F7E2 RS2-26: Clarence Cannon dam (Wolff & Harr 1987) {#rs2-26}",
      "### RS2-26: Clarence Cannon dam (Wolff & Harr 1987) {#rs2-26}\n\n"
      "The tailwater is worth +0.038 on this dam.\n"),
     ("rs2", "deltas", "M11 hedged unsigned prose %",
@@ -91,7 +91,7 @@ MUTATIONS = [
      "| 1.532 / 1.541 | 1.528–1.542 (−2.5%) |",
      "| 1.532 / 1.541 | 1.528–1.542 (−3.0%) |"),
     ("rs2", "deltas", "M16 percent whose operand the page never prints",
-     "### RS2-21: Bearing capacity test prism (Prandtl II) {#rs2-21}",
+     "### \U0001F7E2 RS2-21: Bearing capacity test prism (Prandtl II) {#rs2-21}",
      "### RS2-21: Bearing capacity test prism (Prandtl II) {#rs2-21}\n\n"
      "Under the alternative construction the same prism reads −3.7% on that value.\n"),
     ("rs2", "deltas", "N21a whitelist-operand drift (RS2-22 load direction)",
@@ -103,6 +103,21 @@ MUTATIONS = [
      "critical SRF](images/RS2-1.png)",
      "![RS2-1: FEM model and maximum shear strain contours at the critical SRF]"
      "(images/RS2-1.png)"),
+    # ------------------------------------------------------ heading dots ---
+    # The dot at the front of a section heading is the summary table's, so a
+    # heading that disagrees with its row — or has lost its dot — must fail.
+    ("rs2", "dots", "D1 heading dot changed",
+     "### \U0001F7E2 RS2-1: Simple slope stability assessment {#rs2-1}",
+     "### \U0001F7E1 RS2-1: Simple slope stability assessment {#rs2-1}"),
+    ("geostudio", "dots", "D2 heading dot dropped",
+     "### \U0001F7E2 2.1 \u2014 ACADS Simple Slope {#gs-2-1}",
+     "### 2.1 \u2014 ACADS Simple Slope {#gs-2-1}"),
+    # The section covering problems 39, 41 and 43 is named by rows carrying
+    # different dots, so `heading_dot_multi` says which one it opens with.  A
+    # heading resolved that way is checked like any other, not left alone.
+    ("rs2", "dots", "D3 dot changed on a multi-row section",
+     "### \U0001F7E2 RS2-39/41/43:", "### \U0001F534 RS2-39/41/43:"),
+
     ("rs2", "figures", "M17 four-panel caption on the inputs-only figure",
      "![RS2-50: shortened 4.2 m geotextile layers (vp089, Ta = 11.4 kN/m) — FEM inputs.",
      "![RS2-50: shortened 4.2 m geotextile layers (vp089, Ta = 11.4 kN/m) — FEM inputs, "
@@ -238,20 +253,20 @@ MUTATIONS = [
 #: the prose that gets written when a page is edited mid-investigation.
 VOICE_MUTATIONS = [
     ("seep", "voice", "V1 first person + held-pending status",
-     "### Confined Radial Flow {#verification-confined-radial}",
-     "### Confined Radial Flow {#verification-confined-radial}\n\n"
+     "### \U0001F7E2 Confined Radial Flow {#verification-confined-radial}",
+     "### \U0001F7E2 Confined Radial Flow {#verification-confined-radial}\n\n"
      "We held this pending a rebuild of the mesh.\n"),
     ("seep", "voice", "V2 investigation narrative",
-     "### Partially Penetrating Sheetpile {#verification-sheetpile}",
-     "### Partially Penetrating Sheetpile {#verification-sheetpile}\n\n"
+     "### \U0001F7E2 Partially Penetrating Sheetpile {#verification-sheetpile}",
+     "### \U0001F7E2 Partially Penetrating Sheetpile {#verification-sheetpile}\n\n"
      "Mesh resolution was the obvious suspect and it was built and measured.\n"),
     ("seep", "voice", "V3 project-relative time",
-     "### SEEP2D cross-check",
+     "### \U0001F7E2 SEEP2D cross-check",
      "The two used to fall in one cell, correcting the earlier reading.\n\n"
-     "### SEEP2D cross-check"),
+     "### \U0001F7E2 SEEP2D cross-check"),
     ("seep", "voice", "V4 factors withdrawn",
-     "### Confined Radial Flow {#verification-confined-radial}",
-     "### Confined Radial Flow {#verification-confined-radial}\n\n"
+     "### \U0001F7E2 Confined Radial Flow {#verification-confined-radial}",
+     "### \U0001F7E2 Confined Radial Flow {#verification-confined-radial}\n\n"
      "Those factors are withdrawn rather than restated.\n"),
 ]
 
@@ -270,8 +285,8 @@ NEGATIVE = [
     # check that fired on these would push the pages toward avoiding words rather
     # than avoiding the voice.
     ("seep", "voice", "N3 banned words in code spans, paths and URLs",
-     "### Confined Radial Flow {#verification-confined-radial}",
-     "### Confined Radial Flow {#verification-confined-radial}\n\n"
+     "### \U0001F7E2 Confined Radial Flow {#verification-confined-radial}",
+     "### \U0001F7E2 Confined Radial Flow {#verification-confined-radial}\n\n"
      "The `us` column and [the note](https://example.org/our/we/us.html) "
      "record it; the firm base now sits at depth D.\n"),
     # G1's control: a THIRD statement of Example 2's 1.341 lock, correct, in a
@@ -300,6 +315,7 @@ DEAD_EXEMPTIONS = [
     ("ssrm", "tag_exempt", ("9.999", "a tag line that occurs nowhere")),
     ("geostudio", "tag_list_published",
      ("a tag line that occurs nowhere", 0)),
+    ("rs2", "heading_dot_multi", ("an-anchor-that-occurs-nowhere", "\U0001F7E2")),
 ]
 
 DOCS = os.path.join(certify.REPO, "docs")
@@ -337,6 +353,8 @@ def _run(check, path, cfg):
         return tags.run(path, cfg, report=_quiet)
     if check == "voice":
         return voice.run(path, cfg, report=_quiet)
+    if check == "dots":
+        return dots.run(path, cfg, report=_quiet)
     return figures.run(path, cfg, report=_quiet)
 
 
@@ -385,7 +403,8 @@ def main():
         original = list(getattr(cfg, field))
         setattr(cfg, field, original + [entry])
         try:
-            check = "deltas" if field in ("bounds", "whitelist") else "tags"
+            check = {"bounds": "deltas", "whitelist": "deltas",
+                     "heading_dot_multi": "dots"}.get(field, "tags")
             n = _run(check, certify.page_path(page), cfg)
         finally:
             setattr(cfg, field, original)

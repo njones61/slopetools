@@ -129,6 +129,29 @@ push the pages toward blanket allowances, which is the opposite of the point.
   classification would be testing a claim the page does not make. Every
   referenced image must exist and carry non-empty alt text.
 
+**Heading dots** (`dots.py`).  The match dot a summary table gives a problem —
+🟢 🟡 🔴 🟣 or the ⊘ that means no data, scored as
+`docs/verification/index.md#how-the-match-dots-are-scored` describes — also opens
+that problem's section heading, so a reader skimming the page sees the status
+without going back to the table:
+
+    ### 🟢 RS2-1: Simple slope stability assessment {#rs2-1}
+
+The table stays the single source: the check reads each row's anchor and dot and
+requires the heading carrying that anchor to start with it, written in a heading
+as the bare ⊘ rather than the table's styled span.  Only headings with an
+explicit `{#anchor}` that a row names are checked; a heading no table names is
+left alone.  A row linking another page names a section that page owns, and a row
+whose anchor is an inline `<a id=...>` has no heading of its own to open with a
+dot — the first is skipped, the second reported as a note.  A row whose anchor
+the page defines nowhere is a broken link and fails.  `--fix` rewrites the
+headings, touching only the leading dot.
+
+Several rows may name one heading — a section covering three problems of the
+manual, a catalog row piggybacking on the section another row built.  Where they
+agree the heading takes their dot; where they disagree `heading_dot_multi` names
+which of those rows speaks for the section.
+
 ## Running them
 
 ```bash
@@ -146,6 +169,8 @@ python -m tools.verification_checks.tags docs/verification/rs2.md
 python -m tools.verification_checks.figures docs/verification/rs2.md
 python -m tools.verification_checks.voice docs/verification/rs2.md
 python -m tools.verification_checks.untagged docs/verification/rs2.md
+python -m tools.verification_checks.dots docs/verification/rs2.md
+python -m tools.verification_checks.dots --fix rs2      # rewrite the headings
 ```
 
 ## The recertify workflow
@@ -194,6 +219,10 @@ the page, not a way to silence the checker, so:
   rather than tabulated. `(the number as printed, distinctive substring of its
   line)`. It is not a place to park a companion measurement: those are trimmed,
   or given a tag of their own.
+* **`heading_dot_multi` names the dot a heading carries where the summary rows
+  naming it disagree** — `(anchor, dot)`, and the dot must be one those rows
+  actually give the anchor.  Say which of them the section's own locked
+  comparisons come from.
 * **`tag_exempt` names a coverage lock the page deliberately does not print** —
   a tag that exercises a code path rather than backing a published number. The
   page normally says so in prose; quote that reason in the comment.
@@ -212,7 +241,8 @@ entries for text that no longer exists.
 
 `mutations.py` plants one defect at a time — a wrong last digit, a flipped
 sign, an operand moved out from under a certified claim, a caption that no
-longer matches its figure, a tagged value dropped from its section, one element
+longer matches its figure, a section heading whose dot disagrees with its summary
+row, a tagged value dropped from its section, one element
 of an eleven-value row corrupted on the page or in the tag, a planted dead
 exemption — and requires the checks to catch every one. It also plants edits
 that must **not** be flagged (a value reprinted at a different, correct

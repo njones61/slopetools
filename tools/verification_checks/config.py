@@ -137,6 +137,16 @@ class PageConfig:
     #: Substring identifying the summary block the reverse sweep reads.
     summary_marker: str = 'corpus-summary'
 
+    # ----------------------------------------------------------- heading dots
+    #: Where several summary rows name one section anchor and their dots
+    #: DISAGREE — a section covering three problems of the manual, a catalog row
+    #: piggybacking on the section another row built — this says which dot the
+    #: heading carries.  ``(anchor, dot)``, and the dot must be one a row
+    #: actually gives that anchor, so the table stays the source and the entry
+    #: only says which row speaks for the section.  An entry that never fires,
+    #: or whose rows have since come into agreement on another dot, is reported.
+    heading_dot_multi: List[Tuple[str, str]] = field(default_factory=list)
+
     # --------------------------------------------------------------- figures
     #: 'panel'      — classify each PNG's panel layout and compare it against
     #:                the panel form the caption declares.

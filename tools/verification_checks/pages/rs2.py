@@ -73,6 +73,21 @@ CONFIG = PageConfig(
 
     locked_value_re=r"(?:SSRM|Spencer|Bishop|k꜀|FS)\s+\**(\d+\.\d{3})",
 
+    # Two section headings are named by summary rows carrying different dots.
+    # In both cases the heading covers more than one row of the manual, so the
+    # dot it opens with is the one the section's own locked comparisons set.
+    heading_dot_multi=[
+        # "RS2-39/41/43" builds problems 41 and 43, both 🟢; problem 39 (and its
+        # Part IV twin, row 76) is deferred with no lock of its own, which is
+        # what its ⊘ says.  The section's locked comparisons are the 🟢 pair.
+        ('rs2-39', '🟢'),
+        # "RS2-68" carries the three seismic cases together.  Parts I-III score
+        # the problem 🔴 on case 3, and Part IV's rows split the same section:
+        # case 1 (row 62) 🟢 and case 3 (row 63) 🔴.  The worst locked case sets
+        # the dot, here and in the summary table.
+        ('rs2-68', '🔴'),
+    ],
+
     figure_mode="panel",
     # Figures that are not model/mechanism plots: their captions describe a
     # diagnostic, so no panel form is claimed and none is required.

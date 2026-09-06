@@ -26,7 +26,7 @@ import json
 import os
 import sys
 
-from . import deltas, figures, tags, untagged, voice
+from . import deltas, dots, figures, tags, untagged, voice
 from .pages import ORDER, PAGES
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -77,6 +77,7 @@ def check_page(name, report=print):
     fails += tags.run(path, cfg, report=report)
     fails += figures.run(path, cfg, report=report)
     fails += voice.run(path, cfg, report=report)
+    fails += dots.run(path, cfg, report=report)
     # Reports its findings and returns 0 while `untagged.ENFORCING` is False —
     # every flag is a sentence that has to be read before it can be trimmed,
     # tagged or allowed.  See untagged.py.
