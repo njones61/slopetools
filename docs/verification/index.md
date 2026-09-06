@@ -59,7 +59,7 @@ in the row text. **Only same-method pairings derive a dot.** Most rows here are 
 rows, and their pairing is XSLOPE's SSRM against RS2's own SSR column — the same method under two
 names; another program's strength-reduction factor (PLAXIS, Z-Soil, GEO FEM, a published FEM/FDM
 referee) pairs the same way. On the rows verified with limit equilibrium instead
-([#51](#p4-vp51), [#60](#rs2-60), [#61](#rs2-61) cases 1 and 3, [#68](#rs2-68)) the method the
+([#51](rs2.md#p4-vp51), [#60](rs2.md#rs2-60), [#61](rs2.md#rs2-61) cases 1 and 3, [#68](rs2.md#rs2-68)) the method the
 source itself names governs, and where the source names no method the fallback is XSLOPE's Spencer
 or Morgenstern-Price against the published headline value. A pairing whose two sides are different
 methods is reported as information only and never governs a dot; neither does an unconstrained
@@ -83,7 +83,7 @@ is context rather than a pairing. Against a published *range* the entry reads `(
 XSLOPE falls within it and otherwise carries the difference to the nearer bound. A source author's
 numbers fall on either side of that line depending on how the source published them: a single
 headline factor for the problem is the published answer and takes a percentage whatever engine
-produced it (Low's factor at [#19](#rs2-19), Perry's at [#30](#rs2-30)), while a per-method table
+produced it (Low's factor at [#19](rs2.md#rs2-19), Perry's at [#30](rs2.md#rs2-30)), while a per-method table
 from the same author is a set of method-specific values, so each entry stays bare (Yamagami &
 Ueta's Bishop, Fredlund & Krahn's four methods).
 
