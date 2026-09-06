@@ -190,6 +190,64 @@ FE_MAX_Z_OVER_W = 1.0
 #: so the bar sits in a factor of seven of clear air.
 FE_MAX_BELOW_MOMENT = 2.0
 
+#: When Spencer's cascade reports a root, the fraction of interior boundaries
+#: whose line of thrust may fall outside the slice before the root is treated as
+#: DISPUTED and the whole band is swept for the crossings it was chosen against.
+#:
+#: This is a trigger, not a refusal: a disputed root is still reported if the
+#: sweep and the tie-break return it. It has to be cheap, because a search
+#: solves thousands of surfaces and the sweep costs about a hundred times what
+#: the cascade does, and it has to be measured, because a bar set by taste would
+#: either miss the defect or spend the sweep on every trial.
+#:
+#: The line of thrust is where the interslice resultant acts. Duncan & Wright
+#: require it to lie within the slice, and `_admissibility_warnings` already
+#: reports it, so the measure costs nothing to read. Measured over 320 accepted
+#: Spencer answers on the corpus's own surfaces the thrust line leaves the slice
+#: on at most 54% of boundaries, and over 5 251 search trials on nine models
+#: where Spencer and Morgenstern-Price with f(x) = 1 — the same equations solved
+#: a different way — return the same factor of safety, on more than 65% of them
+#: in 13 trials, 0.25%. On the 665 trials where those two disagree by more than
+#: 1% it stands past 65% in 578, and both roots this round was asked to correct
+#: are among them: the critical circle of the Rocscience benchmark VP16 at 92%
+#: and the critical non-circular surface of VP9 at 80%.
+#:
+#: The ratio to the moment answer was measured for this job first, and does not
+#: do it. Over those same trials an accepted Spencer answer runs from 0.42 to
+#: 1.05 times Bishop's on a circle and from 0.82 to 1.71 times Janbu's off one —
+#: the tension-cracked benchmark VP30 solves at two thirds of Bishop from every
+#: starting guess — while VP16's disputed root sits at 0.97 of Bishop, inside
+#: that range with room to spare. The moment answer stays what it always was
+#: here, the tie-break; it is not the trigger.
+SPENCER_THRUST_OUT_DISPUTED = 0.65
+
+#: The band sweep's starting grid — factors of safety across the window, and
+#: positions across the band at each — with the residual-evaluation budget one
+#: descent may spend. Module level so a check can vary the resolution and prove
+#: the crossings the sweep returns do not move with it.
+SPENCER_SWEEP_GRID = (18, 7)
+SPENCER_SWEEP_MAX_NFEV = 200
+
+
+def _thrust_outside_fraction(y_lt, y_lb, yt_l):
+    """The fraction of interior boundaries whose line of thrust leaves the slice.
+
+    The same measure `_admissibility_warnings` reports, as a number: the thrust
+    line's height above the base as a fraction of the boundary's own height,
+    counted outside when it is not in [-0.05, 1.05] or is not finite. Boundaries
+    of no height are skipped. Returns 0.0 when there are none to measure.
+    """
+    y_lt = np.asarray(y_lt, dtype=float)
+    y_lb = np.asarray(y_lb, dtype=float)
+    yt_l = np.asarray(yt_l, dtype=float)
+    h_bnd = y_lt[1:] - y_lb[1:]
+    tall = h_bnd > 1e-9
+    if not np.any(tall):
+        return 0.0
+    ratio = (yt_l[1:][tall] - y_lb[1:][tall]) / h_bnd[tall]
+    inside = np.isfinite(ratio) & (ratio >= -0.05) & (ratio <= 1.05)
+    return 1.0 - float(np.mean(inside))
+
 
 def failure_kind(message):
     """Which kind of failure this message reports, or None if it is unmapped.
@@ -1455,18 +1513,10 @@ def _admissibility_warnings(c, N_eff, Z, y_lt=None, y_lb=None, yt_l=None):
     if note:
         warns.append(note)
     if yt_l is not None and y_lt is not None and y_lb is not None:
-        y_lt_arr = np.asarray(y_lt, dtype=float)
-        y_lb_arr = np.asarray(y_lb, dtype=float)
-        yt_l_arr = np.asarray(yt_l, dtype=float)
-        h_bnd = y_lt_arr[1:] - y_lb_arr[1:]          # interior boundaries 1..n-1
-        tall = h_bnd > 1e-9
-        if np.any(tall):
-            t_ratio = (yt_l_arr[1:][tall] - y_lb_arr[1:][tall]) / h_bnd[tall]
-            inside = np.isfinite(t_ratio) & (t_ratio >= -0.05) & (t_ratio <= 1.05)
-            frac_out = 1.0 - float(np.mean(inside))
-            if frac_out > 0.10:
-                warns.append(f"line of thrust outside the slice on {frac_out:.0%} "
-                             f"of boundaries")
+        frac_out = _thrust_outside_fraction(y_lt, y_lb, yt_l)
+        if frac_out > 0.10:
+            warns.append(f"line of thrust outside the slice on {frac_out:.0%} "
+                         f"of boundaries")
     return warns
 
 
@@ -2456,6 +2506,30 @@ def spencer(slice_df, tol=1e-4, max_iter = 100, debug_level=0, residual_hook=Non
                 + np.sin(alpha - theta_val) * tan_p / F_val)
         return N_val, Z_val, base
 
+    def _thrust_out_at(F_val, theta_val):
+        """How much of this root's line of thrust falls outside the slices.
+
+        The same recurrence the reported solution's thrust line comes from
+        (equation 69), evaluated at a candidate root rather than at the accepted
+        one, so the fraction can be read before the root is reported. It is what
+        `SPENCER_THRUST_OUT_DISPUTED` is measured against.
+        """
+        _, _, Q_val, _ = compute_residuals(F_val, theta_val)
+        Mo_f = Mo + Mo_pas / F_val
+        Z_val = np.concatenate(([0.0], -np.cumsum(Q_val)))
+        n_s = len(Q_val)
+        yt_left = np.zeros(n_s)
+        yt_left[0] = y_lb[0]
+        s_th, c_th = np.sin(theta_val), np.cos(theta_val)
+        with np.errstate(divide='ignore', invalid='ignore'):
+            for i in range(n_s - 1):
+                yt_left[i + 1] = y_b[i] - (
+                    (Mo_f[i] - Z_val[i] * s_th * dx[i] / 2
+                     - Z_val[i + 1] * s_th * dx[i] / 2
+                     - Z_val[i] * c_th * (yt_left[i] - y_b[i]))
+                    / (Z_val[i + 1] * c_th))
+        return _thrust_outside_fraction(slice_df['y_lt'].values, y_lb, yt_left)
+
     #: The load the interslice resultants are judged against, as in
     #: `_force_closure_root`: the mass's own weight plus every load applied to it.
     load_scale = _driving_load(slice_df)
@@ -2520,6 +2594,44 @@ def spencer(slice_df, tol=1e-4, max_iter = 100, debug_level=0, residual_hook=Non
             f"FS={f:.3f} at θ={np.degrees(t):.1f}° ({why})"
             for f, t, why in sorted(rejected_roots))
 
+    #: Admissible roots the tie-break stood down in favour of the reported one.
+    passed_over = []
+
+    def _same_root(a, b):
+        """Whether two (F, theta) pairs are the same crossing.
+
+        The tolerance is relative on F and a thousandth of a degree on theta:
+        the sweep descends on the same crossing from many starts and stops on
+        the residual, so the values it returns for one crossing agree to about
+        eight digits rather than exactly, and an exact test would report one
+        root many times over.
+        """
+        return (abs(a[0] - b[0]) <= 1e-6 * max(1.0, abs(a[0]), abs(b[0]))
+                and abs(a[1] - b[1]) <= 1.7e-5)
+
+    #: The moment-equilibrium answer on these slices, solved at most once.
+    _moment_ref = []
+
+    def moment_answer():
+        """Bishop's factor of safety on a circle, Janbu's on any other surface.
+
+        The tie-break's reference, and the same one `_force_closure_root` uses.
+        It is solved once and cached: a search calls this method thousands of
+        times, and both references cost well under a millisecond, but neither is
+        free enough to solve twice on the same slices.
+        """
+        if not _moment_ref:
+            ref = None
+            ref_method = bishop if _has_circle_center(slice_df) else janbu
+            try:
+                ok_r, res_r = ref_method(slice_df.copy())
+                if ok_r and np.isfinite(res_r['FS']) and res_r['FS'] > 0:
+                    ref = float(res_r['FS'])
+            except Exception:
+                ref = None
+            _moment_ref.append(ref)
+        return _moment_ref[0]
+
     def pick_by_moment_answer(found):
         """Among admissible roots, the one nearest the moment-equilibrium answer.
 
@@ -2531,17 +2643,58 @@ def spencer(slice_df, tol=1e-4, max_iter = 100, debug_level=0, residual_hook=Non
         """
         if len(found) == 1:
             return found[0]
-        ref = None
-        ref_method = bishop if _has_circle_center(slice_df) else janbu
-        try:
-            ok_r, res_r = ref_method(slice_df.copy())
-            if ok_r and np.isfinite(res_r['FS']) and res_r['FS'] > 0:
-                ref = float(res_r['FS'])
-        except Exception:
-            ref = None
+        ref = moment_answer()
         if ref is None:
             return min(found, key=lambda ft: ft[0])
         return min(found, key=lambda ft: (abs(np.log(ft[0] / ref)), ft[0]))
+
+    def sweep_the_band():
+        """Every (F, theta) crossing the band holds, from starts spread across it.
+
+        The band's width and position both move with F, so the sweep is run in
+        (F, s) with s the position across the band, 0 at its lower edge and 1 at
+        its upper. A bounded least-squares descent in those coordinates cannot
+        leave the band, which an unbounded root finder started inside it
+        regularly does. About 3 500 residual evaluations, against the cascade's
+        thirty, so it runs only where the cascade has failed or where the
+        agreement test below finds the cascade's root disputed.
+        """
+        from scipy.optimize import least_squares
+
+        w_scale = float(np.sum(np.abs(Fv))) or 1.0
+        l_scale = float(max(np.ptp(x_b), np.ptp(y_b), 1e-12))
+
+        def _theta_of(F_val, s_val):
+            t_lo, t_hi = theta_band(float(F_val), margin_deg=0.5)
+            return t_lo + float(s_val) * (t_hi - t_lo)
+
+        def _band_residual(x):
+            th = _theta_of(x[0], x[1])
+            R1_v, R2_v, _, _ = compute_residuals(float(x[0]), th)
+            if not (np.isfinite(R1_v) and np.isfinite(R2_v)):
+                return np.array([1e12, 1e12])
+            return np.array([R1_v / w_scale, R2_v / (w_scale * l_scale)])
+
+        n_F, n_s = SPENCER_SWEEP_GRID
+        crossings = []
+        for F_try in np.geomspace(FE_FS_MIN, FE_FS_MAX, n_F):
+            for s_try in np.linspace(0.1, 0.9, n_s):
+                try:
+                    sol = least_squares(_band_residual, [float(F_try), float(s_try)],
+                                        bounds=([FE_FS_MIN, 0.0], [FE_FS_MAX, 1.0]),
+                                        xtol=1e-12, ftol=1e-12,
+                                        max_nfev=SPENCER_SWEEP_MAX_NFEV)
+                except Exception:
+                    continue
+                F_c = float(sol.x[0])
+                th_c = _theta_of(F_c, sol.x[1])
+                R1_c, R2_c, _, _ = compute_residuals(F_c, th_c)
+                if not (abs(R1_c) < tol and abs(R2_c) < tol):
+                    continue
+                if any(_same_root((F_c, th_c), cr) for cr in crossings):
+                    continue
+                crossings.append((F_c, th_c))
+        return crossings
 
     # ---------------------------------------------------------------------
     # Does an ADMISSIBLE solution exist at all?
@@ -2920,57 +3073,56 @@ def spencer(slice_df, tol=1e-4, max_iter = 100, debug_level=0, residual_hook=Non
     # crossing reachable from a start inside it is collected, the three measures
     # are applied to each, and the survivors are tie-broken against the moment
     # answer exactly as the force-equilibrium closure's roots are.
+    from_sweep = False
     if not converged:
-        from scipy.optimize import least_squares
-
-        # The band's width and position both move with F, so the sweep is run in
-        # (F, s) with s the position across the band, 0 at its lower edge and 1
-        # at its upper. A bounded least-squares descent in those coordinates
-        # cannot leave the band, which an unbounded root finder started inside it
-        # regularly does.
-        w_scale = float(np.sum(np.abs(Fv))) or 1.0
-        l_scale = float(max(np.ptp(x_b), np.ptp(y_b), 1e-12))
-
-        def _theta_of(F_val, s_val):
-            t_lo, t_hi = theta_band(float(F_val), margin_deg=0.5)
-            return t_lo + float(s_val) * (t_hi - t_lo)
-
-        def _band_residual(x):
-            th = _theta_of(x[0], x[1])
-            R1_v, R2_v, _, _ = compute_residuals(float(x[0]), th)
-            if not (np.isfinite(R1_v) and np.isfinite(R2_v)):
-                return np.array([1e12, 1e12])
-            return np.array([R1_v / w_scale, R2_v / (w_scale * l_scale)])
-
-        crossings = []
-        for F_try in np.geomspace(FE_FS_MIN, FE_FS_MAX, 18):
-            for s_try in np.linspace(0.1, 0.9, 7):
-                try:
-                    sol = least_squares(_band_residual, [float(F_try), float(s_try)],
-                                        bounds=([FE_FS_MIN, 0.0], [FE_FS_MAX, 1.0]),
-                                        xtol=1e-12, ftol=1e-12, max_nfev=200)
-                except Exception:
-                    continue
-                F_c = float(sol.x[0])
-                th_c = _theta_of(F_c, sol.x[1])
-                R1_c, R2_c, _, _ = compute_residuals(F_c, th_c)
-                if not (abs(R1_c) < tol and abs(R2_c) < tol):
-                    continue
-                if any(abs(F_c - f) < 1e-6 and abs(th_c - t) < 1e-9
-                       for f, t in crossings):
-                    continue
-                crossings.append((F_c, th_c))
-
+        crossings = sweep_the_band()
         admissible = [(f, t) for f, t in crossings if why_inadmissible(f, t) is None]
         for f, t in crossings:
             accept_or_save(f, t, "band sweep: ")
         if admissible:
             F, theta_rad = pick_by_moment_answer(admissible)
+            passed_over.extend((f, t) for f, t in admissible
+                               if not _same_root((f, t), (F, theta_rad)))
             converged = True
+            from_sweep = True
             if debug_level >= 1:
                 print(f"Band sweep: {len(crossings)} crossing(s), "
                       f"{len(admissible)} admissible → F={F:.4f}, "
                       f"θ={np.degrees(theta_rad):.2f}°")
+
+    # The band refuses roots that reverse a base normal; it does not decide
+    # between two crossings that both stand inside it, and the cascade above
+    # reports whichever of its starts reached one first. On the critical circle
+    # a Spencer search finds for VP16 both crossings are in band, and the
+    # default start reaches F = 1.082 at theta = -27.1 deg where the other
+    # reads 1.113 — Bishop's answer on the same slices, and Morgenstern-Price's
+    # with f(x) = 1, the same equations solved a different way.
+    #
+    # Sweeping the band settles it and costs about a hundred times what the
+    # cascade does, which a search cannot pay on every trial. So the reported
+    # root is read for the signature the wrong branch carries — a line of
+    # thrust outside the slice on most of its boundaries, which the solution
+    # computes anyway — and only a root that carries it is disputed. Where it
+    # is, every crossing the band holds is collected and judged, and the
+    # survivors are tie-broken against the moment answer, exactly as the
+    # force-equilibrium closure's roots are. See SPENCER_THRUST_OUT_DISPUTED for
+    # the measurement the bar rests on and for the measure it was chosen over.
+    if converged and not from_sweep and \
+            _thrust_out_at(F, theta_rad) > SPENCER_THRUST_OUT_DISPUTED:
+        reported = (F, theta_rad)
+        others = [root for root in sweep_the_band()
+                  if not _same_root(root, reported)]
+        for root in others:
+            accept_or_save(root[0], root[1], "band sweep: ")
+        admissible = [reported] + [root for root in others
+                                   if why_inadmissible(root[0], root[1]) is None]
+        F, theta_rad = pick_by_moment_answer(admissible)
+        passed_over.extend(root for root in admissible
+                           if not _same_root(root, (F, theta_rad)))
+        if debug_level >= 1:
+            print(f"Disputed root: {len(others) + 1} crossing(s) in band, "
+                  f"{len(admissible)} admissible → F={F:.4f}, "
+                  f"θ={np.degrees(theta_rad):.2f}°")
 
     if not converged:
         if rejected_roots:
@@ -3063,6 +3215,11 @@ def spencer(slice_df, tol=1e-4, max_iter = 100, debug_level=0, residual_hook=Non
         yt_l=yt_l)
     # Every root the cascade reached and passed over, with the measure it
     # failed, so the answer carries the alternatives it was chosen against.
+    if passed_over:
+        warns.append("Spencer's system has other admissible roots on these "
+                     "slices: " + ", ".join(
+                         f"FS={f:.3f} at θ={np.degrees(t):.1f}°"
+                         for f, t in sorted(passed_over)))
     if rejected_roots:
         warns.append("Spencer's system has other roots on these slices: "
                      + name_rejected())
