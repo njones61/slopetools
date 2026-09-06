@@ -1271,9 +1271,12 @@ def gw021b():
 # two (0.120 vs 0.161 decades rms over 0-12 m of suction).
 #
 # GW#17's retention range is 100 kPa (10 m), the same order as its conductivity
-# curve, so the van Genuchten capacity is adequate there and its Mualem-vG
-# conductivity fit is twice as good as a Gardner one (0.055 vs 0.113 decades rms
-# over 0-20 m); it keeps the vG model.
+# curve, so the van Genuchten capacity is close to the vendor's straight retention
+# line rather than an order off it, and it keeps the vG model.  That was measured
+# rather than assumed: rebuilding GW#17 on the ``gard`` split as well (S_y = 0.3
+# over h0 = -10 m from its own (0, 0.4) -> (100, 0.1) water-content table, with a
+# Gardner fit to its 5-point conductivity table) moves the 15 h h = 7 m front by
+# less than 0.1 m and leaves the row's standing discrepancy where it is.
 #
 # The reservoir raise is the submerged-only Dirichlet reservoir series ('res' =
 # 4 -> 10 stepped at t=0): the t=0 steady solve at reservoir 4 sets the initial
@@ -1397,12 +1400,19 @@ def gw017():
 # the steady GW#7 Rulon & Freeze layered sandbox re-run transiently as rainfall
 # switches on.  Both are chart-only targets (RS2 Figs 21.9 / 22.7 are digitizable
 # line profiles + contours), so — as the GW#6/#7/#17 methodology note allows —
-# XSLOPE's OWN solved heads are locked as a regression guard, with the qualitative
-# reproduction of the published profile described in the docs.  Storage is
-# S_s = gamma_w*m_v throughout (the vendor .slw carries m_v=0.002 for every
-# material); the unsaturated conductivity is the recurring SWCC-mapping caveat
-# (one Mualem-vG curve stands in for the vendor's independent Custom k(psi) and
-# water-content tables, which perturbs the transient TIMING).
+# XSLOPE's OWN solved heads are locked as a regression guard, with the published
+# profile comparison reported beside them in the docs.
+#
+# Both are built on the GW#18 split (``unsat='gard'``): the vendor .slw carries a
+# conductivity table k(psi) and a water-content table theta(psi) as INDEPENDENT
+# curves, and the retention table in each of these two models is a straight line,
+# which is exactly the linear drainage band Sy/|h0| that ``gard`` uses for the
+# moisture capacity.  Reproducing it is what sets the transient timing: a van
+# Genuchten capacity fitted to the CONDUCTIVITY curve instead concentrates the
+# same Sy within ~1/alpha of saturation, which is where a perched mound builds,
+# and the mound then fills several times too slowly (measured on GW#20: 0.155 m
+# rms against RS2's 31 s query-line profile with the vG capacity, 0.012 m with
+# the vendor's own retention line).
 # ===========================================================================
 
 
@@ -1507,21 +1517,36 @@ def gw020():
     above the toe).  When rainfall (2.1e-4 m/s, above the fine sand's k_s=5.5e-5)
     switches on, water perches on the fine lens and the perched mound builds toward
     the GW#7 steady result.  Vendor stage schedule: report times 4.6 / 31 / 208 s
-    (TimeUnit=second, k in m/s).  Storage S_s = gamma_w*m_v = 9.81*0.002 = 0.0196 /m,
-    S_y = 0.3; the medium/fine Mualem-vG curves are GW#7's (unchanged).
+    (TimeUnit=second, k in m/s).
+
+    Both unsaturated curves are transcribed from '#022's user-defined groundwater
+    function, neither derived from the other (see the block comment above):
+
+      * retention -- its water-content table is TWO points in kPa, (0, 0.7) ->
+        (100, 0.5), a straight line, which is the linear drainage band ``gard``
+        uses for capacity: S_y = 0.2 over h0 = -100/9.81 = -10.1937 m.  That band
+        is 0.2/10.1937 = 0.01962 /m, and the elastic S_s = gamma_w*m_v =
+        9.81*0.002 = 0.01962 /m matches it, so the capacity is the manual's own
+        printed m_v = 0.002 /kPa on both sides of the phreatic surface.
+      * conductivity -- its 4-point Custom table (abscissae in metres of head:
+        -3.0581 / -1.3252 / -0.30581 / 0, i.e. 30 / 13 / 3 / 0 kPa) is fitted by
+        Gardner kr = 1/(1 + a*psi^n): medium a=146.88069, n=4.45352, fine
+        a=115.81091, n=4.18902.  Over the three tabulated points that fit is
+        0.24 decades rms against 0.40 for the Mualem-vG pair GW#7 carries, and
+        the two give the same steady field (0.003 vs 0.004 m rms against the
+        Fig 22.7 208 s markers).
 
     Published target: total head along a query line (Fig 22.7, vs Ref [1]) +
     total-head contours at the three times — chart-only.  XSLOPE's own solved heads
     at interior stations (the developing perched zone) are locked as a regression
-    guard.  The late 208 s frame has essentially reached the GW#7 steady perched
-    state (the medium-sand diffusion time over 1 m is ~14 s).  SWCC-mapping timing
-    caveat applies to the early frames."""
+    guard, with the digitized Fig 22.7 comparison reported beside them."""
     sd = _tseep_base_sd(gamma_w=9.81, time_unit='sec', unit_system='si')
     ss = 9.81 * 0.002
+    _H_RET = -100.0 / 9.81          # the water-content table's 100 kPa range
     med = _tseep_material(sd['materials'][0], 'Medium sand', 0.0014, ss=ss, sy=0.2)
-    med.update(kr0=1e-3, h0=-0.4, unsat='vg', vg_a=1.7745, vg_n=2.3276)
+    med.update(kr0=0.0, h0=_H_RET, unsat='gard', vg_a=146.88069, vg_n=4.45352)
     fin = _tseep_material(sd['materials'][0], 'Fine sand', 5.5e-5, ss=ss, sy=0.2)
-    fin.update(kr0=1e-3, h0=-0.4, unsat='vg', vg_a=1.6722, vg_n=2.1965)
+    fin.update(kr0=0.0, h0=_H_RET, unsat='gard', vg_a=115.81091, vg_n=4.18902)
     sd['materials'] = [med, fin]                 # mat 0 = medium, mat 1 = fine lens
     sd['profile_lines'] = []
     sd['polygons'] = [
