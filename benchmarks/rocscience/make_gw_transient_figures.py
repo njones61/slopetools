@@ -58,14 +58,25 @@ def _solve(stem, target_size, frac=None):
         kw['max_head_change_frac'] = frac
     with contextlib.redirect_stdout(io.StringIO()):
         sol = run_transient_seepage(seep, ts, **kw)
+    _sample.mesh = seep          # the sampler interpolates inside this mesh
     return seep['nodes'], sol
 
 
 def _sample(nodes, h, xq, yq):
+    """The finite-element field at (xq, yq): interpolated inside the element that
+    contains the point, with the shape functions the solver used. A point that
+    sits on the mesh boundary and misses every element by round-off takes the
+    nearest node's value, which on a boundary is exact."""
+    from xslope.mesh import interpolate_at_point
+    mesh = _sample.mesh
+    val, found = interpolate_at_point(mesh['nodes'], mesh['elements'],
+                                      mesh['element_types'], np.asarray(h),
+                                      (float(xq), float(yq)),
+                                      return_found=True, signed=True)
+    if found:
+        return float(val)
     d2 = (nodes[:, 0] - xq) ** 2 + (nodes[:, 1] - yq) ** 2
-    idx = np.argsort(d2)[:4]
-    w = 1.0 / np.maximum(d2[idx], 1e-12)
-    return float(np.sum(w * h[idx]) / np.sum(w))
+    return float(np.asarray(h)[int(np.argmin(d2))])
 
 
 def fig_gw15():
