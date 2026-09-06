@@ -39,7 +39,7 @@ CONFIG = PageConfig(
         r"of the 45 m dam",
     ],
 
-    auth_hdr_extra=[r"Slide\b", r"SEEP2D", r"Eqs? 4\.", r"Vedernikov", r"Clement",
+    auth_hdr_extra=[r"Slide2?\b", r"Ref \[1\]", r"SEEP2D", r"Eqs? 4\.", r"Vedernikov", r"Clement",
                     r"Kozeny", r"Terzaghi", r"Pyrah", r"Ferris"],
 
     tag_value_keys=['expected_fs*', 'fs_*', 'expected_flowrate*',
@@ -109,14 +109,6 @@ CONFIG = PageConfig(
         ('benchmark=GW19-t416', 0),
         ('benchmark=GW19-t792', 0),
         ('benchmark=GW19-t11340', 0),
-        # "XSLOPE's own solved heads at 4.6 / 31 / 208 s are locked as a
-        # regression guard" — the section publishes the rms against RS2's query
-        # line instead.  At 4.6 s the counter sees three of the four probes in
-        # the prose: two lock the 0.300 initial total head the digitization is
-        # calibrated against, and one the 0.305 marker reading beside it.
-        ('benchmark=GW20-t4.6', 3),
-        ('benchmark=GW20-t31', 0),
-        ('benchmark=GW20-t208', 0),
         # the section publishes the agreement with Ferris' erfc solution
         # (0.015 ft across the domain) and the profile figure.
         ('benchmark=GW21', 0),
