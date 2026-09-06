@@ -15,49 +15,23 @@ details for the author-year citations here are on the shared [References](refere
 
 How the RS2 manuals' problems reach this corpus:
 
-- Geometry and properties come from the manuals' coordinate-labeled figures and from the
-  vendor `.fez` models. Where a problem is also built in the [Slide2 corpus](rocscience.md),
-  the strength-reduction run uses that same corpus input file.
-- Rocscience ships **two** RS2 models for many of these problems: a native rebuild, published
-  in Parts I–III and numbered by the RS2 problem number, and a Slide2 import, published in
-  Part IV and numbered by the Slide2 verification problem. The two are not interchangeable —
-  one may be unconstrained where the other carries an SSR search or exclusion polygon — so
-  every row is scored against the published number produced by the same vendor model its
-  corpus file was built from. The other model's number is reported where it is informative,
-  always labeled as that model's, and never used to derive the dot.
-- Elastic constants and tensile caps are the vendor model's wherever the `.fez` publishes
-  them; where it does not, the builder assigns E and ν by soil type, and a strength-reduction
-  factor is invariant to E and only mildly sensitive to ν. Each row states whether the tensile
-  cap is held static through the reduction or reduced with the strength.
-- Every run starts from the vendor's own initial stress state: RS2 authors its verification
-  models with an isotropic at-rest field stress (K<sub>x</sub> = K<sub>z</sub> = 1), so every
-  row runs [`k0 = 1`](../fem/overview.md#k0-initial-stress) rather than XSLOPE's default
-  elastic gravity turn-on. The flow rule is ψ = 0 throughout, the Griffiths convention.
-- Where a vendor model states a strength-reduction constraint, the corpus file carries it. RS2
-  states most of them as an `SSR_polygonal_zones` search or exclusion ring, which the file
-  carries as its run's `ssr_zone`; it states others by duplicating a material as a
-  linear-elastic twin over part of the mesh, so that region cannot yield however far the
-  strength is reduced, and the file carries those as `elastic_materials` or as a file-level
-  elastic material. A row whose published value came from a constrained vendor run it does not
-  reproduce says so.
-- Where the published mechanism is deeper than the unconstrained one, the row reports both,
-  the deep value taken with the
+- Geometry and properties come from the manuals' coordinate-labeled figures and the vendor
+  `.fez` models; a problem also built in the [Slide2 corpus](rocscience.md) uses that same
+  input file.
+- Rocscience publishes two RS2 models for many problems, a native rebuild (Parts I–III) and a
+  Slide2 import (Part IV), which can differ in their constraints. A row is scored against the
+  model its corpus file was built from; the other model's number is labeled as such.
+- Elastic constants, tensile caps, the at-rest initial stress (`k0 = 1`) and the flow rule
+  (ψ = 0) follow the vendor model; a strength-reduction constraint it states (an SSR search
+  polygon, an elastic twin) is carried in the file. Where the published mechanism is deeper
+  than the unconstrained one, the row reports both, the deep value under the
   [`min_slip_depth` filter](../fem/overview.md#surficial-skin-failures-and-the-minimum-slip-depth-filter).
-- Factors of safety are quoted at the mesh size each row's tag pins, and each tolerance is set
-  wide enough to cover the drift a strength-reduction factor carries under refinement.
-- A minority of rows are verified by **limit equilibrium** instead, because the problem's
-  published target is an LEM quantity rather than an SSR factor of safety: a critical seismic
-  coefficient k꜀, which XSLOPE reaches by searching the LEM minimum to FS = 1
-  ([#68](#rs2-68)); an LEM-versus-SRM study, where the manual prints both columns and XSLOPE
-  locks against each with the matching engine ([#61](#rs2-61)); or a multi-method LEM table or
-  limit-analysis bound ([#51](#p4-vp51), [#60](#rs2-60)). Each such row names the column it
-  reproduces, so an LEM number here is never an SSR result in disguise.
-- SSRM figures carry four panels in a 2 × 2 grid: the FEM inputs (geometry, material zones,
-  water, reinforcement, loads) and the maximum shear strain at the critical SRF above; the
-  mesh with its material zones and boundary conditions, and the displacement vectors at the
-  same SRF, below. A variant that reaches no equilibrium shows the inputs panel alone — there
-  is no failure mechanism to plot — and limit-equilibrium figures are side-by-side pairs. Each
-  caption says which it is.
+- A few rows are verified by limit equilibrium because their published target is an LEM
+  quantity: a critical seismic coefficient ([#68](#rs2-68)), an LEM-versus-SRM column
+  ([#61](#rs2-61)), a multi-method table or limit-analysis bound ([#51](#p4-vp51),
+  [#60](#rs2-60)). Each such row names the column it reproduces.
+- `benchmarks/rocscience/build_rs2.py` writes the input files and `make_rs2_figures.py` the
+  figures.
 
 ## Status
 
